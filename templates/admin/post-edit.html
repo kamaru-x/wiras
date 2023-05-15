@@ -1,0 +1,119 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+    {% include 'admin/header.html' %}
+        <!-- BEGIN: Content -->
+    <div class="content">
+            <div class="flex items-center mt-8">
+        <!-- <h2 class="intro-y text-lg font-medium mr-auto"></h2> -->
+    </div>
+    <!-- BEGIN: Wizard Layout -->
+    <div class="intro-y box py-10 sm:py-20 mt-5">
+        <h2 style=" font-size: 30px; font-weight: 500; text-align: center;
+        color: #1e40af;">Add Products</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
+                <!-- <div class="font-medium text-base">Add / Manage Products</div> -->
+                <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5"> 
+                    <div class="intro-y col-span-12 sm:col-span-6">
+                        <!-- <div class="mt-3"> -->
+                        <label>Select Type</label>
+                        <div class="mt-2">
+                            <select data-placeholder="Select type" class="form-control" name="type">
+                                <option value="{{ post.Post_Type }}">{{ post.Post_Type }}</option>
+                                <option value="News & Events">News & Events</option>
+                                <option value="Achievements">Achievements</option>
+                                <option value="Activities">Activities</option>
+                                <option value="Seminars & Workshops">Seminars & Workshops</option>
+                            </select>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+                    <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in mr-5">
+                        <img class="rounded-md" alt="" src="{{ post.Post_Image.url }}">
+                        <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2"> <i data-lucide="x" class="w-4 h-4"></i> </div>
+                    </div>
+
+                    <div class="intro-y col-span-12 sm:col-span-6">
+                        <!-- <div class="mt-3"> -->
+                        <label>Select Category</label>
+                        <div class="mt-2">
+                            <select data-placeholder="Select Category" class="form-control" name="category">
+                                <option value="{{ post.Post_Category }}">{{ post.Post_Category }}</option>
+                                <option value="General">General</option>
+                                <option value="Alumni">Alumni</option>
+                                <option value="IQAC">IQAC</option>
+                                <option>List all other departments</option>
+                            </select>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+                    <div class="intro-y col-span-12 sm:col-span-6">
+                        <label for="input-wizard-2" class="form-label">Post Title</label>
+                        <input id="title" value="{{ post.Post_Title }}" type="text" class="form-control" placeholder="Enter product title here" name="title" required>
+                    </div>
+
+                    <!-- <div class="intro-y col-span-12 sm:col-span-6">
+                        <label for="input-wizard-3" class="form-label">Post Image</label>
+                        <input id="input-wizard-3" type="file" class="form-control" name="image" >
+                    </div> -->
+
+                    <div class="intro-y col-span-12">
+                        <label for="input-wizard-3" class="form-label">Post Description</label>
+                        <textarea name="description" id="" cols="30" rows="5" class="form-control" placeholder="Enter post description" required>{{ post.Post_Description }}</textarea>
+                    </div>
+
+                    <div class="intro-y col-span-12">
+                        <h2 style=" font-size: 20px; font-weight: 500; text-align: center; color: #1e40af;">SEO</h2>
+                    </div>
+
+                    <div class="intro-y col-span-12 sm:col-span-4">
+                        <label for="input-wizard-2" class="form-label">Url</label>
+                        <input name="seo_url" id="seo_url" value="{{ post.Seo_Url }}" type="text" class="form-control" placeholder="Enter seo url" required>
+                    </div>
+
+                    <div class="intro-y col-span-12 sm:col-span-4">
+                        <label for="input-wizard-2" class="form-label">Seo Title</label>
+                        <input name="seo_title" value="{{ post.Seo_Title }}" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo title">
+                    </div>
+
+                    <div class="intro-y col-span-12 sm:col-span-4">
+                        <label for="input-wizard-2" class="form-label">Seo Keywords</label>
+                        <input name="seo_keyword" value="{{ post.Seo_Keywords }}" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo keyword">
+                    </div>
+
+                    <div class="intro-y col-span-12">
+                        <label for="input-wizard-3" class="form-label">Seo Description</label>
+                        <textarea name="seo_description" id="" cols="30" rows="5" class="form-control" placeholder="Enter seo description">{{ post.Seo_Description }}</textarea>
+                    </div>
+                    
+                    <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
+                        <!-- <button class="btn btn-secondary w-24">Add</button> -->
+                        <button class="btn btn-primary w-24 ml-2" type="submit">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- END: Wizard Layout -->
+    </div>
+    <!-- END: Content -->
+    <style>
+        .dark-mode-switcher{
+            display: none;
+        }
+        
+    </style>
+        <!-- BEGIN: Dark Mode Switcher-->
+        <div data-url="top-menu-dark-regular-form.html" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
+            <div class="mr-4 text-slate-600 dark:text-slate-200">Dark Mode</div>
+            <div class="dark-mode-switcher__toggle border"></div>
+        </div>
+        <!-- END: Dark Mode Switcher-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/url.js' %}"></script>
+{% endblock content %}

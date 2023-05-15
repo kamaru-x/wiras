@@ -18,8 +18,9 @@ def sign_in(request):
         else:
             messages.error(request,'incorrect username or password')
             return redirect('.')
-    return render(request,'login.html')
+    return render(request,'admin/login.html')
+
 
 @login_required
 def dashboard(request):
-    return render(request,'dashboard.html')
+    return render(request,'admin/dashboard.html')
