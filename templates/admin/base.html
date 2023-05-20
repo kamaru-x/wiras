@@ -28,6 +28,17 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/url.js' %}"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .then( editor => {
+        console.log( editor );
+        } )
+        .catch( error => {
+        console.error( error );
+        } );
+        </script>
     <!-- END: JS Assets-->
     </body>
 </html>

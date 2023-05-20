@@ -17,7 +17,7 @@
                 <button class="btn btn-outline-secondary shadow-md mr-2">
                     <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to Excel
                 </button>
-                <a href="{% url 'add-post' %}"><button class="btn btn-primary shadow-md mr-2">Add New Post</button></a>
+                <a href="{% url 'create-album' %}"><button class="btn btn-primary shadow-md mr-2">Create New Album</button></a>
                 <!-- <div class="dropdown ml-auto sm:ml-0">
                     <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
                         <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-lucide="plus"></i> </span>
@@ -41,43 +41,43 @@
                 <thead>
                     <tr>
                         <th class="text-center whitespace-nowrap">SL. NO.</th>
-                        <th class="text-center whitespace-nowrap">POST TITLE</th>
-                        <th class="text-center whitespace-nowrap">ADDED ON</th>
-                        <th class="text-center whitespace-nowrap">POST TYPE</th>
-                        <th class="text-center whitespace-nowrap">POST CATEGORY</th>
-                        <th class="text-center whitespace-nowrap">POST DESCRIPTION</th>
+                        <th class="text-center whitespace-nowrap">ALBUM TITLE</th>
+                        <th class="text-center whitespace-nowrap">ALBUM CATEGORY</th>
+                        <th class="text-center whitespace-nowrap">DATE</th>
+                        <th class="text-center whitespace-nowrap">TOTAL IMAGES</th>
+                        <!-- <th class="text-center whitespace-nowrap">POST DESCRIPTION</th> -->
                         <th class="text-center whitespace-nowrap">ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for post in posts %}
+                    {% for album in albums %}
                         <tr class="intro-x">
                             <td class="text-center whitespace-nowrap">
                                 <a href="" class=" whitespace-nowrap">{{ forloop.counter }}</a>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div class="font-medium whitespace-nowrap">{{ post.Post_Title }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ album.Album_Title }}</div>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div class="flex items-center justify-center whitespace-nowrap text-success">{{ post.Added_Date }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ album.Album_Category }}</div>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div>{{ post.Post_Type }}</div>
+                                <div class="flex items-center justify-center whitespace-nowrap text-success">{{ album.Added_Date }}</div>
                             </td>
-                            <td>
-                                <div class="text-center whitespace-nowrap">{{ post.Post_Category }}</div>
-                            </td>
-                            <td>
-                                <div class="text-center whitespace-nowrap">{{ post.Post_Description }}</div>
+                            <td class="text-center whitespace-nowrap">
+                                <div>0</div>
                             </td>
                             
                             <td class="table-report__action">
                                 <div class="flex justify-center items-center">
-                                    <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{% url 'edit-post' post.id %}" title="Edit">
+                                    <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{% url 'edit-album' album.id %}" title="Edit">
+                                        <i data-lucide="eye" class="w-4 h-4 mr-1 text-success"></i> 
+                                    </a>
+                                    <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{% url 'edit-album' album.id %}" title="Edit">
                                         <i data-lucide="edit" class="w-4 h-4 mr-1"></i> 
                                     </a>
                                     <a class="flex items-center text-danger whitespace-nowrap" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal" title="Delete">
-                                        <i data-lucide="trash" class="w-4 h-4 mr-1" onclick="delete_post('{{post.id}}')"></i> 
+                                        <i data-lucide="trash" class="w-4 h-4 mr-1"></i> 
                                     </a>
                                 </div>
                             </td>
@@ -141,23 +141,19 @@
     <!-- BEGIN: Delete Confirmation Modal -->
     <div id="delete-confirmation-modal" class="modal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="post_id" id="post_id">
-                <div class="modal-content">
-                    <div class="modal-body p-0">
-                        <div class="p-5 text-center">
-                            <i data-lucide="x-circle" class="w-16 h-16 text-danger mx-auto mt-3"></i>
-                            <div class="text-3xl mt-5">Are you sure?</div>
-                            <div class="text-slate-500 mt-2">Do you really want to delete these records? <br>This process cannot be undone.</div>
-                        </div>
-                        <div class="px-5 pb-8 text-center">
-                            <button type="button" data-tw-dismiss="modal" class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
-                            <button type="submit" class="btn btn-danger w-24">Delete</button>
-                        </div>
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="p-5 text-center">
+                        <i data-lucide="x-circle" class="w-16 h-16 text-danger mx-auto mt-3"></i>
+                        <div class="text-3xl mt-5">Are you sure?</div>
+                        <div class="text-slate-500 mt-2">Do you really want to delete these records? <br>This process cannot be undone.</div>
+                    </div>
+                    <div class="px-5 pb-8 text-center">
+                        <button type="button" data-tw-dismiss="modal" class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
+                        <button type="button" class="btn btn-danger w-24">Delete</button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     <!-- END: Delete Confirmation Modal -->
@@ -169,11 +165,6 @@
         }
         
     </style>
-    <script>
-        function delete_post(post_id){
-            $('#post_id').val(post_id)
-        }
-    </script>
     <!-- BEGIN: Dark Mode Switcher-->
     <div data-url="top-menu-dark-regular-form.html" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
         <div class="mr-4 text-slate-600 dark:text-slate-200">Dark Mode</div>

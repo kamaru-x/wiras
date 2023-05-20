@@ -81,6 +81,11 @@ class Department(models.Model):
     Department_Fecilities = models.TextField(null=True)
     Department_Placement = models.TextField(null=True)
 
+    Seo_Url = models.CharField(max_length=500,null=True)
+    Seo_Title = models.CharField(max_length=225,null=True)
+    Seo_Keywords = models.CharField(max_length=500,null=True)
+    Seo_Description = models.TextField(null=True)
+
     def __str__(self):
         return f'{self.Department_Title}///{self.Added_Date}'
     
@@ -104,6 +109,11 @@ class Course(models.Model):
     Course_Total_Seats = models.IntegerField(null=True)
     Course_Syllabus = models.FileField(null=True,upload_to='syllabus')
 
+    Seo_Url = models.CharField(max_length=500,null=True)
+    Seo_Title = models.CharField(max_length=225,null=True)
+    Seo_Keywords = models.CharField(max_length=500,null=True)
+    Seo_Description = models.TextField(null=True)
+
     def __str__(self):
         return f'{self.Course_Title}///{self.Added_Date}'
     
@@ -124,6 +134,11 @@ class Faculty(models.Model):
     Faculty_Qualification = models.CharField(max_length=225,null=True)
     Faculty_Email = models.EmailField(max_length=225,null=True)
     Faculty_Image = models.ImageField(null=True,upload_to='faculties')
+
+    Seo_Url = models.CharField(max_length=500,null=True)
+    Seo_Title = models.CharField(max_length=225,null=True)
+    Seo_Keywords = models.CharField(max_length=500,null=True)
+    Seo_Description = models.TextField(null=True)
 
     def __str__(self):
         return f'{self.Faculty_Name}///{self.Faculty_Department}'

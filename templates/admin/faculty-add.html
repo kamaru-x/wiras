@@ -10,56 +10,53 @@
     <!-- BEGIN: Wizard Layout -->
     <div class="intro-y box py-10 sm:py-20 mt-5">
         <h2 style=" font-size: 30px; font-weight: 500; text-align: center;
-        color: #1e40af;">Add Products</h2>
+        color: #1e40af;">Add Faculty</h2>
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
                 <!-- <div class="font-medium text-base">Add / Manage Products</div> -->
                 <div class="grid grid-cols-12 gap-4 gap-y-5 mt-5"> 
+
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <!-- <div class="mt-3"> -->
-                        <label>Select Type</label>
+                        <label>Select Department</label>
                         <div class="mt-2">
-                            <select data-placeholder="Select type" class="form-control" name="type">
-                                <option value="News & Events">News & Events</option>
-                                <option value="Achievements">Achievements</option>
-                                <option value="Activities">Activities</option>
-                                <option value="Seminars & Workshops">Seminars & Workshops</option>
+                            <select data-placeholder="Select Category" class="form-control" name="department">
+                                <option value="General">Select Departments</option>
+                                {% for department in departments %}
+                                    <option value="{{ department.id }}">{{ department.Department_Title }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <!-- </div> -->
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-6">
-                        <!-- <div class="mt-3"> -->
-                        <label>Select Category</label>
-                        <div class="mt-2">
-                            <select data-placeholder="Select Category" class="form-control" name="category">
-                                <option value="General">General</option>
-                                <option value="Alumni">Alumni</option>
-                                <option value="IQAC">IQAC</option>
-                                <option>List all other departments</option>
-                            </select>
-                        </div>
-                        <!-- </div> -->
+                        <label for="input-wizard-2" class="form-label">Faculty Name</label>
+                        <input id="title" type="text" class="form-control" placeholder="Enter Faculty name here" name="name" required>
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-6">
-                        <label for="input-wizard-2" class="form-label">Post Title</label>
-                        <input id="title" type="text" class="form-control" placeholder="Enter product title here" name="title" required>
+                        <label for="input-wizard-2" class="form-label">Designation</label>
+                        <input type="text" class="form-control" placeholder="Enter course subject here" name="designation" required>
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-6">
-                        <label for="input-wizard-3" class="form-label">Post Image</label>
-                        <input id="input-wizard-3" type="file" class="form-control" name="image" >
+                        <label for="input-wizard-2" class="form-label">Qualification</label>
+                        <input type="text" class="form-control" placeholder="Enter faculty qualification here" name="qualification" required>
                     </div>
 
-                    <div class="intro-y col-span-12">
-                        <label for="input-wizard-3" class="form-label">Post Description</label>
-                        <textarea name="description" id="editor" cols="30" rows="5" class="form-control" placeholder="Enter post description" required></textarea>
+                    <div class="intro-y col-span-12 sm:col-span-6">
+                        <label for="input-wizard-2" class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter email here" name="email" required>
                     </div>
 
-                    <div class="intro-y col-span-12">
+                    <div class="intro-y col-span-12 sm:col-span-6">
+                        <label for="input-wizard-3" class="form-label">Attach Photograph</label>
+                        <input id="input-wizard-3" type="file" class="form-control" name="photograph" >
+                    </div>
+
+                    <!-- <div class="intro-y col-span-12">
                         <h2 style=" font-size: 20px; font-weight: 500; text-align: center; color: #1e40af;">SEO</h2>
                     </div>
 
@@ -75,13 +72,13 @@
 
                     <div class="intro-y col-span-12 sm:col-span-4">
                         <label for="input-wizard-2" class="form-label">Seo Keywords</label>
-                        <input name="seo_keyword" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo keyword">
+                        <input name="seo_keywords" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo keyword">
                     </div>
 
                     <div class="intro-y col-span-12">
                         <label for="input-wizard-3" class="form-label">Seo Description</label>
                         <textarea name="seo_description" id="" cols="30" rows="5" class="form-control" placeholder="Enter seo description"></textarea>
-                    </div>
+                    </div> -->
                     
                     <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
                         <!-- <button class="btn btn-secondary w-24">Add</button> -->
