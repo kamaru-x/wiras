@@ -92,6 +92,7 @@ def list_albums(request):
 
 def edit_album(request,album_id):
     album = Album.objects.get(id=album_id)
+    images = Album_Image.objects.filter(Album=album)
     if request.method == 'POST':
         album.Album_Title = request.POST.get('title')
         album.Album_Category = request.POST.get('category')
@@ -101,7 +102,7 @@ def edit_album(request,album_id):
         album.Seo_Description = request.POST.get('seo_description')
         album.save()
         return redirect('list-albums')
-    return render(request,'admin/album-edit.html',{'album':album})
+    return render(request,'admin/album-edit.html',{'album':album,'images':images})
 
 #------------------------------------------------- add image to album --------------------------------------------#
 

@@ -10,7 +10,7 @@
     <!-- BEGIN: Wizard Layout -->
     <div class="intro-y box py-10 sm:py-20 mt-5">
         <h2 style=" font-size: 30px; font-weight: 500; text-align: center;
-        color: #1e40af;">Add Products</h2>
+        color: #1e40af;">Edit Album</h2>
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-slate-200/60 dark:border-darkmode-400">
@@ -22,6 +22,7 @@
                         <label>Select Category</label>
                         <div class="mt-2">
                             <select data-placeholder="Select Category" class="form-control" name="category">
+                                <option value="{{ album.Album_Category }}">{{ album.Album_Category }}</option>
                                 <option value="General">General</option>
                                 <option value="Alumni">Alumni</option>
                                 <option value="IQAC">IQAC</option>
@@ -33,7 +34,7 @@
 
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <label for="input-wizard-2" class="form-label">Album Title</label>
-                        <input id="title" type="text" class="form-control" placeholder="Enter product title here" name="title" required>
+                        <input value="{{ album.Album_Title }}" id="title" type="text" class="form-control" placeholder="Enter album title here" name="title" required>
                     </div>
 
                     <div class="intro-y col-span-12">
@@ -42,23 +43,32 @@
 
                     <div class="intro-y col-span-12 sm:col-span-4">
                         <label for="input-wizard-2" class="form-label">Url</label>
-                        <input name="seo_url" id="seo_url" type="text" class="form-control" placeholder="Enter seo url" required>
+                        <input value="{{ album.Seo_Url }}" name="seo_url" id="seo_url" type="text" class="form-control" placeholder="Enter seo url" required>
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-4">
                         <label for="input-wizard-2" class="form-label">Seo Title</label>
-                        <input name="seo_title" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo title">
+                        <input value="{{ album.Seo_Title }}" name="seo_title" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo title">
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-4">
                         <label for="input-wizard-2" class="form-label">Seo Keywords</label>
-                        <input name="seo_keyword" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo keyword">
+                        <input value="{{ album.Seo_Keywords }}" name="seo_keywords" id="input-wizard-2" type="text" class="form-control" placeholder="Enter seo keyword">
                     </div>
 
                     <div class="intro-y col-span-12">
                         <label for="input-wizard-3" class="form-label">Seo Description</label>
-                        <textarea name="seo_description" id="" cols="30" rows="5" class="form-control" placeholder="Enter seo description"></textarea>
+                        <textarea name="seo_description" id="" cols="30" rows="5" class="form-control" placeholder="Enter seo description">{{ album.Seo_Description }}</textarea>
                     </div>
+
+                    {% for image in images %}
+                    <div class="intro-y sm:col-span-3">
+                        <div class="w-48 h-48 relative image-fit mb-5 mr-5 cursor-pointer zoom-in mr-5">
+                            <img class="rounded-md" alt="" src="{{ image.Image.url }}">
+                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2"> <i data-lucide="x" class="w-4 h-4" data-tw-toggle="modal" data-tw-target="#delete-modal"></i> </div>
+                        </div>
+                    </div>
+                    {% endfor %}
                     
                     <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
                         <!-- <button class="btn btn-secondary w-24">Add</button> -->
@@ -78,6 +88,34 @@
         }
         
     </style>
+    <script>
+        function delete_image(image_id){
+            $('#image_id').val(image_id)
+        }
+    </script>
+    <!-- BEGIN: Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="image_id" id="image_id">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <div class="p-5 text-center">
+                            <i data-lucide="x-circle" class="w-16 h-16 text-danger mx-auto mt-3"></i>
+                            <div class="text-3xl mt-5">Are you sure?</div>
+                            <div class="text-slate-500 mt-2">Do you really want to delete these records? <br>This process cannot be undone.</div>
+                        </div>
+                        <div class="px-5 pb-8 text-center">
+                            <button type="button" data-tw-dismiss="modal" class="btn btn-outline-secondary w-24 mr-1">Cancel</button>
+                            <button type="submit" class="btn btn-danger w-24">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END: Delete Confirmation Modal -->
         <!-- BEGIN: Dark Mode Switcher-->
         <div data-url="top-menu-dark-regular-form.html" class="dark-mode-switcher cursor-pointer shadow-md fixed bottom-0 right-0 box border rounded-full w-40 h-12 flex items-center justify-center z-50 mb-10 mr-10">
             <div class="mr-4 text-slate-600 dark:text-slate-200">Dark Mode</div>
