@@ -22,10 +22,13 @@
                         <label>Select Category</label>
                         <div class="mt-2">
                             <select data-placeholder="Select Category" class="form-control" name="category">
+                                <option value="">select category</option>
                                 <option value="General">General</option>
                                 <option value="Alumni">Alumni</option>
                                 <option value="IQAC">IQAC</option>
-                                <option>List all other departments</option>
+                                {% for department in departments %}
+                                    <option value="{{ department.Department_Title }}">{{ department.Department_Title }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <!-- </div> -->

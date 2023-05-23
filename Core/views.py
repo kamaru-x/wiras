@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 #------------------------------------------------- add post --------------------------------------------#
 
 def add_post(request):
+    departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         type = request.POST.get('type')
         category = request.POST.get('category')
@@ -23,12 +24,12 @@ def add_post(request):
         Post.objects.create(AddedBy=request.user,Ip=setip(request),Post_Type=type,Post_Category=category,Post_Title=title,Post_Description=description,Post_Image=image,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
         return redirect('list-post')
 
-    return render(request,'admin/post-add.html')
+    return render(request,'admin/post-add.html',{'departments':departments})
 
 #------------------------------------------------- list post --------------------------------------------#
 
 def list_post(request):
-    posts = Post.objects.filter(Status=1)
+    posts = Post.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
         post = Post.objects.get(id=post_id)
@@ -40,6 +41,7 @@ def list_post(request):
 #------------------------------------------------- edit post --------------------------------------------#
 
 def edit_post(request,post_id):
+    departments = Department.objects.filter(Status=1).order_by('-id')
     post = Post.objects.get(id=post_id)
     if request.method == 'POST':
         if len(request.FILES) != 0:
@@ -54,7 +56,7 @@ def edit_post(request,post_id):
         post.Seo_Description = request.POST.get('seo_description')
         post.save()
         return redirect('list-post')
-    return render(request,'admin/post-edit.html',{'post':post})
+    return render(request,'admin/post-edit.html',{'post':post,'departments':departments})
 
 #------------------------------------------------- delete post image  ------------------------------------------#
 
@@ -65,11 +67,12 @@ def remove_post_img(request,post_id):
     post.Post_Image.delete(save=True)
     post.save()
 
-    return redirect('edit-post/<int:post_id>/%s/' %post_id)
+    return redirect('/edit-post/%s/' %post_id)
 
 #------------------------------------------------- create album ------------------------------------------#
 
 def create_album(request):
+    departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         category = request.POST.get('category')
         title = request.POST.get('title')
@@ -80,12 +83,17 @@ def create_album(request):
         Album.objects.create(AddedBy=request.user,Ip=setip(request),Album_Category=category,Album_Title=title,
                              Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
         return redirect ('list-albums')
-    return render(request,'admin/album-create.html')
+    return render(request,'admin/album-create.html',{'departments':departments})
 
 #------------------------------------------------- list album --------------------------------------------#
 
 def list_albums(request):
-    albums = Album.objects.filter(Status=1)
+    albums = []
+    alb = Album.objects.filter(Status=1).order_by('-id')
+    for a in alb:
+        images = Album_Image.objects.filter(Album=a).count()
+        album = {'id':a.id,'title':a.Album_Title,'category':a.Album_Category,'date':a.Added_Date,'images':images}
+        albums.append(album)
     return render(request,'admin/album-list.html',{'albums':albums})
 
 #------------------------------------------------- edit album --------------------------------------------#
@@ -93,16 +101,24 @@ def list_albums(request):
 def edit_album(request,album_id):
     album = Album.objects.get(id=album_id)
     images = Album_Image.objects.filter(Album=album)
+    departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
-        album.Album_Title = request.POST.get('title')
-        album.Album_Category = request.POST.get('category')
-        album.Seo_Url = request.POST.get('seo_url')
-        album.Seo_Title = request.POST.get('seo_title')
-        album.Seo_Keywords = request.POST.get('seo_keywords')
-        album.Seo_Description = request.POST.get('seo_description')
-        album.save()
-        return redirect('list-albums')
-    return render(request,'admin/album-edit.html',{'album':album,'images':images})
+        if request.POST.get('image_id'):
+            image_id = request.POST.get('image_id')
+            image = Album_Image.objects.get(id=image_id)
+            image.delete()
+            return redirect('/edit-album/%s/' %album.id)
+        else:
+            album.Album_Title = request.POST.get('title')
+            album.Album_Category = request.POST.get('category')
+            album.Seo_Url = request.POST.get('seo_url')
+            album.Seo_Title = request.POST.get('seo_title')
+            album.Seo_Keywords = request.POST.get('seo_keywords')
+            album.Seo_Description = request.POST.get('seo_description')
+            album.save()
+            return redirect('list-albums')
+
+    return render(request,'admin/album-edit.html',{'album':album,'images':images,'departments':departments})
 
 #------------------------------------------------- add image to album --------------------------------------------#
 
@@ -143,7 +159,7 @@ def add_department(request):
 #------------------------------------------------- list departments --------------------------------------------#
 
 def list_departments(request):
-    departments = Department.objects.filter(Status=1)
+    departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         department_id = request.POST.get('department_id')
         department = Department.objects.get(id=department_id)
@@ -210,7 +226,7 @@ def add_cources(request):
 #------------------------------------------------- list course --------------------------------------#
 
 def list_course(request):
-    courses = Course.objects.filter(Status=1)
+    courses = Course.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         course_id = request.POST.get('course_id')
         course = Course.objects.get(id=course_id)
@@ -274,7 +290,7 @@ def add_faculty(request):
 #------------------------------------------------- list faculty --------------------------------------#
 
 def list_faculties(request):
-    faculties = Faculty.objects.filter(Status=1)
+    faculties = Faculty.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         faculty_id = request.POST.get('faculty_id')
         faculty = Faculty.objects.get(id=faculty_id)

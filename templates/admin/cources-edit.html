@@ -74,6 +74,16 @@
                         <input id="input-wizard-3" type="file" class="form-control" name="syllabus" >
                     </div>
 
+                    <div class="file">
+                        <a href="" class="">
+                            <div><img src="{% static 'images/download.png' %}"></div>
+                        </a>
+                    </div>
+
+                    <div class="ml-4">
+                        <a class="font-medium" href="{{ course.Course_Syllabus }}">{{ course.Course_Syllabus }}</a> 
+                    </div>
+
                     <div class="intro-y col-span-12">
                         <h2 style=" font-size: 20px; font-weight: 500; text-align: center; color: #1e40af;">SEO</h2>
                     </div>
@@ -95,7 +105,7 @@
 
                     <div class="intro-y col-span-12">
                         <label for="input-wizard-3" class="form-label">Seo Description</label>
-                        <textarea name="seo_description" id="editor" cols="30" rows="5" class="form-control" placeholder="Enter seo description">{{ course.Seo_Description }}</textarea>
+                        <textarea name="seo_description" cols="30" rows="5" class="form-control" placeholder="Enter seo description">{{ course.Seo_Description }}</textarea>
                     </div>
                     
                     <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">

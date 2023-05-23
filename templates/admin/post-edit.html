@@ -40,7 +40,9 @@
                                 <option value="General">General</option>
                                 <option value="Alumni">Alumni</option>
                                 <option value="IQAC">IQAC</option>
-                                <option>List all other departments</option>
+                                {% for department in departments %}
+                                    <option value="{{ department.Department_Title }}">{{ department.Department_Title }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <!-- </div> -->
@@ -65,7 +67,7 @@
 
                     <div class="intro-y col-span-12">
                         <label for="input-wizard-3" class="form-label">Post Description</label>
-                        <textarea name="description" id="editor" cols="30" rows="5" class="form-control" placeholder="Enter post description" required>{{ post.Post_Description }}</textarea>
+                        <textarea name="description" id="editor" cols="30" rows="5" class="form-control" placeholder="Enter post description">{{ post.Post_Description }}</textarea>
                     </div>
 
                     <div class="intro-y col-span-12">

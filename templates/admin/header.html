@@ -408,15 +408,15 @@
                     </a>
                     <ul class="">
                         <li>
-                            <a href="{% url 'list-post' %}" class="top-menu">
-                                <div class="top-menu__icon"> <i data-lucide="box"></i> </div>
-                                <div class="top-menu__title">Posts</div>
-                            </a>
-                        </li>
-                        <li>
                             <a href="{% url 'list-departments' %}" class="top-menu">
                                 <div class="top-menu__icon"> <i data-lucide="box"></i> </div>
                                 <div class="top-menu__title">Departments</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'list-post' %}" class="top-menu">
+                                <div class="top-menu__icon"> <i data-lucide="box"></i> </div>
+                                <div class="top-menu__title">Posts</div>
                             </a>
                         </li>
                         <li>
@@ -562,13 +562,13 @@
                     </a>
                     <ul class="">
                         <li>
-                            <a href="#" class="top-menu">
+                            <a href="{% url 'change-password' %}" class="top-menu">
                                 <div class="top-menu__icon"> <i data-lucide="key"></i> </div>
                                 <div class="top-menu__title"> Change Password </div>
                             </a>
                         </li>
                         <li>
-                            <a href="" class="top-menu">
+                            <a href="{% url 'sign-out' %}" class="top-menu">
                                 <div class="top-menu__icon"> <i data-lucide="log-out"></i> </div>
                                 <div class="top-menu__title"> Logout </div>
                             </a>

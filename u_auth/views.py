@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from Core.models import Post,Course,Department,Faculty
 
 # Create your views here.
 
@@ -23,4 +24,34 @@ def sign_in(request):
 
 @login_required
 def dashboard(request):
-    return render(request,'admin/dashboard.html')
+    posts = Post.objects.filter(Status=1).count()
+    course = Course.objects.filter(Status=1).count()
+    department = Department.objects.filter(Status=1).count()
+    faculty = Faculty.objects.filter(Status=1).count()
+    context = {
+        'posts':posts,
+        'course':course,
+        'department':department,
+        'faculty':faculty
+    }
+    return render(request,'admin/dashboard.html',context)
+
+@login_required
+def changepassword(request):
+    user = request.user
+    if request.method == 'POST':
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        if password1 != password2:
+            messages.warning(request,'password does not matching')
+            return redirect('/change-password/')
+        else:
+            user.set_password(password1)
+            user.save()
+            return redirect('dashboard')
+    return render(request,'admin/change-password.html')
+
+@login_required
+def signout(request):
+    logout(request)
+    return redirect('sign-in')

@@ -5,7 +5,7 @@
         <!-- BEGIN: Content -->
     <div class="content">
 
-    <h2 class="intro-y text-lg font-medium mt-10" style="text-align: center;font-size: 35px;color:#1e40af;padding-top: 30px;padding-bottom: 30px;border-bottom: solid 1px #bcbcbc;">List of Posts</h2>
+    <h2 class="intro-y text-lg font-medium mt-10" style="text-align: center;font-size: 35px;color:#1e40af;padding-top: 30px;padding-bottom: 30px;border-bottom: solid 1px #bcbcbc;">List of Albums</h2>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 flex flex-wrap xl:flex-nowrap items-center mt-2">
             
@@ -56,16 +56,16 @@
                                 <a href="" class=" whitespace-nowrap">{{ forloop.counter }}</a>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div class="font-medium whitespace-nowrap">{{ album.Album_Title }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ album.title }}</div>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div class="font-medium whitespace-nowrap">{{ album.Album_Category }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ album.category }}</div>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div class="flex items-center justify-center whitespace-nowrap text-success">{{ album.Added_Date }}</div>
+                                <div class="flex items-center justify-center whitespace-nowrap text-success">{{ album.date }}</div>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div>0</div>
+                                <div>{{ album.images }}</div>
                             </td>
                             
                             <td class="table-report__action">

@@ -26,7 +26,9 @@
                                 <option value="General">General</option>
                                 <option value="Alumni">Alumni</option>
                                 <option value="IQAC">IQAC</option>
-                                <option>List all other departments</option>
+                                {% for department in departments %}
+                                    <option value="{{ department.Department_Title }}">{{ department.Department_Title }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <!-- </div> -->
@@ -65,7 +67,7 @@
                     <div class="intro-y sm:col-span-3">
                         <div class="w-48 h-48 relative image-fit mb-5 mr-5 cursor-pointer zoom-in mr-5">
                             <img class="rounded-md" alt="" src="{{ image.Image.url }}">
-                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2"> <i data-lucide="x" class="w-4 h-4" data-tw-toggle="modal" data-tw-target="#delete-modal"></i> </div>
+                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2"> <i data-lucide="x" class="w-4 h-4" data-tw-toggle="modal" data-tw-target="#delete-modal" onclick="delete_image('{{image.id}}')"></i> </div>
                         </div>
                     </div>
                     {% endfor %}
