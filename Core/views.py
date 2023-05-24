@@ -142,6 +142,7 @@ def add_department(request):
         title = request.POST.get('title')
         logo = request.FILES.get('logo')
         vision = request.POST.get('vision')
+        mission = request.POST.get('mission')
         facilities = request.POST.get('facilities')
         placement = request.POST.get('placement')
         description = request.POST.get('description')
@@ -149,7 +150,7 @@ def add_department(request):
         seo_title = request.POST.get('seo_title')
         seo_keywords = request.POST.get('seo_keywords')
         seo_description = request.POST.get('seo_description')
-        Department.objects.create(AddedBy=request.user,Ip=setip(request),Department_Title=title,Department_Vission=vision,
+        Department.objects.create(AddedBy=request.user,Ip=setip(request),Department_Title=title,Department_Vission=vision,Department_Mission=mission,
                                   Department_Logo=logo,Department_Fecilities=facilities,Department_Placement=placement,
                                   Department_Description=description,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,
                                   Seo_Description=seo_description)
@@ -177,6 +178,7 @@ def edit_department(request,department_id):
             department.Department_Logo = request.FILES['logo']
         department.Department_Title = request.POST.get('title')
         department.Department_Vission = request.POST.get('vision')
+        department.Department_Mission = request.POST.get('mission')
         department.Department_Fecilities = request.POST.get('facilities')
         department.Department_Placement = request.POST.get('placement')
         department.Department_Description = request.POST.get('description')
