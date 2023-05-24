@@ -38,6 +38,12 @@ def list_post(request):
         return redirect('list-post')
     return render(request,'admin/post-list.html',{'posts':posts})
 
+#------------------------------------------------- View post --------------------------------------------#
+
+def view_post(request,post_id):
+    post = Post.objects.get(id=post_id)
+    return render(request,'admin/post-view.html',{'post':post})
+
 #------------------------------------------------- edit post --------------------------------------------#
 
 def edit_post(request,post_id):
@@ -94,7 +100,32 @@ def list_albums(request):
         images = Album_Image.objects.filter(Album=a).count()
         album = {'id':a.id,'title':a.Album_Title,'category':a.Album_Category,'date':a.Added_Date,'images':images}
         albums.append(album)
+
+    if request.method == 'POST':
+        if request.POST.get('album_id'):
+            album_id = request.POST.get('album_id')
+            album  = Album.objects.get(id=album_id)
+            album.delete()
+            return redirect('.')
+        
+        if request.POST.get('a_id'):
+            a_id = request.POST.get('a_id')
+            images = request.FILES.getlist('images')
+            album = Album.objects.get(id=a_id)
+
+            for img in images: 
+                Album_Image.objects.create(AddedBy=request.user,Ip=setip(request),Album=album,Image=img)
+                print('object saved .... !')
+            return redirect('list-albums')
+    
     return render(request,'admin/album-list.html',{'albums':albums})
+
+#------------------------------------------------- view album --------------------------------------------#
+
+def view_album(request,album_id):
+    album = Album.objects.get(id=album_id)
+    images = Album_Image.objects.filter(Album=album)
+    return render(request,'admin/album-view.html',{'album':album,'images':images})
 
 #------------------------------------------------- edit album --------------------------------------------#
 
@@ -169,6 +200,14 @@ def list_departments(request):
         return redirect('list-departments')
     return render(request,'admin/departments-list.html',{'departments':departments})
 
+#------------------------------------------------- view departments --------------------------------------------#
+
+def view_department(request,department_id):
+    department = Department.objects.get(id=department_id)
+    faculties = Faculty.objects.filter(Faculty_Department=department)
+    courses = Course.objects.filter(Course_Department=department)
+    return render(request,'admin/department-view.html',{'department':department,'faculties':faculties,'courses':courses})
+
 #------------------------------------------------- edit departments --------------------------------------------#
 
 def edit_department(request,department_id):
@@ -237,6 +276,12 @@ def list_course(request):
         return redirect('list-course')
     return render(request,'admin/cources-list.html',{'courses':courses})
 
+#------------------------------------------------- view course --------------------------------------#
+
+def view_cource(request,course_id):
+    course = Course.objects.get(id=course_id)
+    return render(request,'admin/course-view.html',{'course':course})
+
 #------------------------------------------------- edit course --------------------------------------#
 
 def edit_course(request,course_id):
@@ -300,6 +345,12 @@ def list_faculties(request):
         faculty.save()
         return redirect('list-faculties')
     return render(request,'admin/faculty-list.html',{'faculties':faculties})
+
+#------------------------------------------------- view faculty --------------------------------------#
+
+def view_faculty(request,faculty_id):
+    faculty = Faculty.objects.get(id=faculty_id)
+    return render(request,'admin/faculty-view.html',{'faculty':faculty})
 
 #------------------------------------------------- edit faculty --------------------------------------#
 
