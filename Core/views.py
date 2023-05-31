@@ -253,6 +253,7 @@ def add_cources(request):
         duration = request.POST.get('duration')
         seats = request.POST.get('seats')
         syllabus = request.FILES.get('syllabus')
+        image = request.FILES.get('image')
         seo_url = request.POST.get('seo_url')
         seo_title = request.POST.get('seo_title')
         seo_keywords = request.POST.get('seo_keywords')
@@ -260,7 +261,7 @@ def add_cources(request):
         Course.objects.create(AddedBy=request.user,Ip=setip(request),Course_Type=type,Course_Department=department,
                               Course_Title=title,Course_Subject=subject,Course_Complementary_Subject=complimentary,
                               Course_Duration=duration,Course_Total_Seats=seats,Course_Syllabus=syllabus,
-                              Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
+                              Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description,Course_Image=image)
         return redirect('list-course')
     return render(request,'admin/cources-add.html',{'departments':departments})
 
@@ -288,7 +289,10 @@ def edit_course(request,course_id):
     course = Course.objects.get(id=course_id)
     if request.method == 'POST':
         if len(request.FILES) != 0:
-            course.Course_Syllabus = request.FILES['syllabus']
+            if request.FILES.get('syllabus') :
+                course.Course_Syllabus = request.FILES.get('syllabus')
+            if request.FILES.get('image'):
+                course.Course_Image = request.FILES.get('image')
         course.Course_Type = request.POST.get('type')
         dep = request.POST.get('department')
         department = Department.objects.get(id=dep) 
@@ -311,7 +315,7 @@ def edit_course(request,course_id):
 def remove_course_image(request,course_id):
     course = Course.objects.get(id=course_id)
 
-    course.Course_Syllabus.delete(save=True)
+    course.Course_Image.delete(save=True)
     course.save()
 
     return redirect('/edit-course/%s/' %course_id)
