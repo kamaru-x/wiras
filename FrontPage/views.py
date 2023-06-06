@@ -97,20 +97,20 @@ def contact(request):
 
 def courses(request,type):
     if type == 'UG':
-        courses = Course.objects.filter(Course_Type='UG Course')
+        courses = Course.objects.filter(Course_Type='UG Course',Status=1)
     elif type == 'PG':
-        courses = Course.objects.filter(Course_Type='PG Course')
+        courses = Course.objects.filter(Course_Type='PG Course',Status=1)
     return render(request,'frontpage/courses.html',{'courses':courses,'type':type})
 
 #----------------------------------------- COURSE DETAILS -----------------------------------------#
 
 def department_view(request,dep):
     department = Department.objects.get(id = dep)
-    posts = Post.objects.filter(Post_Category=department.Department_Title)
-    images = Album_Image.objects.filter(Album__Album_Category=department.Department_Title)
-    faculties = Faculty.objects.filter(Faculty_Department=department)
-    ug_courses = Course.objects.filter(Course_Type='UG Course',Course_Department=department)
-    pg_courses = Course.objects.filter(Course_Type='PG Course',Course_Department=department)
+    posts = Post.objects.filter(Post_Category=department.Department_Title,Status=1)
+    images = Album_Image.objects.filter(Album__Album_Category=department.Department_Title,Status=1)
+    faculties = Faculty.objects.filter(Faculty_Department=department,Status=1)
+    ug_courses = Course.objects.filter(Course_Type='UG Course',Course_Department=department,Status=1)
+    pg_courses = Course.objects.filter(Course_Type='PG Course',Course_Department=department,Status=1)
 
     context = {
         'posts' : posts,
@@ -161,7 +161,7 @@ def film_club(request):
 #------------------------------------------ GALLERY ----------------------------------------------#
 
 def gallery(request):
-    albums = Album.objects.all()
+    albums = Album.objects.filter(Status=1)
     return render(request,'frontpage/gallery.html',{'albums':albums})
 
 #---------------------------------------- VIEW GALLERY -------------------------------------------#
