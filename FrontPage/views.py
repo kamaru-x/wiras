@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry
+from django.shortcuts import render,redirect
+from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry,Complaints,Contact_message
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -95,11 +95,30 @@ def collage_union(request):
 #-------------------------------------------- COMPLAINTS ------------------------------------------#
 
 def complaints(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        student_id = request.POST.get('student_id')
+        email = request.POST.get('email')
+        department = request.POST.get('department')
+        batch = request.POST.get('batch')
+        complaint = request.POST.get('complaint')
+
+        Complaints.objects.create(First_Name=first_name,Last_Name=last_name,Student_Id=student_id,
+                                  Email=email,Department=department,Batch=batch,Complaint=complaint)
+        return redirect('.')
     return render(request,'frontpage/complaint.html')
 
 #--------------------------------------------- CONTACT -------------------------------------------#
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        phone = request.POST.get('phone')
+        description = request.POST.get('description')
+        information = request.POST.get('information')
+        Contact_message.objects.create(Name=name,Phone=phone,Description=description,Information=information)
+        return redirect('.')
     return render(request,'frontpage/contact.html')
 
 #--------------------------------------------- COURSE -----------------------------------------------#

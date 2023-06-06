@@ -42,4 +42,9 @@ urlpatterns = [
     path('view-faculty/<int:faculty_id>/',views.view_faculty,name='view-faculty'),
     path('edit-faculty/<int:faculty_id>/',views.edit_faculties,name='edit-faculty'),
     path('delete-faculty-image/<int:faculty_id>/',views.remove_faculty_image,name='remove-faculty-image'),
+
+    #------------------------------- faculty urls ---------------------------------#
+
+    path('enquiries/',views.enquiries,name='enquiries'),
+    path('complaints/',views.complaints,name='complaints-list'),
 ]

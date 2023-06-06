@@ -27,7 +27,8 @@
          <div class="container">
             <div class="row">
                <div class="col-xl-7 col-lg-6 col-md-12">
-                  <form action="#">
+                  <form method="post">
+                     {% csrf_token %}
                      <div class="contact-area-wrapper">
                         <div class="section-title mb-50">
                            <h2>Get in Touch</h2>
@@ -36,12 +37,12 @@
                      <div class="row">
                         <div class="col-xl-6">
                            <div class="contact-from-input mb-20">
-                              <input type="text" placeholder="Name">
+                              <input name="name" type="text" placeholder="Name">
                            </div>
                         </div>
                         <div class="col-xl-6">
                            <div class="contact-from-input mb-20">
-                              <input type="text" placeholder="Phone">
+                              <input name="phone" type="text" placeholder="Phone">
                            </div>
                         </div>
                         <!-- <div class="col-xl-6">
@@ -51,26 +52,25 @@
                         </div> -->
                         <div class="col-xl-12">
                            <div class="contact-from-input mb-20">
-                              <textarea placeholder="Address" name="Address"></textarea>
+                              <textarea placeholder="Address" name="description"></textarea>
                            </div>
                         </div>
                         <div class="col-xl-12">
                            <div class="contact-select">
-                              <select class="mb-20">
-                                 <option value="Subject">Programmes Sought</option>
-                                 <option value="Subject">Financial Aid</option>
-                                 <option value="Subject">Payment</option>
-                                 <option value="Subject">Information</option>
+                              <select class="mb-20" name="information">
+                                 <option value="Programmes Sought">Programmes Sought</option>
+                                 <option value="Financial Aid">Financial Aid</option>
+                                 <option value="Payment">Payment</option>
+                                 <option value="Information">Information</option>
                               </select>
                            </div>
                         </div>
                         
                         <div class="col-xl-2 ">
                            <div class="cont-btn mb-20">
-                              <a href="#" class="cont-btn">Submit</a>
+                              <button type="submit" class="cont-btn">Submit</button>
                            </div>
                         </div>
-                        
                      </div>
                   </form>
                </div>

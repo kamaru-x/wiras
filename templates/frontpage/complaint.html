@@ -59,7 +59,8 @@ input[type="file"] {
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-xl-10 col-lg-10">
-                            <form action="#">
+                            <form method="post">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="signup-box text-center">
@@ -77,35 +78,27 @@ input[type="file"] {
                                     <div class="col-md-6">
                                         <div class="signup-form-wrapper">
                                             <div class="signup-input-wrapper">
-                                                <input type="text" placeholder="First Name">
-                                                <input type="text" placeholder="Last Name">
+                                                <input name="first_name" type="text" placeholder="First Name">
+                                                <input name="last_name" type="text" placeholder="Last Name">
                                             </div>
                                             <div class="signup-wrapper">
-                                                <input type="text" placeholder="Student ID">
+                                                <input name="student_id" type="text" placeholder="Student ID">
                                             </div>
                                             <div class="signup-wrapper">
-                                                <input type="text" placeholder="Email Address">
+                                                <input name="email" type="email" placeholder="Email Address">
                                             </div>
                                             <div class="signup-wrapper">
-                                                <input type="text" placeholder="Department/Program">
+                                                <input name="department" type="text" placeholder="Department/Program">
                                             </div>
                                             <div class="signup-wrapper">
-                                                <input type="text" placeholder="Batch">
+                                                <input name="batch" type="text" placeholder="Batch">
                                             </div>
 
                                             <div class="signup-wrapper">
-                                                <textarea placeholder="Description of the Complaint"></textarea>
-                                            </div>
-                                            <div class="signup-action">
-                                                <div class="course-sidebar-list">
-                                                    <input class="signup-checkbo" type="checkbox" id="sing-up">
-                                                    <label class="sign-check" for="sing-up"><span>Accept the terms and
-                                                            <a href="#">Privacy
-                                                                Policy</a></span></label>
-                                                </div>
+                                                <textarea name="complaint" placeholder="Description of the Complaint"></textarea>
                                             </div>
                                             <div class="sing-buttom mb-20">
-                                                <button class="sing-btn">Register</button>
+                                                <button class="sing-btn" type="submit">Register</button>
                                             </div>
                                         </div>
                                     </div>

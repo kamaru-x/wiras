@@ -157,3 +157,26 @@ class Enquiry(models.Model):
 
     def __str__(self):
         return f'{self.Name}///{self.Date}'
+    
+
+class Contact_message(models.Model):
+    Name = models.CharField(max_length=225)
+    Phone = models.CharField(max_length=25)
+    Description = models.TextField()
+    Information = models.CharField(max_length=225)
+
+    def __str__(self):
+        return self.Name
+    
+
+class Complaints(models.Model):
+    First_Name = models.CharField(max_length=225)
+    Last_Name = models.CharField(max_length=225,null=True)
+    Student_Id = models.CharField(max_length=15)
+    Email = models.EmailField(null=True)
+    Department = models.CharField(max_length=225,null=True)
+    Batch = models.CharField(max_length=225)
+    Complaint = models.TextField()
+
+    def __str__(self):
+        return self.First_Name

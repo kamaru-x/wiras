@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from Core.models import Post,Album,Album_Image,Department,Course,Faculty
+from Core.models import Post,Album,Album_Image,Department,Course,Faculty,Enquiry,Contact_message,Complaints
 from Core.pre_fun import setip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -432,3 +432,17 @@ def remove_faculty_image(request,faculty_id):
 @login_required
 def admission_enquiries(request):
     return render(request,'admin/admission-enquiries.html')
+
+#------------------------------------------------- enquiries list --------------------------------------#
+
+@login_required
+def enquiries(request):
+    enquiries = Contact_message.objects.all()
+    return render(request,'admin/enquiries.html',{'enquiries':enquiries})
+
+#------------------------------------------------- complaints list --------------------------------------#
+
+@login_required
+def complaints(request):
+    complaints = Complaints.objects.all()
+    return render(request,'admin/complaints.html',{'complaints':complaints})
