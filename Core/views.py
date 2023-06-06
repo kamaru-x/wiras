@@ -143,6 +143,8 @@ def edit_album(request,album_id):
     images = Album_Image.objects.filter(Album=album)
     departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
+        if len(request.FILES) != 0:
+            album.Cover_Image = request.FILES['cover']
         if request.POST.get('image_id'):
             image_id = request.POST.get('image_id')
             image = Album_Image.objects.get(id=image_id)
