@@ -239,7 +239,9 @@ def news(request):
 #---------------------------------------- NEWS DETAILS ---------------------------------------------#
 
 def news_details(request,news):
-    return render(request,'frontpage/news-details.html')
+    news = Post.objects.get(id=news)
+    latest_news = Post.objects.filter(Status=1).order_by('-id')[:3]
+    return render(request,'frontpage/news-details.html',{'news':news,'latest_news':latest_news})
 
 #--------------------------------------------- NSS -------------------------------------------------#
 
