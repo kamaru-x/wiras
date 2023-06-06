@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -24,14 +25,22 @@ def about_wiras(request):
 #------------------------------------------- ACHIVEMENTS --------------------------------------------#
 
 def activities(request):
-    activities = Post.objects.filter(Status=1,Post_Type='Activities')
-    return render(request,'frontpage/activities.html',{'activities':activities})
+    # activities = Post.objects.filter(Status=1,Post_Type='Activities')
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='Activities'),9)
+    page = request.GET.get('page')
+    activities = p.get_page(page)
+    nums = 'a' * activities.paginator.num_pages
+    return render(request,'frontpage/activities.html',{'activities':activities,'nums':nums})
 
 #------------------------------------------- ACTIVITIES --------------------------------------------#
 
 def achivements(request):
-    achivements = Post.objects.filter(Status=1,Post_Type='Achievements')
-    return render(request,'frontpage/achievements.html',{'achivements':achivements})
+    # achivements = Post.objects.filter(Status=1,Post_Type='Achievements')
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='Achievements'),9)
+    page = request.GET.get('page')
+    achivements = p.get_page(page)
+    nums = 'a' * achivements.paginator.num_pages
+    return render(request,'frontpage/achievements.html',{'achivements':achivements,'nums':nums})
 
 #---------------------------------------- ADMINISTRATION --------------------------------------------#
 
@@ -235,8 +244,12 @@ def nature_club(request):
 #--------------------------------------------- NEWS -------------------------------------------------#
 
 def news(request):
-    news = Post.objects.filter(Status=1)
-    return render(request,'frontpage/news.html',{'news':news})
+    # news = Post.objects.filter(Status=1)
+    p = Paginator(Post.objects.filter(Status=1),9)
+    page = request.GET.get('page')
+    news = p.get_page(page)
+    nums = 'a' * news.paginator.num_pages
+    return render(request,'frontpage/news.html',{'news':news,'nums':nums})
 
 #---------------------------------------- NEWS DETAILS ---------------------------------------------#
 
@@ -293,8 +306,12 @@ def rural_club(request):
 #--------------------------------------- SEMINAR WORKSHOPS -----------------------------------------#
 
 def seminar_workshops(request):
-    seminars = Post.objects.filter(Status=1,Post_Type='Seminars & Workshops')
-    return render(request,'frontpage/seminars-workshops.html',{'seminars':seminars})
+    # seminars = Post.objects.filter(Status=1,Post_Type='Seminars & Workshops')
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='Seminars & Workshops'),9)
+    page = request.GET.get('page')
+    seminars = p.get_page(page)
+    nums = 'a' * seminars.paginator.num_pages
+    return render(request,'frontpage/seminars-workshops.html',{'seminars':seminars,'nums':nums})
 
 #--------------------------------------- SEXUAL HARRASMENT -----------------------------------------#
 

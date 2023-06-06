@@ -63,10 +63,19 @@
                      {% if seminars %}
                      <div class="edu-pagination mt-30 mb-20">
                         <ul>
-                           <li><a href="#"><i class="fal fa-angle-left"></i></a></li>
-                           <li class="active"><a href="#"><span>01</span></a></li>
-                           <li><a href="#"><span>02</span></a></li>
-                           <li><a href="#"><i class="fal fa-angle-right"></i></a></li>
+                           {% if seminars.has_previous %}
+                              <li><a href="?page={{seminars.previous_page_number}}"><i class="fal fa-angle-left"></i></a></li>
+                           {% else %}
+                              <li><a href=""><i class="fal fa-angle-left"></i></a></li>
+                           {% endif %}
+                           {% for n in nums %}
+                              <li class="active"><a href="?page={{ forloop.counter }}"><span>0{{ forloop.counter }}</span></a></li>
+                           {% endfor %}
+                           {% if seminars.has_next %}
+                              <li><a href="?page={{seminars.next_page_number}}"><i class="fal fa-angle-right"></i></a></li>
+                           {% else %}
+                              <li><a href=""><i class="fal fa-angle-right"></i></a></li>
+                           {% endif %}
                         </ul>
                      </div>
                      {% endif %}
