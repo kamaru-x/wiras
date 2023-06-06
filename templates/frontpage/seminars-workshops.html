@@ -31,96 +31,34 @@
                <div class="col-xl-12 col-lg-12">
                   <div class="blog-main-wrapper mb-30">
                      <div class="row">
+                        {% for seminar in seminars %}
                         <div class="col-xl-4 col-lg-6 col-md-12">
                            <div class="blog-wrapper position-relative mb-30">
                               <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' 'news' %}"><img src="{% static 'assets/img/blog-01.jpg' %}" alt="blog-img"></a>
+                                 <a href="{% url 'news-details' 'seminar.id' %}"><img src="{{ seminar.Post_Image.url }}" alt="blog-img"></a>
                               </div>
                               <a href="{% url 'news' %}" class="blog-tag">
                                  <i class="fal fa-folder-open"></i>
-                                 Development
+                                 {{ seminar.Post_Category }}
                               </a>
                               <div class="blog-content-wrapper">
                                  <div class="blog-meta">
                                     <div class="blog-date">
                                        <i class="flaticon-calendar"></i>
-                                       <span>23 Jan 2020</span>
+                                       <span>{{ seminar.AddedDate }}</span>
                                     </div>
                                  </div>
                                  <div class="blog-content">
-                                    <a href="{% url 'news-details' 'news' %}">
-                                       <h3>Ask the Expert: Typography Talk with Brian Hoff</h3>
+                                    <a href="{% url 'news-details' seminar.id %}">
+                                       <h3>{{ seminar.Post_Title }}</h3>
                                     </a>
-                                    <p>There are so many websites out there that have not considered the overall
-                                       usability of their visually impaired users.
-                                       When it comes to designing better links and sending better emails, Slava
-                                       Shestopalov has a few tips on how to improve
-                                       your website’s experience while accessibility in mind. The participants ...</p>
-                                    <a class="blog-btn" href="{% url 'news-details' 'news' %}">Read more</a>
+                                    <p>{{ seminar.Post_Description | safe }}</p>
+                                    <a class="blog-btn" href="{% url 'news-details' seminar.id %}">Read more</a>
                                  </div>
                               </div>
                            </div>
                         </div>
-                        <div class="col-xl-4 col-lg-6 col-md-12">
-                           <div class="blog-wrapper position-relative mb-30">
-                              <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' 'news' %}"><img src="{% static 'assets/img/blog-02.jpg' %}" alt="blog-img"></a>
-                              </div>
-                              <a href="{% url 'news' %}" class="blog-tag">
-                                 <i class="fal fa-folder-open"></i>
-                                 Business
-                              </a>
-                              <div class="blog-content-wrapper">
-                                 <div class="blog-meta">
-                                    <div class="blog-date">
-                                       <i class="flaticon-calendar"></i>
-                                       <span>20 Jan 2020</span>
-                                    </div>
-                                 </div>
-                                 <div class="blog-content">
-                                    <a href="{% url 'news-details' 'news' %}">
-                                       <h3>Stop Redesigning And Start Your Tuning Your Site Instead</h3>
-                                    </a>
-                                    <p>Entrepreneurs and go-getters often feel as if they carry the weight of an entire
-                                       organization on their
-                                       backs, and therefore could always use a little extra motivation. Everyone must
-                                       work, but for many of us that job isn’t just a paycheck, it’s an opportunity to
-                                       express ourselves and make ... </p>
-                                    <a class="blog-btn" href="{% url 'news-details' 'news' %}">Read more</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-4 col-lg-6 col-md-12">
-                           <div class="blog-wrapper position-relative mb-30">
-                              <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' 'news' %}"><img src="{% static 'assets/img/blog-03.jpg' %}" alt="blog-img"></a>
-                              </div>
-                              <a href="{% url 'news' %}" class="blog-tag">
-                                 <i class="fal fa-folder-open"></i>
-                                 Web Design
-                              </a>
-                              <div class="blog-content-wrapper">
-                                 <div class="blog-meta">
-                                    <div class="blog-date">
-                                       <i class="flaticon-calendar"></i>
-                                       <span>18 Jan 2020</span>
-                                    </div>
-                                 </div>
-                                 <div class="blog-content">
-                                    <a href="{% url 'news-details' 'news' %}">
-                                       <h3>How To Teach Web Design to the New Students</h3>
-                                    </a>
-                                    <p>There are so many websites out there that have not considered the overall
-                                       usability of their visually impaired users.
-                                       When it comes to designing better links and sending better emails, Slava
-                                       Shestopalov has a few tips on how to improve
-                                       your website’s experience while accessibility in mind. The participants ...</p>
-                                    <a class="blog-btn" href="{% url 'news-details' 'news' %}">Read more</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        {% endfor %}
                      </div>
                      <div class="edu-pagination mt-30 mb-20">
                         <ul>

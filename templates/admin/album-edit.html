@@ -39,6 +39,18 @@
                         <input value="{{ album.Album_Title }}" id="title" type="text" class="form-control" placeholder="Enter album title here" name="title" required>
                     </div>
 
+                    <div class="intro-y col-span-12 sm:col-span-6">
+                        <label for="input-wizard-2" class="form-label">Cover Image</label>
+                        <input type="file" class="form-control" name="cover">
+                    </div>
+
+                    <div class="w-24 h-24 relative image-fit mb-5 mr-5 cursor-pointer zoom-in mr-5">
+                        {% if album.Cover_Image %}
+                            <img class="rounded-md" alt="" src="{{ album.Cover_Image.url }}">
+                            <div title="Remove this image?" class="tooltip w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-danger right-0 top-0 -mr-2 -mt-2"> <i data-lucide="x" class="w-4 h-4" data-tw-toggle="modal" data-tw-target="#delete-modal"></i> </div>
+                        {% endif %}
+                    </div>
+
                     <div class="intro-y col-span-12">
                         <h2 style=" font-size: 20px; font-weight: 500; text-align: center; color: #1e40af;">SEO</h2>
                     </div>

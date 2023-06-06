@@ -87,11 +87,12 @@ def create_album(request):
     if request.method == 'POST':
         category = request.POST.get('category')
         title = request.POST.get('title')
+        cover = request.FILES.get('cover')
         seo_url = request.POST.get('seo_url')
         seo_title = request.POST.get('seo_title')
         seo_keywords = request.POST.get('seo_keywords')
         seo_description = request.POST.get('seo_description')
-        Album.objects.create(AddedBy=request.user,Ip=setip(request),Album_Category=category,Album_Title=title,
+        Album.objects.create(AddedBy=request.user,Ip=setip(request),Album_Category=category,Album_Title=title,Cover_Image=cover,
                              Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
         return redirect ('list-albums')
     return render(request,'admin/album-create.html',{'departments':departments})

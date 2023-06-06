@@ -1,14 +1,14 @@
 {% extends 'frontpage/base.html' %}
 {% load static %}
-    {% include 'frontpage/header.html' %}
     {% block content %}
+    {% include 'frontpage/header.html' %}
     <main>
         <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
          <div class="container">
             <div class="row">
                <div class="col-xl-12">
                   <div class="hero-course-1-text">
-                     <h2>UG Courses</h2>
+                     <h2>{{type}} Courses</h2>
                   </div>
                   <div class="course-title-breadcrumb">
                      <nav>
@@ -38,7 +38,7 @@
                             {% endif %}
                             <div class="academic-content">
                                 <div class="academic-content-header">
-                                    <a href="{% url 'course-details' course.Course_Title %}">
+                                    <a href="">
                                         <h3>{{ course.Course_Title }}</h3>
                                     </a>
                                 </div>
@@ -65,6 +65,5 @@
             </div>
         </div>
     </main>
-    
     {% include 'frontpage/footer.html' %}
     {% endblock content %}

@@ -16,12 +16,14 @@ def about_wiras(request):
 #------------------------------------------- ACHIVEMENTS --------------------------------------------#
 
 def activities(request):
-    return render(request,'frontpage/activities.html')
+    activities = Post.objects.filter(Status=1,Post_Type='Activities')
+    return render(request,'frontpage/activities.html',{'activities':activities})
 
 #------------------------------------------- ACTIVITIES --------------------------------------------#
 
 def achivements(request):
-    return render(request,'frontpage/achievements.html')
+    achivements = Post.objects.filter(Status=1,Post_Type='Achievements')
+    return render(request,'frontpage/achievements.html',{'achivements':achivements})
 
 #---------------------------------------- ADMINISTRATION --------------------------------------------#
 
@@ -90,13 +92,28 @@ def courses(request,type):
         courses = Course.objects.filter(Course_Type='UG Course')
     elif type == 'PG':
         courses = Course.objects.filter(Course_Type='PG Course')
-    return render(request,'frontpage/courses.html',{'courses':courses})
+    return render(request,'frontpage/courses.html',{'courses':courses,'type':type})
 
 #----------------------------------------- COURSE DETAILS -----------------------------------------#
 
-def course_details(request,crs):
-    course = Course.objects.filter(Course_Title=crs).last()
-    return render(request,'frontpage/course-details.html',{'course':course})
+def department_view(request,dep):
+    department = Department.objects.get(id = dep)
+    posts = Post.objects.filter(Post_Category=department.Department_Title)
+    images = Album_Image.objects.filter(Album__Album_Category=department.Department_Title)
+    faculties = Faculty.objects.filter(Faculty_Department=department)
+    ug_courses = Course.objects.filter(Course_Type='UG Course',Course_Department=department)
+    pg_courses = Course.objects.filter(Course_Type='PG Course',Course_Department=department)
+
+    context = {
+        'posts' : posts,
+        'images' : images,
+        'faculties' : faculties,
+        'ug_courses' : ug_courses,
+        'pg_courses' : pg_courses,
+        'department' : department,
+    }
+
+    return render(request,'frontpage/course-details.html',context)
 
 #----------------------------------------- DIGITAL WING -----------------------------------------#
 
@@ -137,7 +154,7 @@ def film_club(request):
 
 def gallery(request):
     albums = Album.objects.all()
-    return render(request,'frontpage/gallery.html',{'album':albums})
+    return render(request,'frontpage/gallery.html',{'albums':albums})
 
 #---------------------------------------- VIEW GALLERY -------------------------------------------#
 
@@ -208,7 +225,8 @@ def nature_club(request):
 #--------------------------------------------- NEWS -------------------------------------------------#
 
 def news(request):
-    return render(request,'frontpage/news.html')
+    news = Post.objects.filter(Status=1)
+    return render(request,'frontpage/news.html',{'news':news})
 
 #---------------------------------------- NEWS DETAILS ---------------------------------------------#
 
@@ -263,7 +281,8 @@ def rural_club(request):
 #--------------------------------------- SEMINAR WORKSHOPS -----------------------------------------#
 
 def seminar_workshops(request):
-    return render(request,'frontpage/seminars-workshops.html')
+    seminars = Post.objects.filter(Status=1,Post_Type='Seminars & Workshops')
+    return render(request,'frontpage/seminars-workshops.html',{'seminars':seminars})
 
 #--------------------------------------- SEXUAL HARRASMENT -----------------------------------------#
 

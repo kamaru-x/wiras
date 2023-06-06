@@ -40,6 +40,7 @@ class Album(models.Model):
 
     Album_Category = models.CharField(max_length=225)
     Album_Title = models.CharField(max_length=225)
+    Cover_Image = models.ImageField(null=True,blank=True)
 
     Seo_Url = models.CharField(max_length=500,null=True)
     Seo_Title = models.CharField(max_length=225,null=True)

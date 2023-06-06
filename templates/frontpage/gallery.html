@@ -1,7 +1,7 @@
 {% extends 'frontpage/base.html' %}
 {% load static %}
-   {% include 'frontpage/header.html' %}
    {% block content %}
+   {% include 'frontpage/header.html' %}
     <main>
         <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
          <div class="container">
@@ -28,47 +28,22 @@
       <div class="course-content-area pb-50 pt-90">
          <div class="container">
             <div class="row">
+                {% for album in albums %}
                 <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
-                    <a href="{% url 'view-gallery' '1' %}">
-                        <img src="{% static 'assets/img/gallery/img-01.jpg' %}" alt="">
-                        <h3> WIRAS Classroom </h3>
+                    <a href="{% url 'view-gallery' album.id %}">
+                        {% if album.Cover_Image %}
+                            <img src="{{ album.Cover_Image.url }}" alt="">
+                        {% else %}
+                            <img src="{% static 'assets/img/gallery/img-01.jpg' %}" alt="">
+                        {% endif %}
+                        <h3> {{ album.Album_Title }} </h3>
                     </a>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
-                    <a href="{% url 'view-gallery' '1' %}">
-                        <img src="{% static 'assets/img/gallery/img-02.jpg' %}" alt="">
-                        <h3> WIRAS Library </h3>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
-                    <a href="{% url 'view-gallery' '1' %}">
-                        <img src="{% static 'assets/img/gallery/img-04.jpg' %}" alt="">
-                        <h3> WIRAS Physic Lab </h3>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
-                    <a href="{% url 'view-gallery' '1' %}">
-                        <img src="{% static 'assets/img/gallery/img-05.jpg' %}" alt="">
-                        <h3> WIRAS Computer Lab </h3>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
-                    <a href="{% url 'view-gallery' '1' %}">
-                        <img src="{% static 'assets/img/gallery/img-08.jpg' %}" alt="">
-                        <h3> WIRAS </h3>
-                    </a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
-                    <a href="{% url 'view-gallery' '1' %}">
-                        <img src="{% static 'assets/img/gallery/img-011.jpg' %}" alt="">
-                        <h3> WIRAS Foundation Ceremony</h3>
-                    </a>
-                </div>
-               
+                {% endfor %}
             </div>
          </div>
       </div>
         
     </main>
-    {% endblock content %}
     {% include 'frontpage/footer.html' %}
+    {% endblock content %}

@@ -179,9 +179,9 @@
                                                   </li>
                                                   <li class="menu-item-has-children"><a href="#">Departments</a>
                                                         <ul class="sub-menu">
-                                                           <li><a href="">Physics</a></li>
-                                                           <li><a href="">Chemistry</a></li>
-                                                            <li><a href="">Maths</a></li>
+                                                            {% for department in departments %}
+                                                                <li><a href="{% url 'department-view' department.id %}">{{ department.Department_Title }}</a></li>
+                                                            {% endfor %}
                                                         </ul>
                                                   </li>
                                                  <li><a href="{% url 'admission' %}">Admission</a></li>
