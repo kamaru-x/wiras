@@ -34,7 +34,7 @@
                         {% if album.Cover_Image %}
                             <img src="{{ album.Cover_Image.url }}" alt="">
                         {% else %}
-                            <img src="{% static 'assets/img/gallery/img-01.jpg' %}" alt="">
+                            <img src="{% static 'assets/img/noimage.jpg' %}" alt="">
                         {% endif %}
                         <h3> {{ album.Album_Title }} </h3>
                     </a>
