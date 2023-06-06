@@ -34,9 +34,15 @@
                         {% for activity in activities %}
                         <div class="col-xl-4 col-lg-6 col-md-12">
                            <div class="blog-wrapper position-relative mb-30">
+                              {% if activity.Post_Image %}
                               <div class="blog-thumb ">
                                  <a href="{% url 'news-details' activity.id %}"><img src="{{ activity.Post_Image.url }}" alt="blog-img"></a>
                               </div>
+                              {% else %}
+                              <div class="blog-thumb ">
+                                 <a href="{% url 'news-details' activity.id %}"><img src="{% static 'assets/img/noimage.jpg' %}" alt="blog-img"></a>
+                              </div>
+                              {% endif %}
                               <a href="{% url 'news' %}" class="blog-tag">
                                  <i class="fal fa-folder-open"></i>
                                  {{ activity.Post_Category }}

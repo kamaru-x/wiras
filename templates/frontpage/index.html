@@ -310,6 +310,8 @@
                             <div class="academic-thumb">
                                 {% if course.Course_Image %}
                                     <img src="{{ course.Course_Image.url }}" alt="image not found">
+                                {% else %}
+                                    <img src="{% static 'assets/img/noimage.jpg' %}" alt="">
                                 {% endif %}
                             </div>
                             <div class="academic-content">
@@ -644,7 +646,11 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="blog-wrapper position-relative mb-30">
                             <div class="blog-thumb ">
-                                <a href="#"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
+                                {% if n.Post_Image %}
+                                    <a href="#"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
+                                {% else %}
+                                    <a href=""><img src="{% static 'assets/img/noimage.jpg' %}" alt=""></a>
+                                {% endif %}
                             </div>
                             <a href="#" class="blog-tag">
                                 <i class="fal fa-folder-open"></i>

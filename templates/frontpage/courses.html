@@ -35,6 +35,10 @@
                             <div class="academic-thumb">
                                 <img src="{{ course.Course_Image.url }}" alt="image not found">
                             </div>
+                            {% else %}
+                            <div class="academic-thumb">
+                                <img src="{% static 'assets/img/noimage.jpg' %}" alt="image not found">
+                            </div>
                             {% endif %}
                             <div class="academic-content">
                                 <div class="academic-content-header">

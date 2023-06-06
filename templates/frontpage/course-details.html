@@ -93,6 +93,8 @@
                                                                <div class="member-thumb">
                                                                 {% if faculty.Faculty_Image %}
                                                                   <img src="{{ faculty.Faculty_Image.url }}" alt="member-img">
+                                                                {% else %}
+                                                                   <img src="{% static 'assets/img/profile-avatar.jpg' %}" alt="">
                                                                 {% endif %}
                                                                </div>
                                                                <div class="member-content">
@@ -139,6 +141,8 @@
                                                          <div class="rc__thumb mr-20">
                                                             {% if post.Post_Image %}
                                                                 <a href="#"><img src="{{ post.Post_Image.url }}" alt=""></a>
+                                                            {% else %}
+                                                                <img src="{% static 'assets/img/noimage.jpg' %}" alt="">
                                                             {% endif %}
                                                          </div>
                                                          <div class="rc__content">
