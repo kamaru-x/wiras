@@ -275,7 +275,7 @@ def nature_club(request):
 
 def news(request):
     # news = Post.objects.filter(Status=1)
-    p = Paginator(Post.objects.filter(Status=1),9)
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='News & Events'),9)
     page = request.GET.get('page')
     news = p.get_page(page)
     nums = 'a' * news.paginator.num_pages
