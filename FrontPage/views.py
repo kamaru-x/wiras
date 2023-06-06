@@ -6,7 +6,15 @@ from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry
 #---------------------------------------------- INDEX -----------------------------------------------#
 
 def index(request):
-    return render(request,'frontpage/index.html')
+    courses = Course.objects.filter(Status=1).order_by('-id')[:4]
+    events = Post.objects.filter(Post_Type='News & Events',Status=1).order_by('-id')[:3]
+    news = Post.objects.filter(Status=1).order_by('-id')[:4]
+    context = {
+        'courses': courses,
+        'events': events,
+        'news' : news,
+    }
+    return render(request,'frontpage/index.html',context)
 
 #------------------------------------------ ABOUT WIRAS ---------------------------------------------#
 

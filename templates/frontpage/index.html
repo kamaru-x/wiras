@@ -31,7 +31,7 @@
                                     <p>Discover yourself</p>
                                     <h3>Earn Your Degree
                                         from <span>WIRAS</span></h3>
-                                    <a class="edu-six-btn" href="courses.php">View courses</a>
+                                    <a class="edu-six-btn" href="{% url 'courses' 'UG' %}">View courses</a>
                                 </div>
                             </div>
                             <div class="university-card-wrapper">
@@ -274,7 +274,7 @@
                             <p>Founded in 2010, the Wadihuda Institute of Research and Advanced Studies (WIRAS) is affiliated to Kannur University and recognised by the Govt. of Kerala. It is a premier institute of the Ta'aleemul Islam Trust. The 11 acre campus provides a serene atmosphere conducive to academic, intellectual and physical pursuits.</p>
                         </div>
                         <div class="university-btn">
-                            <a class="edu-five-btn" href="about.php">Read More</a>
+                            <a class="edu-five-btn" href="{% url 'about-wiras' %}">Read More</a>
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-5">
@@ -302,17 +302,20 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for course in courses %}
                     <div class="col-xl-3 col-lg-6 col-md-6">
                         <div class="academic-box position-relative mb-30">
-                            <img class="academic-shape" src="{% static 'assets/img/acadenic-shape-1.png' %}"
-                                alt="image not found">
+                            <!-- <img class="academic-shape" src="{% static 'assets/img/acadenic-shape-1.png' %}"
+                                alt="image not found"> -->
                             <div class="academic-thumb">
-                                <img src="{% static 'assets/img/study-1.jpg' %}" alt="image not found">
+                                {% if course.Course_Image %}
+                                    <img src="{{ course.Course_Image.url }}" alt="image not found">
+                                {% endif %}
                             </div>
                             <div class="academic-content">
                                 <div class="academic-content-header">
                                     <a href="#">
-                                        <h3>B.Sc Physics & Mathematics </h3>
+                                        <h3>{{ course.Course_Title }}</h3>
                                     </a>
                                 </div>
                                 <div class="academic-body">
@@ -325,74 +328,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6">
-                        <div class="academic-box mb-30">
-                            <div class="academic-thumb">
-                                <img src="{% static 'assets/img/study-2.jpg' %}" alt="image not found">
-                            </div>
-                            <div class="academic-content">
-                                <div class="academic-content-header">
-                                    <a href="#">
-                                        <h3>B.Sc Chemistry</h3>
-                                    </a>
-                                </div>
-                                <div class="academic-body">
-                                    <p>Helping employees gain skills and development often take a back seat to business
-                                    </p>
-                                </div>
-                                <div class="academic-footer">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6">
-                        <div class="academic-box mb-30">
-                            <div class="academic-thumb">
-                                <img src="{% static 'assets/img/study-3.jpg' %}" alt="image not found">
-                            </div>
-                            <div class="academic-content">
-                                <div class="academic-content-header">
-                                    <a href="#">
-                                        <h3>B.Sc Psychology & Physiology.</h3>
-                                    </a>
-                                </div>
-                                <div class="academic-body">
-                                    <p>Helping employees gain skills and development often take a back seat to business
-                                    </p>
-                                </div>
-                                <div class="academic-footer">
-                                    
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6">
-                        <div class="academic-box mb-30">
-                            <div class="academic-thumb">
-                                <img src="{% static 'assets/img/study-4.jpg' %}" alt="image not found">
-                            </div>
-                            <div class="academic-content">
-                                <div class="academic-content-header">
-                                    <a href="#">
-                                        <h3>B.Com-Computer Applicatio</h3>
-                                    </a>
-                                </div>
-                                <div class="academic-body">
-                                    <p>Helping employees gain skills and development often take a back seat to business
-                                    </p>
-                                </div>
-                                <div class="academic-footer">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-xl-3 text-center">
                         <div class="academic-bottom-btn ">
-                            <a class="edo-theme-btn mt-30" href="courses.php">View all course</a>
+                            <a class="edo-theme-btn mt-30" href="{% url 'courses' 'UG' %}">View all course</a>
                         </div>
                     </div>
                 </div>
@@ -417,8 +358,8 @@
                                 </svg>
                             </div>
                             <div class="university-couner-text">
-                                <span class="counter">68,806</span>
-                                <p>Students Enrolled</p>
+                                <span class="counter">5,000</span><span>+</span>
+                                <p>Students Completed</p>
                             </div>
                         </div>
                     </div>
@@ -448,8 +389,8 @@
                                 </svg>
                             </div>
                             <div class="university-couner-text">
-                                <span class="counter">5,740</span>
-                                <p>Class Completed</p>
+                                <span class="counter">20</span><span>+</span>
+                                <p>Clubs & Organisations</p>
                             </div>
                         </div>
                     </div>
@@ -476,7 +417,7 @@
 
                             </div>
                             <div class="university-couner-text">
-                                <span class="counter">470</span><span>+</span>
+                                <span class="counter">100 </span><span>+</span>
                                 <p>Skilled Instructors</p>
                             </div>
                         </div>
@@ -532,8 +473,8 @@
                                 </svg>
                             </div>
                             <div class="university-couner-text">
-                                <span class="counter">6,5486</span>
-                                <p>Technical Courses</p>
+                                <span class="counter">2,000</span>
+                                <p>Alumni Network</p>
                             </div>
                         </div>
                     </div>
@@ -553,8 +494,7 @@
                             <img src="{% static 'assets/img/shape-light.png' %}" alt="image not found">
                         </div>
                         <div class="campus-shape-content">
-                            <h5>Students Enjoy Their
-                                        Lives at WIRAS Campus</h5>
+                            <h5>Students Enjoy Their Lives at WIRAS Campus</h5>
                         </div>
                     </div>
                     <div class="campus-shape-1">
@@ -567,14 +507,15 @@
                         <div class="col-xl-5 col-lg-6">
                             <div class="compus-content mb-30">
                                 <div class="section-title mb-30">
-                                    <h2>We are proud that more than 50 students from different nationalities study on our campus</h2>
+                                    <h2>Our Mission</h2>
                                 </div>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.  </p>
+                                <!--<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.  </p>-->
                                 <ul>
-                                    <li><i class="far fa-check"></i>Free for physically handcraft </li>
-                                    <li><i class="far fa-check"></i>Easy to enroll courses </li>
-                                    <li><i class="far fa-check"></i>Access more then 100K offline courses</li>
-                                    <li><i class="far fa-check"></i>Upskill your organization</li>
+                                    <li><i class="far fa-check"></i>To focus on building a caring and inclusive culture through sensitizing the student populace.</li>
+                                    <li><i class="far fa-check"></i>To invest in inculcating human, social and ethical values by promoting reflective practices</li>
+                                    <li><i class="far fa-check"></i>To strive for a progressive, just and egalitarian social order by ensuring equal opportunity to all.</li>
+                                    <li><i class="far fa-check"></i>To encourage global perspectives on tolerance and understanding for the prevalence of universal brotherhood.</li>
+                                    <li><i class="far fa-check"></i>To manifest as a learning organization through continuous research and adoption of best practices.</li>
                                 </ul>
                             </div>
                         </div>
@@ -619,15 +560,16 @@
                         <div class="section-title mb-45">
                             <h2>Current <span class="down-mark-line-2">Events</span></h2>
                         </div>
+                        {% for event in events %}
                         <div class="current-event-box mb-15">
                             <div class="current-event-date d-flex position-relative">
                                 <div class="event-date-wrapper">
-                                    <span class="event-date">29</span>
-                                    <span class="event-month">Jan 21</span>
+                                    <span class="event-date">{{ event.Added_Date | date:"d" }}</span>
+                                    <span class="event-month">{{ event.Added_Date | date:"M Y" }}</span>
                                 </div>
                                 <div class="event-tour">
                                     <div class="event-box-text">
-                                        <h3><a href="#">Education Autumn Tour</a></h3>
+                                        <h3><a href="#">{{ event.Post_Title }}</a></h3>
                                         <span><i class="fal fa-clock"></i>12:30 AM</span>
                                         <span><i class="flaticon-place"></i>Zeoyan Stadium, London</span>
                                     </div>
@@ -637,42 +579,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="current-event-box mb-15">
-                            <div class="current-event-date d-flex position-relative">
-                                <div class="event-date-wrapper">
-                                    <span class="event-date">20</span>
-                                    <span class="event-month">Mar 21</span>
-                                </div>
-                                <div class="event-tour">
-                                    <div class="event-box-text">
-                                        <h3><a href="#">Education Summer Tour</a></h3>
-                                        <span><i class="fal fa-clock"></i>10:30 AM</span>
-                                        <span><i class="flaticon-place"></i>Zeoyan Stadium, London</span>
-                                    </div>
-                                    <a href="#" class="event-arrow">
-                                        <i class="fal fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="current-event-box mb-30">
-                            <div class="current-event-date d-flex position-relative">
-                                <div class="event-date-wrapper">
-                                    <span class="event-date">25</span>
-                                    <span class="event-month">April 21</span>
-                                </div>
-                                <div class="event-tour">
-                                    <div class="event-box-text">
-                                        <h3><a href="#">Education Spring Tour</a></h3>
-                                        <span><i class="fal fa-clock"></i>09:30 AM</span>
-                                        <span><i class="flaticon-place"></i>Zeoyan Stadium, London</span>
-                                    </div>
-                                    <a href="#" class="event-arrow">
-                                        <i class="fal fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="col-xl-6 col-lg-6 col-12">
                         <div class="feedback-wrapper">
@@ -692,83 +599,16 @@
                                                             alt="image not found">
                                                     </div>
                                                     <div class="feedback-title">
-                                                        <h4>David Johnson</h4>
-                                                        <span>Student</span>
+                                                        <h4>Ms. Shaziya M </h4>
+                                                        <span>2019 - 2022 </span>
                                                     </div>
                                                 </div>
                                                 <div class="feedback-icon">
                                                     <i class="flaticon-quotes"></i>
                                                 </div>
                                                 <div class="feedback-body">
-                                                    <h3>Great Course !</h3>
-                                                    <p>Thanks to our marketplace model, our content keeps pace with
-                                                        market changes. You’ll find
-                                                        courses on the latest technologies and business practice and
-                                                        more!</p>
-                                                </div>
-                                                <div class="testimonial-icon">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="feedback-content mb-30">
-                                            <div class="feedback-items position-relative">
-                                                <div class="feedback-header">
-                                                    <div class="feedback-img">
-                                                        <img src="{% static 'assets/img/testimonial/testimonial-02.png' %}"
-                                                            alt="image not found">
-                                                    </div>
-                                                    <div class="feedback-title">
-                                                        <h4>Brandon Tylor</h4>
-                                                        <span>Student</span>
-                                                    </div>
-                                                </div>
-                                                <div class="feedback-icon">
-                                                    <i class="flaticon-quotes"></i>
-                                                </div>
-                                                <div class="feedback-body">
-                                                    <h3>Best Experience !</h3>
-                                                    <p>In every software-as-a-service solution, user billing and
-                                                        payments are key aspects in the
-                                                        sale of services rendered. Let’s learn about Stripe the metal
-                                                        mates.</p>
-                                                </div>
-                                                <div class="testimonial-icon">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="feedback-content mb-30">
-                                            <div class="feedback-items position-relative">
-                                                <div class="feedback-header">
-                                                    <div class="feedback-img">
-                                                        <img src="{% static 'assets/img/testimonial/testimonial.png' %}"
-                                                            alt="image not found">
-                                                    </div>
-                                                    <div class="feedback-title">
-                                                        <h4>Richard Joseph</h4>
-                                                        <span>Student</span>
-                                                    </div>
-                                                </div>
-                                                <div class="feedback-icon">
-                                                    <i class="flaticon-quotes"></i>
-                                                </div>
-                                                <div class="feedback-body">
-                                                    <h3>Helpful Instructors !</h3>
-                                                    <p>There are so many websites out there that have not considered the
-                                                        overall usability of
-                                                        their visually impaired users. When it comes to designing better
-                                                        links.</p>
+                                                    <h3>Great Institution !</h3>
+                                                    <p>Choosing Wadihuda College was the best decision of my life. The comprehensive curriculum and nurturing environment have prepared me for a successful future.</p>
                                                 </div>
                                                 <div class="testimonial-icon">
                                                     <i class="fas fa-star"></i>
@@ -799,81 +639,33 @@
                     </div>
                 </div>
                 <div class="row">
+                    {% for n in news %}
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="blog-wrapper position-relative mb-30">
                             <div class="blog-thumb ">
-                                <a href="#"><img src="{% static 'assets/img/blog-01.jpg' %}" alt="blog-img"></a>
+                                <a href="#"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
                             </div>
                             <a href="#" class="blog-tag">
                                 <i class="fal fa-folder-open"></i>
-                                Development
+                                {{ n.Post_Category }}
                             </a>
                             <div class="blog-content-wrapper">
                                 <div class="blog-meta">
                                     <div class="blog-date">
                                         <i class="flaticon-calendar"></i>
-                                        <span>23 Jan 2023</span>
+                                        <span>{{ news.Added_Date }}</span>
                                     </div>
                                 </div>
                                 <div class="blog-content">
                                     <a href="#">
-                                        <h3>Ask the Expert: Typography Talk with Brian Hoff</h3>
+                                        <h3>{{ n.Post_Title }}</h3>
                                     </a>
                                     <a class="blog-btn" href="#">Read more</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="blog-wrapper position-relative mb-30">
-                            <div class="blog-thumb ">
-                                <a href="#"><img src="{% static 'assets/img/blog-02.jpg' %}" alt="blog-img"></a>
-                            </div>
-                            <a href="#" class="blog-tag">
-                                <i class="fal fa-folder-open"></i>
-                                Business
-                            </a>
-                            <div class="blog-content-wrapper">
-                                <div class="blog-meta">
-                                    <div class="blog-date">
-                                        <i class="flaticon-calendar"></i>
-                                        <span>20 Jan 2023</span>
-                                    </div>
-                                </div>
-                                <div class="blog-content">
-                                    <a href="#">
-                                        <h3>Stop Redesigning And Start Your Tuning Your Site Instead</h3>
-                                    </a>
-                                    <a class="blog-btn" href="#">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="blog-wrapper position-relative mb-30">
-                            <div class="blog-thumb ">
-                                <a href="#"><img src="{% static 'assets/img/blog-03.jpg' %}" alt="blog-img"></a>
-                            </div>
-                            <a href="#" class="blog-tag">
-                                <i class="fal fa-folder-open"></i>
-                                Web Design
-                            </a>
-                            <div class="blog-content-wrapper">
-                                <div class="blog-meta">
-                                    <div class="blog-date">
-                                        <i class="flaticon-calendar"></i>
-                                        <span>18 Jan 2023</span>
-                                    </div>
-                                </div>
-                                <div class="blog-content">
-                                    <a href="#">
-                                        <h3>How To Teach Web Design to the New Students</h3>
-                                    </a>
-                                    <a class="blog-btn" href="#">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
