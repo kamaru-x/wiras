@@ -28,6 +28,7 @@ urlpatterns = [
     path('exam-schedule/',views.exam_schedule,name='exam-schedule'),
     path('film-club/',views.film_club,name='film-club'),
     path('gallery/',views.gallery,name='gallery'),
+    path('gallery/<str:page>/',views.gallery2,name='gallery2'),
     path('view-gallery/<str:album>/',views.view_gallery,name='view-gallery'),
     path('governing-body/',views.governing_body,name='governing-body'),
     path('green-club/',views.green_club,name='green-club'),

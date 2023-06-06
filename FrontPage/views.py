@@ -196,6 +196,15 @@ def gallery(request):
     albums = Album.objects.filter(Status=1)
     return render(request,'frontpage/gallery.html',{'albums':albums})
 
+#------------------------------------------ GALLERY ----------------------------------------------#
+
+def gallery2(request,page):
+    if page == 'IQAC':
+        albums = Album.objects.filter(Status=1,Album_Category='IQAC')
+    elif page == 'Alumni':
+        albums = Album.objects.filter(Status=1,Album_Category='Alumni')
+    return render(request,'frontpage/gallery.html',{'albums':albums})
+
 #---------------------------------------- VIEW GALLERY -------------------------------------------#
 
 def view_gallery(request,album):
