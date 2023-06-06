@@ -10,10 +10,12 @@ def index(request):
     courses = Course.objects.filter(Status=1).order_by('-id')[:4]
     events = Post.objects.filter(Post_Type='News & Events',Status=1).order_by('-id')[:3]
     news = Post.objects.filter(Status=1).order_by('-id')[:3]
+    images = Album_Image.objects.all().order_by('-id')[:5]
     context = {
         'courses': courses,
         'events': events,
         'news' : news,
+        'images' : images
     }
     return render(request,'frontpage/index.html',context)
 
