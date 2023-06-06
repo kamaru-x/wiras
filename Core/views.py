@@ -82,7 +82,7 @@ def remove_post_img(request,post_id):
     post.Post_Image.delete(save=True)
     post.save()
 
-    return redirect('/edit-post/%s/' %post_id)
+    return redirect('/admin/edit-post/%s/' %post_id)
 
 #------------------------------------------------- create album ------------------------------------------#
 
@@ -263,7 +263,7 @@ def remove_department_img(request,department_id):
     department.Department_Logo.delete(save=True)
     department.save()
 
-    return redirect('/edit-department/%s/' %department_id)
+    return redirect('/admin/edit-department/%s/' %department_id)
 
 #------------------------------------------------- add course --------------------------------------#
 
@@ -353,7 +353,7 @@ def remove_course_image(request,course_id):
     course.Course_Image.delete(save=True)
     course.save()
 
-    return redirect('/edit-course/%s/' %course_id)
+    return redirect('/admin/edit-course/%s/' %course_id)
 
 #------------------------------------------------- add faculty --------------------------------------#
 
@@ -425,7 +425,7 @@ def remove_faculty_image(request,faculty_id):
     faculty = Faculty.objects.get(id=faculty_id)
     faculty.Faculty_Image.delete(save=True)
     faculty.save()
-    return redirect('/edit-faculty/%s/' %faculty_id)
+    return redirect('/admin/edit-faculty/%s/' %faculty_id)
 
 #------------------------------------------------- edit faculty --------------------------------------#
 
