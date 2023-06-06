@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 #---------------------------------------------- INDEX -----------------------------------------------#
 
 def index(request):
-    courses = Course.objects.filter(Status=1).order_by('-id')[:3]
+    courses = Course.objects.filter(Status=1).order_by('-id')[:4]
     events = Post.objects.filter(Post_Type='News & Events',Status=1).order_by('-id')[:3]
     news = Post.objects.filter(Status=1).order_by('-id')[:3]
     context = {
