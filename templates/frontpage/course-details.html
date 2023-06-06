@@ -74,6 +74,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {% if faculties %}
                             <div class="course-requirements pt-45">
                                 <h4>FACULTIES</h4>
                                 <div class="row">
@@ -115,6 +116,7 @@
                                     </div>
                                  </div>                  
                               </div>
+                            {% endif %}
                             <div class="course-requirements pt-45">
                                 <h4>FACILITIES </h4>
                                 <div class="course-requirements-text">
@@ -123,13 +125,14 @@
                                     </ul>
                                 </div>
                             </div>
+                            {% if activities %}
                             <div class="course-requirements pt-45">
                                 <h4>ACTIVITIES </h4>
                                 <div class="course-requirements-text">
                                     <div class="sidebar__widget">
                                         <div class="sidebar__widget-content">
                                             <div class="row">
-                                                {% for post in posts %}
+                                                {% for post in activities %}
                                                 <div class="col-lg-6">
                                                    <div class="rc__post-wrapper">
                                                       <div class="rc__post d-flex align-items-center">
@@ -153,6 +156,7 @@
                                      </div>
                                 </div>
                             </div>
+                            {% endif %}
                             <div class="course-curriculum pt-40 pb-50">
                                 <div class="course-curriculam">
                                     <h4>PLACEMENT AND HIGHER STUDY</h4>
@@ -161,15 +165,16 @@
                             </div>
                         </div>
                     </div>
+                    {% if posts %}
                     <div class="col-xxl-4 col-xl-4 col-lg-8 col-md-8">
                         <div class="course-video-widget">
                             <div class="course-widget-wrapper mb-30">
                                 <div class="row my_bnh">
-                                    {% for image in images %}
+                                    {% for post in posts %}
                                     <div class="col-xl-6 col-lg-4 col-md-4 gallery_view">
                                         <div class="boxs-inner">
-                                            <a rel="lightbox-demo" href="{{ image.Image.url }}" title="WIRAS Library">
-                                                <img class="img-responsive" src="{{ image.Image.url }}" alt="WIRAS Library">
+                                            <a rel="lightbox-demo" href="{{ post.Post_Image.url }}" title="WIRAS Library">
+                                                <img class="img-responsive" src="{{ post.Post_Image.url }}" alt="WIRAS Library">
                                             </a>
                                         </div>
                                     </div>
@@ -178,6 +183,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </section>

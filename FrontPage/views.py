@@ -107,6 +107,7 @@ def courses(request,type):
 def department_view(request,dep):
     department = Department.objects.get(id = dep)
     posts = Post.objects.filter(Post_Category=department.Department_Title,Status=1)
+    activities = Post.objects.filter(Post_Category=department.Department_Title,Status=1,Post_Type='Activities')
     images = Album_Image.objects.filter(Album__Album_Category=department.Department_Title,Status=1)
     faculties = Faculty.objects.filter(Faculty_Department=department,Status=1)
     ug_courses = Course.objects.filter(Course_Type='UG Course',Course_Department=department,Status=1)
@@ -119,6 +120,7 @@ def department_view(request,dep):
         'ug_courses' : ug_courses,
         'pg_courses' : pg_courses,
         'department' : department,
+        'activities' : activities,
     }
 
     return render(request,'frontpage/course-details.html',context)
