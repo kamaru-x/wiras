@@ -344,7 +344,7 @@
         <!-- academic-courses-area-end -->
 
         <!--counter-area-start -->
-        <div class="counter-area pt-75 pb-30" data-background="assets/img/university-counter.png">
+        <div class="counter-area pt-75 pb-30" data-background="{% static 'assets/img/university-counter.png' %}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -647,7 +647,7 @@
                         <div class="blog-wrapper position-relative mb-30">
                             <div class="blog-thumb ">
                                 {% if n.Post_Image %}
-                                    <a href="#"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
+                                    <a href="{% url 'news-details' n.id %}"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
                                 {% else %}
                                     <a href=""><img src="{% static 'assets/img/noimage.jpg' %}" alt=""></a>
                                 {% endif %}
@@ -664,10 +664,10 @@
                                     </div>
                                 </div>
                                 <div class="blog-content">
-                                    <a href="#">
+                                    <a href="{% url 'news-details' n.id %}">
                                         <h3>{{ n.Post_Title }}</h3>
                                     </a>
-                                    <a class="blog-btn" href="#">Read more</a>
+                                    <a class="blog-btn" href="{% url 'news-details' n.id %}">Read more</a>
                                 </div>
                             </div>
                         </div>
