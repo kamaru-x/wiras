@@ -18,21 +18,6 @@
                     <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to Excel
                 </button>
                 <a href="{% url 'add-post' %}"><button class="btn btn-primary shadow-md mr-2">Add New Post</button></a>
-                <!-- <div class="dropdown ml-auto sm:ml-0">
-                    <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
-                        <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-lucide="plus"></i> </span>
-                    </button>
-                    <div class="dropdown-menu w-40">
-                        <ul class="dropdown-content">
-                            <li>
-                                <a href="category-add.php" class="dropdown-item"> <i data-lucide="file-plus" class="w-4 h-4 mr-2"></i> New Category </a>
-                            </li>
-                            <li>
-                                <a href="product-add.php" class="dropdown-item"> <i data-lucide="users" class="w-4 h-4 mr-2"></i> New Product </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
         </div>
         <!-- BEGIN: Data List -->
@@ -109,53 +94,45 @@
         {% endif %}
         <!-- END: Data List -->
         <!-- BEGIN: Pagination -->
+        {% if posts %}
         <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
             <nav class="w-full sm:w-auto sm:mr-auto">
                 <ul class="pagination">
+                    {% if posts.has_previous %}
                     <li class="page-item">
-                        <a class="page-link" href="#">
+                        <a class="page-link" href="?page={{posts.previous_page_number}}">
                             <i class="w-4 h-4" data-lucide="chevrons-left"></i>
                         </a>
                     </li>
+                    {% else %}
                     <li class="page-item">
-                        <a class="page-link" href="#">
-                            <i class="w-4 h-4" data-lucide="chevron-left"></i>
+                        <a class="page-link" href="">
+                            <i class="w-4 h-4" data-lucide="chevrons-left"></i>
                         </a>
                     </li>
+                    {% endif %}
+                    {% for n in nums %}
                     <li class="page-item">
-                        <a class="page-link" href="#">...</a>
+                        <a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
                     </li>
+                    {% endfor %}
+                    {% if posts.has_next %}
                     <li class="page-item">
-                        <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">3</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">...</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <i class="w-4 h-4" data-lucide="chevron-right"></i>
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
+                        <a class="page-link" href="?page={{posts.next_page_number}}">
                             <i class="w-4 h-4" data-lucide="chevrons-right"></i>
                         </a>
                     </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="">
+                            <i class="w-4 h-4" data-lucide="chevrons-right"></i>
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav>
-            <!-- <select class="w-20 form-select box mt-3 sm:mt-0">
-                <option>10</option>
-                <option>25</option>
-                <option>35</option>
-                <option>50</option>
-            </select> -->
         </div>
+        {% endif %}
         <!-- END: Pagination -->
     </div>
     <!-- BEGIN: Delete Confirmation Modal -->

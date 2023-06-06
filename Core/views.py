@@ -3,6 +3,7 @@ from Core.models import Post,Album,Album_Image,Department,Course,Faculty
 from Core.pre_fun import setip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -31,14 +32,18 @@ def add_post(request):
 
 @login_required
 def list_post(request):
-    posts = Post.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
         post = Post.objects.get(id=post_id)
         post.Status = 0
         post.save()
         return redirect('list-post')
-    return render(request,'admin/post-list.html',{'posts':posts})
+    
+    p = Paginator(Post.objects.filter(Status=1).order_by('-id'),10)
+    page = request.GET.get('page')
+    posts = p.get_page(page)
+    nums = 'a' * posts.paginator.num_pages
+    return render(request,'admin/post-list.html',{'posts':posts,'nums':nums})
 
 #------------------------------------------------- View post --------------------------------------------#
 
@@ -205,14 +210,18 @@ def add_department(request):
 
 @login_required
 def list_departments(request):
-    departments = Department.objects.filter(Status=1).order_by('-id')
+    # departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         department_id = request.POST.get('department_id')
         department = Department.objects.get(id=department_id)
         department.Status = 0
         department.save()
         return redirect('list-departments')
-    return render(request,'admin/departments-list.html',{'departments':departments})
+    p = Paginator(Department.objects.filter(Status=1).order_by('-id'),10)
+    page = request.GET.get('page')
+    departments = p.get_page(page)
+    nums = 'a' * departments.paginator.num_pages
+    return render(request,'admin/departments-list.html',{'departments':departments,'nums':nums})
 
 #------------------------------------------------- view departments --------------------------------------------#
 
@@ -287,14 +296,18 @@ def add_cources(request):
 
 @login_required
 def list_course(request):
-    courses = Course.objects.filter(Status=1).order_by('-id')
+    # courses = Course.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         course_id = request.POST.get('course_id')
         course = Course.objects.get(id=course_id)
         course.Status = 0
         course.save()
         return redirect('list-course')
-    return render(request,'admin/cources-list.html',{'courses':courses})
+    p = Paginator(Course.objects.filter(Status=1).order_by('-id'),10)
+    page = request.GET.get('page')
+    courses = p.get_page(page)
+    nums = 'a' * courses.paginator.num_pages
+    return render(request,'admin/cources-list.html',{'courses':courses,'nums':nums})
 
 #------------------------------------------------- view course --------------------------------------#
 
@@ -365,14 +378,18 @@ def add_faculty(request):
 
 @login_required
 def list_faculties(request):
-    faculties = Faculty.objects.filter(Status=1).order_by('-id')
+    # faculties = Faculty.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
         faculty_id = request.POST.get('faculty_id')
         faculty = Faculty.objects.get(id=faculty_id)
         faculty.Status = 0
         faculty.save()
         return redirect('list-faculties')
-    return render(request,'admin/faculty-list.html',{'faculties':faculties})
+    p = Paginator(Faculty.objects.filter(Status=1).order_by('-id'),10)
+    page = request.GET.get('page')
+    faculties = p.get_page(page)
+    nums = 'a' * faculties.paginator.num_pages
+    return render(request,'admin/faculty-list.html',{'faculties':faculties,'nums':nums})
 
 #------------------------------------------------- view faculty --------------------------------------#
 
