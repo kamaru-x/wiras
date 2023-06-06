@@ -1,0 +1,340 @@
+{% load static %}
+<!-- pre loader area start -->
+<div id="loading">
+    <div id="loading-center">
+        <div id="loading-center-absolute">
+            <div class="loading-icon text-center d-flex flex-column align-items-center justify-content-center">
+                <img src="{% static 'assets/img/logo/logo-text.png' %}" alt="logo-img">
+                <img class="loading-logo" src="{% static 'assets/img/logo/preloader.svg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- pre loader area end -->
+
+
+
+<!-- side toggle start -->
+<div class="fix">
+    <div class="side-info">
+        <div class="side-info-content">
+            <div class="offset-widget offset-logo mb-40">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <a href="{% url 'index' %}">
+                            <img src="{% static 'assets/img/logo/logo.png' %}" alt="Logo" class="side-logo">
+                        </a>
+                    </div>
+                    <div class="col-3 text-end"><button class="side-info-close"><i
+                                class="fal fa-times"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu d-xl-none fix"></div>
+            
+            <form action="#">
+                 <div class="contact-area-wrapper">
+                    <div class="section-title mb-20">
+                       <h4>Get in Touch</h4>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-xl-12">
+                       <div class="contact-from-input mb-20">
+                          <input type="text" placeholder="Name">
+                       </div>
+                    </div>
+                    <div class="col-xl-12">
+                       <div class="contact-from-input mb-20">
+                          <input type="text" placeholder="Phone">
+                       </div>
+                    </div>
+                    <div class="col-xl-12">
+                       <div class="contact-from-input mb-20">
+                          <input type="text" placeholder="Email">
+                       </div>
+                    </div>
+                    <div class="col-xl-12">
+                       <div class="contact-select">
+                          <select class="mb-20">
+                             <option value="Subject">Course</option>
+                             <option value="Subject">Financial Aid</option>
+                             <option value="Subject">Payment</option>
+                             <option value="Subject">Information</option>
+                          </select>
+                       </div>
+                    </div>
+                    <div class="col-xl-12">
+                       <div class="contact-from-input mb-20">
+                          <textarea placeholder="Message" name="message"></textarea>
+                       </div>
+                    </div>
+                    <div class="colxl-2 ">
+                       <div class="mb-0">
+                          <a href="#" class="edu-thard-btn">Submit</a>
+                       </div>
+                    </div>
+                 </div>
+              </form>
+            
+        </div>
+    </div>
+</div>
+<div class="offcanvas-overlay"></div>
+<div class="offcanvas-overlay-white"></div>
+<!-- side toggle end -->
+
+
+<!-- header-area-start -->
+<header>
+    <div class="university-header-wrapper">
+        <!--header-top-area start -->
+        <div class="header-university-top-area d-none d-lg-block">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-9 col-lg-9">
+                        <div class="header-left">
+                            <a href="tel:0497-2800614"><i class="fas fa-phone-alt"></i>0497-2800614</a>
+                            <a href="mailto:info@wiras.com"><i class="fal fa-envelope"></i>info@wiras.com</a>
+                            
+                            <a href="https://www.google.com/maps/place/Wadihuda+Institute+of+Research+%26+Advanced+Studies+(WIRAS)/@12.0710343,75.2750252,15z/data=!4m2!3m1!1s0x0:0x2957d0bb98eadeb6?sa=X&ved=2ahUKEwjN4_Ln5qb_AhW-9zgGHfosDloQ_BJ6BAhEEAg" target="_blank"><i class="fal fa-map-marker-alt"></i>Vilayancode, Kannur - Kerala</a>
+                            <span> Affiliated to Kannur University </span>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="header-right f-right">
+                            <div class="header-right-icon">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header-top-area end -->
+        <div class="header-main3 transpaerent-header sticky-header">
+            <div class="container-fluid">
+                <div class="header-main-wrapper">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-3">
+                            <div class="header-logo">
+                                <a href="{% url 'index' %}"><img class="logo-white" src="{% static 'assets/img/logo/logo-white.png' %}"
+                                        alt="logo"></a>
+                                <a href="{% url 'index' %}"><img class="logo-black" src="{% static 'assets/img/logo/logo.png' %}"
+                                        alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-9 col-sm-9 col-9">
+                            <div class="header-main-right d-flex justify-content-end">
+                                <div class="main-menu mr-0">
+                                    <nav id="mobile-menu">
+                                        <ul>
+                                           <li class="menu-item-has-children"><a href="#">About</a>
+                                              <ul class="sub-menu">
+                                                 <li>
+                                                    <a href="{% url 'about-wiras' %}">About Wiras</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'mission-vision' %}">Mission & Vision</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'governing-body' %}">Leaders</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'collage-council' %}">College Council</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'administration' %}">Administration</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'digital-wing' %}">Digital Wing</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'collage-rules' %}">College Rules</a>
+                                                </li>
+                                                <!-- <li>
+                                                    <a href="#">RTI</a>
+                                                </li> -->
+                                                <li>
+                                                    <a href="{% url 'institutes' %}">Sister Institutions</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'principal-message' %}">Principal's Message</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url 'managers-message' %}">Manager's Message</a>
+                                                </li>
+                                              </ul>
+                                           </li>
+                                           <li class="menu-item-has-children"><a href="#">Academics</a>
+                                              <ul class="sub-menu">
+                                                 <li class="menu-item-has-children"><a href="#">Programs & Courses</a>
+                                                        <ul class="sub-menu">
+                                                           <li><a href="{% url 'courses' 'UG' %}">UG Courses</a></li>
+                                                           <li><a href="{% url 'courses' 'PG' %}">PG Courses</a></li>
+                                                        </ul>
+                                                  </li>
+                                                  <li class="menu-item-has-children"><a href="#">Departments</a>
+                                                        <ul class="sub-menu">
+                                                           <li><a href="">Physics</a></li>
+                                                           <li><a href="">Chemistry</a></li>
+                                                            <li><a href="">Maths</a></li>
+                                                        </ul>
+                                                  </li>
+                                                 <li><a href="{% url 'admission' %}">Admission</a></li>
+                                                 <li class="menu-item-has-children"><a href="#">Exams</a>
+                                                        <ul class="sub-menu">
+                                                           <li><a href="{% url 'exam-schedule' %}">Exam Schedule</a></li>
+                                                           <li><a href="{% url 'exam-results' %}">Exam Result</a></li>
+                                                        </ul>
+                                                  </li>
+                                                 <li><a href="{% url 'roll-of-honour' %}">Roll of Honour</a></li>
+                                              </ul>
+                                           </li>
+                                           <li class="menu-item-has-children"><a href="#">Media</a>
+                                              <ul class="sub-menu">
+                                                 <li><a href="{% url 'news' %}">News & Events</a></li>
+                                                 <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                                 <li><a href="{% url 'achivements' %}">Achievements</a></li>
+                                                 <li><a href="{% url 'activities' %}">Activities</a></li>
+                                                 <li><a href="{% url 'seminar-workshops' %}">Seminars & Workshops</a></li>
+                                                 <li><a href="{% url 'downloads' %}">Downloads</a>
+                                                        
+                                                  </li>
+                                              </ul>
+                                           </li>
+                                           
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Student Support</a>
+                                                    <ul class="sub-menu">
+                                                         <li class="menu-item-has-children"><a href="#">Activities & Clubs</a>
+                                                        <ul class="sub-menu">
+                                                           <li><a href="{% url 'nature-club' %}">Nature Club </a></li>
+                                                           <li><a href="{% url 'tourism-club' %}">Tourism Club </a></li>
+                                                           <li><a href="{% url 'green-club' %}">Green Club  </a></li>
+                                                           <li><a href="{% url 'rural-club' %}">Rural ED Club </a></li>
+                                                           <li><a href="{% url 'bicycle-club' %}">Bicycle Club  </a></li>
+                                                           <li><a href="{% url 'music-club' %}">Music Club  </a></li>
+                                                           <li><a href="{% url 'film-club' %}">Film Club  </a></li>
+                                                           <li><a href="{% url 'yoga-club' %}">Yoga Club </a></li>
+                                                        </ul>
+                                                  </li>
+                                                        <li>
+                                                            <a href="{% url 'anti-ragging-cell' %}">Anti-Ragging Cell</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'grievance-cell' %}">Grievance Cell</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'womens-cell' %}">Women's Cell</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'sexual-harassment' %}">Greivance against Sexual Harassment</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'ethic-committee' %}">Ethic Committee</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'speakers-forum' %}">Forums</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'nss' %}">NSS</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'collage-union' %}">College Students Union</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'pta' %}">Parent Teacher Association</a>
+                                                        </li>
+                                                         <li>
+                                                            <a href="{% url 'complaints' %}">Student Complaint Registration</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'others' %}">Other</a>
+                                                        </li>
+                                                    </ul>
+                                            </li>
+                                            
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Alumni</a>
+                                                    <ul class="sub-menu">
+                                                        <li>
+                                                            <a href="{% url 'alumni' %}">About</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'office-bearers' %}">Office Bearers</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'registration' %}">Registration</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'news' %}">Events</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'alumni-reports' %}">Reports</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'gallery' %}">Gallery</a>
+                                                        </li>
+                                                    </ul>  
+                                            </li>
+                                            
+                                            <li class="menu-item-has-children">
+                                                <a href="#">IQAC</a>
+                                                    <ul class="sub-menu">
+                                                        <li>
+                                                            <a href="{% url 'iqac-composition' %}">Composition</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'iqac-goals' %}">Goals & Functions</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'ssr' %}">SSR</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'aqar' %}">AQAR</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'dqac' %}">DQAC</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'minutes-atr' %}">Minutes & ATR</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'reports' %}">Reports</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{% url 'gallery' %}">Gallery</a>
+                                                        </li>
+
+                                                    </ul>
+                                            </li>
+                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        </ul>
+                                     </nav>
+                                </div>
+                                <div class="header-btn">
+                                    
+                                    
+                                    <div class="menu-bar ml-20">
+                                        <a class="side-toggle header-3" href="javascript:void(0)">
+                                            <div class="bar-icon header-3">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-aea-end -->

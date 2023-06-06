@@ -1,0 +1,118 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+
+    <style>
+      h4{
+         text-align: center;
+      }
+
+    </style>
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Downloads</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>Media</span></li>
+                           <li class="breadcrumb-item"><span>Downloads</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+       
+   <div class="student-choose-area fix pt-110 pb-90">
+   <div class="container">   
+   <div class="row">  
+    
+     <section class="member-area pt-90 pb-50 gb_institutes">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-10">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/handbook1.png' %}" alt="member-img">
+                     </div>
+                      <h4>Handbook</h4>
+                  </div>
+                  <div class="sing-buttom mb-20">
+                     <button class="sing-btn"><a href="#" download>Download</a></button>
+                  </div>
+               </div>
+               <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-10">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/admission.png' %}" alt="member-img">
+                     </div>
+                      <h4>Admission Prospectus</h4>
+                  </div>
+                  <div class="sing-buttom mb-20">
+                      <button class="sing-btn"><a href="#" download>Download</a></button>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                 <div class="member-main-wrapper mb-10">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/fee.png' %}" alt="member-img">
+                     </div>
+                     <h4>Fee Structure</h4>
+                  </div>
+                  <div class="sing-buttom mb-20">
+                     <button class="sing-btn"><a href="fee.pdf" download>Download</a></button>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-10">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/calendar.png' %}" alt="member-img">
+                     </div>
+                     <h4>Academic Calendar</h4>
+                  </div>
+                  <div class="sing-buttom mb-20">
+                      <button class="sing-btn"><a href="#" download>Download</a></button>
+                  </div>
+               </div>
+               <div class="col-xl-4 col-lg-4 col-md-6">
+                 <div class="member-main-wrapper mb-10">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/magazine.png' %}" alt="member-img">
+                     </div>
+                     <h4>College Magazine</h4>
+                  </div>
+                  <div class="sing-buttom mb-20">
+                     <button class="sing-btn"><a href="#" download>Download</a></button>
+                  </div>
+               </div>
+               <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-10">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/exam.png' %}" alt="member-img">
+                     </div>
+                     <h4>Exam Calendar</h4>
+                  </div>
+                  <div class="sing-buttom mb-20">
+                      <button class="sing-btn"><a href="#" download>Download</a></button>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </section>
+ </div>
+
+  </div>
+</div>    
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

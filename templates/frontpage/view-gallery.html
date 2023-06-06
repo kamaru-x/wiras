@@ -1,0 +1,80 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Gallery</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>Gallery</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        
+      <!-- course-content-start -->
+      <div class="course-content-area pb-50 pt-90">
+         <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <div class="boxs-inner">
+                        <a rel="lightbox-demo" href="{% static 'assets/img/gallery/img-01.jpg' %}" title="WIRAS Library">
+                            <img class="img-responsive" src="{% static 'assets/img/gallery/img-01.jpg' %}" alt="WIRAS Library">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <div class="boxs-inner">
+                        <a rel="lightbox-demo" href="{% static 'assets/img/gallery/img-1.jpg' %}" title="WIRAS Library">
+                            <img class="img-responsive" src="{% static 'assets/img/gallery/img-1.jpg' %}" alt="WIRAS Library">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <div class="boxs-inner">
+                        <a rel="lightbox-demo" href="{% static 'assets/img/gallery/img-02.jpg' %}" title="WIRAS Library">
+                            <img class="img-responsive" src="{% static 'assets/img/gallery/img-02.jpg' %}" alt="WIRAS Library">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <div class="boxs-inner">
+                        <a rel="lightbox-demo" href="{% static 'assets/img/gallery/img-04.jpg' %}" title="WIRAS Library">
+                            <img class="img-responsive" src="{% static 'assets/img/gallery/img-04.jpg' %}" alt="WIRAS Library">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <div class="boxs-inner">
+                        <a rel="lightbox-demo" href="{% static 'assets/img/gallery/img-05.jpg' %}" title="WIRAS Library">
+                            <img class="img-responsive" src="{% static 'assets/img/gallery/img-05.jpg' %}" alt="WIRAS Library">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <div class="boxs-inner">
+                        <a rel="lightbox-demo" href="{% static 'assets/img/gallery/img-011.jpg' %}" title="WIRAS Library">
+                            <img class="img-responsive" src="{% static 'assets/img/gallery/img-011.jpg' %}" alt="WIRAS Library">
+                        </a>
+                    </div>
+                </div>
+               
+            </div>
+         </div>
+      </div>
+        
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

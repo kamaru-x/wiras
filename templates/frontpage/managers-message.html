@@ -1,0 +1,57 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Manager’s Message</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>Manager’s Message</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        <div class="student-choose-area fix pt-110 pb-90">
+         <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-xs-12 col-12 offset-md-1">
+                  <img src="{% static 'assets/img/manager.png' %}" alt="image not found">
+               </div>
+               
+               <div class="col-xl-7 col-lg-7 ">
+                  <div class="student-wrapper mb-30">
+                     <div class="section-title mb-10">
+                        <h2>Manager’s Message </h2>
+                     </div>
+                     <div class="sitdent-choose-content">
+                        <p>Kerala state which outperforms other states in terms of high literacy rate, but lags behind in facilitating more higher education options such as colleges, universities and research centres. WIRAS is an initiative of Ta’leemul İslam Trust, spacing in the academic milieu of the state to provide education to the marginalised and implement the education policies to be on par with global models of knowledge systems.</p> 
+                        <p>Holding on to values of social responsibility, integrity and harmony, the insightful team of Management monitors the overall growth of the institute. The curricular and co-curricular activities, achievements and advancements of the students and teachers make the visionary trustees behind this academic interest always proud.
+                        </p>
+                         <!-- <div class="section-title mb-10">
+                            <h4>MANAGEMENT</h4>
+                         </div>
+                         <p>Ta’aleemul Islam Trust,Kerala was established in 1980 with the noble aim of promoting quality education and extending social services. Since then it has been undertaking educational and social service activities in different spheres.The management strives towards disciplined growth of our students,to be leaders of tomorrow.</p>
+                     </div> -->
+                     </div>
+                  </div>
+               </div>
+
+              
+            </div>
+         </div>
+      </div>   
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

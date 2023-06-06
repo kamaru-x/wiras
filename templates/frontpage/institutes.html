@@ -1,0 +1,105 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>INSTITUTES</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% ur 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>INSTITUTES</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        <section class="member-area pt-90 pb-50 gb_institutes">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/2.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/4.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/6.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/7.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/8.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/9.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/10.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/11.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                  <div class="member-main-wrapper mb-30">
+                     <div class="member-body text-center">
+                        <img src="{% static 'assets/img/gb/12.png' %}" alt="member-img">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+        
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

@@ -1,0 +1,124 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <style>
+        .form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  background: #f5f5f5;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="file"] {
+  width: auto;
+}
+
+  </style>
+     <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Complaint Registration</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'index' %}">Student Support</a></li>
+                           <li class="breadcrumb-item"><span> Complaint Registration</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        
+      <div class="signup-page-area pt-90 pb-70">
+            <div class="signup-page-area-wrapper">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10 col-lg-10">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="signup-box text-center">
+                                            <div class="signup-text">
+                                                <h3>Complaint Registration</h3>
+                                            </div>
+                                            <div class="signup-message">
+                                                <img src="{% static 'assets/img/sign-up-message.png' %}" alt="image not found">
+                                            </div>
+                                            <div class="signup-thumb">
+                                                <img src="{% static 'assets/img/complaint.png' %}" alt="image not found">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="signup-form-wrapper">
+                                            <div class="signup-input-wrapper">
+                                                <input type="text" placeholder="First Name">
+                                                <input type="text" placeholder="Last Name">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <input type="text" placeholder="Student ID">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <input type="text" placeholder="Email Address">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <input type="text" placeholder="Department/Program">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <input type="text" placeholder="Batch">
+                                            </div>
+
+                                            <div class="signup-wrapper">
+                                                <textarea placeholder="Description of the Complaint"></textarea>
+                                            </div>
+                                            <div class="signup-action">
+                                                <div class="course-sidebar-list">
+                                                    <input class="signup-checkbo" type="checkbox" id="sing-up">
+                                                    <label class="sign-check" for="sing-up"><span>Accept the terms and
+                                                            <a href="#">Privacy
+                                                                Policy</a></span></label>
+                                                </div>
+                                            </div>
+                                            <div class="sing-buttom mb-20">
+                                                <button class="sing-btn">Register</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                            
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}
+

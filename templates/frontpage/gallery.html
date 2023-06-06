@@ -1,0 +1,74 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% include 'frontpage/header.html' %}
+   {% block content %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Gallery</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>Gallery</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        
+      <!-- course-content-start -->
+      <div class="course-content-area pb-50 pt-90">
+         <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <a href="{% url 'view-gallery' '1' %}">
+                        <img src="{% static 'assets/img/gallery/img-01.jpg' %}" alt="">
+                        <h3> WIRAS Classroom </h3>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <a href="{% url 'view-gallery' '1' %}">
+                        <img src="{% static 'assets/img/gallery/img-02.jpg' %}" alt="">
+                        <h3> WIRAS Library </h3>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <a href="{% url 'view-gallery' '1' %}">
+                        <img src="{% static 'assets/img/gallery/img-04.jpg' %}" alt="">
+                        <h3> WIRAS Physic Lab </h3>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <a href="{% url 'view-gallery' '1' %}">
+                        <img src="{% static 'assets/img/gallery/img-05.jpg' %}" alt="">
+                        <h3> WIRAS Computer Lab </h3>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <a href="{% url 'view-gallery' '1' %}">
+                        <img src="{% static 'assets/img/gallery/img-08.jpg' %}" alt="">
+                        <h3> WIRAS </h3>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
+                    <a href="{% url 'view-gallery' '1' %}">
+                        <img src="{% static 'assets/img/gallery/img-011.jpg' %}" alt="">
+                        <h3> WIRAS Foundation Ceremony</h3>
+                    </a>
+                </div>
+               
+            </div>
+         </div>
+      </div>
+        
+    </main>
+    {% endblock content %}
+    {% include 'frontpage/footer.html' %}

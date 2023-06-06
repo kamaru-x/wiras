@@ -1,0 +1,144 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+   <main>
+      <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+       <div class="container">
+          <div class="row">
+             <div class="col-xl-12">
+                <div class="hero-course-1-text">
+                   <h2>About</h2>
+                </div>
+                <div class="course-title-breadcrumb">
+                   <nav>
+                      <ol class="breadcrumb">
+                         <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                         <li class="breadcrumb-item"><span>About us</span></li>
+                      </ol>
+                   </nav>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+      
+      <div class="student-choose-area fix pt-110 pb-90">
+       <div class="container">
+          <div class="row">
+             <div class="col-xl-5 col-lg-5">
+                <div class="student-wrapper mb-30">
+                   <div class="section-title mb-10">
+                      <h2>Wadihuda Institute of Research and Advanced Studies - (WIRAS)</h2>
+                   </div>
+                   <div class="sitdent-choose-content">
+                      <p>Founded in 2010, the Wadihuda Institute of Research and Advanced Studies (WIRAS) is affiliated to Kannur University and recognised by the Govt. of Kerala. It is a premier institute of the Ta'aleemul Islam Trust, a non-profit trust with the aim of providing quality education to the students of all sections of the society. The college offers undergraduate and postgraduate courses in various disciplines, including Arts, Science, Commerce and Management. The 11-acre campus in the vicinity of NH 66 provides a serene atmosphere conducive to academic, intellectual and physical pursuits.
+                      </p>
+                       <!--  <div class="section-title mb-10">
+                          <h4>MANAGEMENT</h4>
+                       </div>
+                       <p>Ta’aleemul Islam Trust,Kerala was established in 1980 with the noble aim of promoting quality education and extending social services. Since then it has been undertaking educational and social service activities in different spheres.The management strives towards disciplined growth of our students,to be leaders of tomorrow.</p> -->
+                   </div> 
+                   
+                </div>
+             </div>
+             <div class="col-xl-2 col-lg-2">
+                <div class="student-wrapper position-relative">
+                   <div class="shap-01">
+                   </div>
+                </div>
+             </div>
+             <div class="col-xl-5 col-lg-5">
+                <div class="student-choose-wrapper position-relative mb-30">
+                   <div class="shap-02">
+                   </div>
+                   <div class="shap-03">
+                      <img src="{% static 'assets/img/student-shape-03.png' %}" alt="image not found">
+                   </div>
+                   <div class="shap-04">
+                      <img src="{% static 'assets/img/student-shape-04.png' %}" alt="image not found">
+                   </div>
+                   <div class="shap-05">
+                      <img src="{% static 'assets/img/student-shape-05.png' %}" alt="image not found">
+                   </div>
+                   <div class="shap-06">
+                      <img src="{% static 'assets/img/student-shape-06.png' %}" alt="image not found">
+                   </div>
+                   <div class="shap-07">
+                      <img src="{% static 'assets/img/student-shape-07.png' %}" alt="image not found">
+                   </div>
+
+                   <div class="student-choose-thumb">
+                      <img src="{% static 'assets/img/student.png' %}" alt="image not found">
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+      
+      <div class="know-us-better-area pb-90">
+       <div class="container">
+          <div class="know-us-border pt-110">
+             <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-12">
+                   <div class="row">
+                      <div class="col-xl-6 col-lg-6">
+                         <div class="section-title mb-55">
+                            <h2>Know us <span class="down-mark-line-2">Better</span> Than<br>
+                               Other Education Platform </h2>
+                         </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 justify-content-end">
+                         <div class="know-us-tittle mb-55">
+                            <p>To become a centre of excellence that nurtures leaders to develop an ideal society.</p>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                   <div class="know-us-wrapper mb-30">
+                      <div class="know-us-better-thumb">
+                         <a href="{% url 'mission-vision' %}"><img src="{% static 'assets/img/gallery/gallary-06.jpg' %}" alt="know-us-img"></a>
+                      </div>
+                      <div class="know-us-text text-center">
+                         <a href="{% url 'mission-vision' %}">
+                            <h3>Our mission & vision</h3>
+                         </a>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                   <div class="know-us-wrapper mb-30">
+                      <div class="know-us-better-thumb">
+                         <a href="{% url 'digital-wing' %}"><img src="{% static 'assets/img/gallery/gallary-07.jpg' %}" alt="know-us-img"></a>
+                      </div>
+                      <div class="know-us-text text-center">
+                         <a href="{% url 'digital-wing' %}">
+                            <h3>Digital Wing</h3>
+                         </a>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                   <div class="know-us-wrapper mb-30">
+                      <div class="know-us-better-thumb">
+                         <a href="{% url 'collage-council' %}"><img src="{% static 'assets/img/gallery/gallary-08.jpg' %}" alt="know-us-img"></a>
+                      </div>
+                      <div class="know-us-text text-center">
+                         <a href="{% url 'collage-council' %}">
+                            <h3>College Council</h3>
+                         </a>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+      
+  </main>
+   {% include 'frontpage/footer.html' %}
+   {% endblock content %}

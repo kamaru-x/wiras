@@ -1,0 +1,64 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+   <main>
+      <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+       <div class="container">
+          <div class="row">
+             <div class="col-xl-12">
+                <div class="hero-course-1-text">
+                   <h2>College Rules</h2>
+                </div>
+                <div class="course-title-breadcrumb">
+                   <nav>
+                      <ol class="breadcrumb">
+                         <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                         <li class="breadcrumb-item"><span>College Rules</span></li>
+                      </ol>
+                   </nav>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+      
+      
+    <!-- Start Campus information Area -->
+    <section class="campus-information-area ptb-100">
+       <div class="container">
+          <div class="main-default-content">
+            <!--  <h3>Our College Rules</h3> -->
+             <p>1. Students are expected to attend all classes without fail. If, for unavoidable reasons, leave of absence is required, permission from competent authority should be sought.</p>
+
+             <p>2. All students should wear proper uniform.</p>
+             <p>3. The behavior of the students, both within and outside the college premises should be decent and befitting to a professional institution.</p>
+             <p>4. Students must park their vehicles only in the space allotted. They should not bring four-wheelers to the campus as they arrive for classes.</p>
+             <p>5. Students found guilty of ragging will be dismissed from the college as per the Supreme Court ruling.</p>
+             <p>6. Students are prohibited to bring or use mobile phones within the campus.</p>
+             <p>7. This, being an eco–friendly campus, plastic or other trash should not be thrown inside the college or in the premises.</p>
+             <p>8. Students shall keep themselves informed of the instructions issued to them from time to time orally or through notices/ circulars and emails.</p>
+             <p>9. Students are expected to contribute towards the academic/ social/environmental initiatives that the Institute may undertake.</p>
+             <p>10. Peer teaching and knowledge sharing among students should be the priority in accordance with the Albertian culture.</p>
+             <p>11. Participation in intercollegiate programmes, within the city or outside, is subject to permission of the Principal.</p>
+             <p>12. For outstation programmes including study tour, the students are required to obtain permission from the principal and a permission letter from their parents also to be brought.</p>
+             <p>13. Students are required to keep safe custody of their valuables. They should maintain decency and decorum during cultural events, be it inside the campus or outside.</p>
+             <p>14. Laptops/ Computers are to be used within the campus for academic purposes only.</p>
+             <p>15. Any unhealthy relationship between students that might affect their academic performance, breach their personal space or affect the reputation of the institution will be strictly dealt with.</p>
+             <p>16. The College campus is a no–smoking/ alcohol-free/drugs -free zone.</p>
+             <p>17. Every student should carry his/ her identity card and produce it on demand by the authorities.</p>
+             <p>18. Students are prohibited from organizing or attending meetings in the college, distributing notices, collecting money and exhibiting banners, flags, posters etc. without the permission of the Principal.</p>
+             <p>19. Political/ organizational activities are banned in the campus, save those official activities which are specifically permitted or sponsored by the college authorities.</p>
+             <p>20. All expressions or activities which are immoral, antisocial, communal and anti-national are strictly prohibited in the College campus.</p>
+             <p>21. The College Council shall be the final authority in the interpretation of the College rules. Matters not covered by these rules are left to the discretion of the Principal and his decision shall be final. </p>
+
+             <!-- <div class="gap-20"></div>
+             <img src="assets/images/campus-information-img.jpg" alt="Image">
+             <div class="gap-20"></div> -->
+          </div>
+       </div>
+    </section>
+    <!-- End Campus information Area -->   
+   </main>
+   {% endblock content %}
+   {% include 'frontpage/footer.html' %}

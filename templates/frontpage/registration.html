@@ -1,0 +1,91 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Registration</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>Registration</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        
+      <div class="signup-page-area pt-90 pb-70">
+            <div class="signup-page-area-wrapper">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10 col-lg-10">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="signup-box text-center">
+                                            <div class="signup-text">
+                                                <h3>Registration</h3>
+                                            </div>
+                                            <div class="signup-message">
+                                                <img src="{% static 'assets/img/sign-up-message.png' %}" alt="image not found">
+                                            </div>
+                                            <div class="signup-thumb">
+                                                <img src="{% static 'assets/img/sign-up.png' %}" alt="image not found">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="signup-form-wrapper">
+                                            <div class="signup-input-wrapper">
+                                                <input type="text" placeholder="First Name">
+                                                <input type="text" placeholder="Last Name">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <input type="text" placeholder="Email">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <input type="text" placeholder="Mobile">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <input type="text" placeholder="Batch">
+                                            </div>
+                                            <div class="signup-wrapper">
+                                                <textarea placeholder="Message"></textarea>
+                                            </div>
+                                            <div class="signup-action">
+                                                <div class="course-sidebar-list">
+                                                    <input class="signup-checkbo" type="checkbox" id="sing-up">
+                                                    <label class="sign-check" for="sing-up"><span>Accept the terms and
+                                                            <a href="#">Privacy
+                                                                Policy</a></span></label>
+                                                </div>
+                                            </div>
+                                            <div class="sing-buttom mb-20">
+                                                <button class="sing-btn">Register now</button>
+                                            </div>
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

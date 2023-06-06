@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'u_auth',
     'Core',
+    'FrontPage',
 ]
 
 MIDDLEWARE = [
@@ -146,4 +147,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/sign-in/'
+LOGIN_URL = 'sign-in'

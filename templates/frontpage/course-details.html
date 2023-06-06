@@ -1,0 +1,193 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+    {% block content %}
+    {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}" style="min-height: 350px">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2 style="font-size: 40px;">{{ course.Course_Title }}</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href=""><span>Courses</span></a></li>
+                           <li class="breadcrumb-item"><span>{{ course.Course_Title }}</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        <section class="course-detalis-area pb-0">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-xxl-8 col-xl-8">
+                        <div class="course-detalis-wrapper mb-30">
+                            
+                            
+                            <div class="course-description pb-30">
+                                <div class="course-Description">
+                                    <h4>OVERVIEW</h4>
+                                </div>
+                                <p>The ultimate goal of all initiatives is to provide a great opportunity and service to the the society ,thereby developing a great citizens who will help in the nations progress and prosperity.With the same determination the department of commerce was started in WIRAS in the year 2010  that is the same year in which the college started .At beginning B.com computer application and M.com was provided as courses , later on in 2020 B.com co-operation was indroduced.The commerece department is the largest department in the college with around 300 students in the all the years together</p>
+                                <p>Today ,education is not only about pasing the students in there academics and getting good grades but also developing skills among the students by which they can progress and dewvelop in there career.it is great pride that many of students are working in great positions in many reputed firms and also include successful businessman.</p>
+                                <div class="course-Description">
+                                    <h4>VISION</h4>
+                                </div>
+                                <p>To develop the develop the students ability to face the challenges of the present world and impart good morals to the life of the students</p>
+                                <div class="course-Description">
+                                    <h4>MISSION</h4>
+                                </div>
+                                <div class="course-leran-text">
+                                    <ul>
+                                        <li>To impart the basics of commerce ideas and concepts into students mind</li>
+                                        <li>To develop management and coordination skills to students </li>
+                                        <li>Impart skills like accounting and provide ideas about contemporary world of commerce</li>
+                                        <li>To mould students for higher studies and research in commerce</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="course-learn-wrapper">
+                                <div class="course-learn">
+                                    <div class="course-leranm-tittle">
+                                        <h4 class="mb-15">COURSES OFFERED</h4>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="course-leran-text f-left">
+                                                <h6 class="mb-15">UG COURSES</h6>
+                                                <ul>
+                                                    <li>B.Com(computer application)</li>
+                                                    <li>B.Com (co-operation)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="course-leran-text">
+                                                <h6 class="mb-15">PG COURSES</h6>
+                                                <ul>
+                                                    <li>M.Com (FINANCE)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-requirements pt-45">
+                                <h4>FACULTIES</h4>
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                       <div class="brand-wrapper text-center">
+                                          <div class="brand-wrapper text-center">
+                                             <div class="swiper-container brand-active-fa">
+                                                <!-- Additional required wrapper -->
+                                                <div class="swiper-wrapper">
+                                                   <!-- Slides -->
+                                                   <div class="swiper-slide">
+                                                      <div class="member-main-wrapper mb-30">
+                                                         <div class="member-body text-center">
+                                                            <div class="member-item">
+                                                               <div class="member-thumb">
+                                                                  <img src="{% static 'assets/img/fa1.png' %}" alt="member-img">
+                                                               </div>
+                                                               <div class="member-content">
+                                                                  <h4>Nicholson Ocak</h4>
+                                                                  <span>UI/UX Researcher </span>
+                                                               </div>
+                                                            </div>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="category-nav">
+                                                <div class="category-button-prev"><i class="far fa-long-arrow-left"></i></div>
+                                                <div class="category-button-next"><i class="far fa-long-arrow-right"></i></div>
+                                             </div>
+                                             </div>
+                                             
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>                  
+                              </div>
+                            <div class="course-requirements pt-45">
+                                <h4>FACILITIES </h4>
+                                <div class="course-requirements-text">
+                                    <ul>
+                                        <li>• We provide computer lab facility whgic could include 40 students at a time</li>
+                                        <li>• Department library for students</li>
+                                        <li>• ICT enabled classrooms for students</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="course-requirements pt-45">
+                                <h4>ACTIVITIES </h4>
+                                <div class="course-requirements-text">
+                                    <div class="sidebar__widget">
+                                        <div class="sidebar__widget-content">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                   <div class="rc__post-wrapper">
+                                                      <div class="rc__post d-flex align-items-center">
+                                                         <div class="rc__thumb mr-20">
+                                                            <a href="#"><img src="{% static 'assets/img/campus-img-1.png' %}" alt=""></a>
+                                                         </div>
+                                                         <div class="rc__content">
+                                                            <div class="rc__meta">
+                                                               <span>October 15, 2021</span>
+                                                            </div>
+                                                            <h6 class="rc__title"><a href="#">The Importance Intrinsic
+                                                                  Motivation.</a></h6>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>
+                            <div class="course-curriculum pt-40 pb-50">
+                                <div class="course-curriculam">
+                                    <h4>PLACEMENT AND HIGHER STUDY</h4>
+                                </div>
+                                <p>We provide full fledged placement support to students accordin to ther there skill and capabilities .MOUs have been signed with companies who agreed to provide intership opportunities to students after the completion of there course</p>
+                                <p>After completion of the course the students can opt the following courses</p>
+                                <ul>
+                                    <li>•	MCom</li>
+                                    <li>•	CHARTERED ACCOUNTANT</li>
+                                    <li>•	DIGITAL MARKETING </li>
+                                    <li>•	MBA</li>
+                                    <li>•	LOGISTIC MANAGNEMENT</li>
+                                    <li>•	SUPPLY CHAIN MANAGEMENT</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-4 col-lg-8 col-md-8">
+                        <div class="course-video-widget">
+                            <div class="course-widget-wrapper mb-30">
+                                <div class="row my_bnh">
+                                    <div class="col-xl-6 col-lg-4 col-md-4 gallery_view">
+                                        <div class="boxs-inner">
+                                            <a rel="lightbox-demo" href="{% static 'assets/img/gallery/img-01.jpg' %}" title="WIRAS Library">
+                                                <img class="img-responsive" src="{% static 'assets/img/gallery/img-01.jpg' %}" alt="WIRAS Library">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

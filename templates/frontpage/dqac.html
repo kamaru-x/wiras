@@ -1,0 +1,230 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>DQAC</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>DQAC</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+
+        <section class="teacher-area position-relative pt-100 fix">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xxl-4 col-xl-5 col-lg-5">
+                        <div class="teacher-img position-relative">
+                            <img class="teacher-main-img" src="{% static 'assets/img/dqac.png' %}" alt="image not found">
+                            <img class="teacher-shape" src="{% static 'assets/img/teacher-shape-01.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-02" src="{% static 'assets/img/quality1.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-03" src="{% static 'assets/img/teacher-shape-03.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-04" src="{% static 'assets/img/teacher-shape-04.png' %}"
+                                alt="image not found">
+                        </div>
+                    </div>
+                    <div class="col-xxl-5 col-xl-6 col-lg-6 main-default-content">
+                        <div class="teacher-content mr-20">
+                            <div class="section-title mb-30">
+                                <h2>Department level Quality Circle Activities</h2>
+                            </div>
+                            <p>
+                                <ul>
+                                    <li>Coordinate the following activities </li>
+                                    <li>Maintaining all the Quality related records such as semester plan, teaching plan, Internal evaluation records, records of research activities, students’ profile, Teacher’s profile, records of infrastructure facilities etc.</li>
+                                    <li> Department level activities</li>
+                                    <li> Conducting result analysis</li>
+                                    <li> Taking feedback from stakeholders</li>
+                                    <li> Conducting Academic Audit</li>
+                                    <li> Reports its activities to IQAC</li>
+                                    <li>To attain the vision of the institute through executing, channelizing the strategic plan</li>
+                                </ul>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+         <section class="teacher-area position-relative ptb-100 fix" style="background-color: #f0ffea;" >
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    
+                    <div class="col-xxl-5 col-xl-6 col-lg-6 main-default-content" >
+                        <div class="teacher-content mr-20">
+                            <div class="section-title mb-30">
+                                <h2>Quality Policies</h2>
+                                <h4>A. Remedial Teaching</h4>
+                            </div>
+                            <p>WIRAS offers committed support to prepare its students to meet their academic needs. The remedial practice aims at assuring the students with this support where the students are offered with remedial coaching by the teachers who is bestowed with the responsibility of guiding them. The guidelines have been developed as a means of refining standards and benchmarks for the teaching and learning processes of the institution to strengthen the pedagogy of student-centered learning. 
+                                <ul>
+                                    <li>Student Induction Program (SIP) must be conducted at the starting of every academic year by the Institution and at departmental level </li>
+                                    <li>Bridge courses are required to be conducted for all the students to tackle the gaps they experience in the new learning environment. </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+
+                     <div class="col-xxl-5 col-xl-6 col-lg-6 main-default-content">
+                        <div class="teacher-content mr-20">
+                                <ul>
+                                    <li>Each Faculty should identify the students' learning levels with the help of their entry level marks, Induction courses, Bridge courses, Internal exams, and mentoring activities. </li>
+                                    <li> Use Advisory books to keep the past and present academic performance.</li>
+                                    <li> A proper mentoring system is to be followed for continuous monitoring of the students’ learning levels. </li>
+                                    <li> One-on-one counselling should be offered to the students who are in serious need of further assistance in their academic learning. </li>
+                                    <li> Faculties are advised to adopt experiential, participatory and problem-solving methods for transmitting knowledge and skills. </li>
+                                    <li>Proper registers are to be maintained for all the programs provided to advanced and slow learners.</li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="teacher-area position-relative ptb-100 fix">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xxl-4 col-xl-5 col-lg-5">
+                        <div class="teacher-img position-relative">
+                            <img class="teacher-main-img" src="{% static 'assets/img/teach.png' %}" alt="image not found">
+                            <img class="teacher-shape" src="{% static 'assets/img/teacher-shape-01.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-02" src="{% static 'assets/img/remedy.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-03" src="{% static 'assets/img/teacher-shape-03.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-04" src="{% static 'assets/img/teacher-shape-04.png' %}"
+                                alt="image not found">
+                        </div>
+                    </div>
+                    <div class="col-xxl-5 col-xl-6 col-lg-6 main-default-content">
+                        <div class="teacher-content mr-20">
+                            <div class="section-title mb-30">
+                                <h4>Objectives of Remedial Coaching </h4>
+                            </div>
+                            <p>Remedial Coaching is to be organized at Undergraduate / Postgraduate level with a view to 
+
+                                <ul>
+                                    <li>Focuses on boosting students' confidence and self-esteem.</li>
+                                    <li>To help students improve their academic performance which involves identifying and addressing specific areas of weakness or gaps in knowledge, providing targeted instruction and support, and equipping students with the necessary skills and strategies. </li>
+                                    <li> Raising their level of comprehension of basic subjects to provide a stronger foundation for further academic work. </li>
+                                    <li> Strengthening their knowledge, skills and attitudes in such subjects, where quantitative and qualitative techniques and laboratory activities are involved.</li>
+                                   
+                                </ul>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section class="teacher-area position-relative ptb-100 fix">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+
+
+                     <div class="col-xxl-5 col-xl-6 col-lg-6 main-default-content" >
+                        <div class="teacher-content mr-20">
+                            <div class="section-title mb-30">
+                                <!-- <h2></h2> -->
+                                 <h4>B. Mentor-Mentee System</h4>
+                            </div>
+                            <p>WIRAS has setup a structured mentoring system between the faculties (mentors) and students (mentees) to achieve academic as well as intellectual goals. The students are equally distributed to the teaching faculty of the institute. The teacher concerned is expected to guide, advice, support and council the group of students either collectively or individually whenever and wherever necessary. Through this system, mentors are able to build a personal relationship with mentees that helps them to understand the aspirations, strengths, and weaknesses of the mentees.  
+                                <ul>
+                                    <li>To establish a good relationship with the students.</li>
+                                    <li> To provide the individual needs of the students.</li> 
+                                    <li> To make them confident in all perspective. </li>
+                                    <li>To provide guidance about higher education and career.</li> 
+                                    <li>To pay more attention to slow learners </li>
+                                    <li>To inspire and motivate the advanced learners towards innovation and creativity through active participation.</li>
+
+                                </ul>
+                            
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-5 col-lg-5">
+                        <div class="teacher-img position-relative">
+                            <img class="teacher-main-img" src="{% static 'assets/img/mentoring.png' %}" alt="image not found">
+                            <img class="teacher-shape" src="{% static 'assets/img/teacher-shape-01.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-02" src="{% static 'assets/img/mentor.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-03" src="{% static 'assets/img/teacher-shape-03.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-04" src="{% static 'assets/img/teacher-shape-04.png' %}"
+                                alt="image not found">
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+
+
+        <section class="teacher-area position-relative ptb-100 fix" style="background-color: #f0ffea;">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    
+                    <div class="col-xxl-5 col-xl-6 col-lg-6 main-default-content">
+                        <div class="teacher-content mr-20">
+                            <div class="section-title mb-30">
+                                <h2>Roles and Responsibilities: </h2>
+                                <h4>  Mentors</h4>
+                            </div>
+                              
+                                <ul>
+                                   <li>  Mentors share their knowledge, expertise, and personal experiences to help mentees learn and develop new skills and perspectives.</li>  
+                                    <li>  A mentor must meet with their group of students at least once in a month.</li>
+                                    <li>  A mentor should pay extra attention to slow learners in order to improve their academic performance and results.</li> 
+                                    <li>  The mentor must help students to understand their challenges & opportunities and ensure a smooth transition to academic and extra-curricular activities.</li> 
+                                    <li>  Mentors should assist their mentee in gaining self-esteem through supportive and non-judgmental discussions. </li>
+                                    <li>  Mentors help mentees set clear and achievable goals and assist them in creating action plans to reach those goals.</li>
+
+                                </ul>
+                            
+                        </div>
+                    </div>
+
+                     <div class="col-xxl-5 col-xl-6 col-lg-6 main-default-content">
+                        <div class="teacher-content mr-20"><br><br>
+                            <div class="section-title mb-30">
+                                <h4> Mentees </h4>
+                            </div>
+                                <ul>
+                                    <li>Every mentee is required to attend every mentoring session the provided by the mentors. </li> 
+                                    <li>  Mentees are expected to provide a brief progress update following the last mentoring session.</li>  
+                                    <li>  The student should share his/her ideas, concerns, and professional goals with the mentor so that the mentor can understand the situation from the student's perspective. </li> 
+                                    <li>Take initiative in seeking guidance, asking questions, and requesting support from your mentor.</li> 
+                                    <li>The mentee should pay attention to the guidance provided by the mentor and put his/her best efforts towards achieving the desired results.</li> 
+                                    <li>   Mentee should actively engage in the mentoring relationship, demonstrating a genuine interest in learning and growing.</li> 
+
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

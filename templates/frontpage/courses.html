@@ -1,0 +1,70 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+    {% include 'frontpage/header.html' %}
+    {% block content %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>UG Courses</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                           <li class="breadcrumb-item"><span>Courses</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        
+      <div class="academic-courses-area p-relative pt-100 pb-60 all_cou">
+            <img class="academic-shape-2" src="{% static 'assets/img/acadenic-shape-2.png' %}" alt="shape">
+            <div class="container">
+                <div class="row">
+                    {% for course in courses %}
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="academic-box position-relative mb-30">
+                            {% if course.Course_Image %}
+                            <div class="academic-thumb">
+                                <img src="{{ course.Course_Image.url }}" alt="image not found">
+                            </div>
+                            {% endif %}
+                            <div class="academic-content">
+                                <div class="academic-content-header">
+                                    <a href="{% url 'course-details' course.Course_Title %}">
+                                        <h3>{{ course.Course_Title }}</h3>
+                                    </a>
+                                </div>
+                                <div class="academic-body mb-0">
+                                    <p>Complementary :  <br>{{ course.Course_Complementary_Subject }}
+                                    </p>
+                                </div>
+                                <div class="course-2-footer">
+                                  <div class="coursee-clock">
+                                     <i class="flaticon-clock"></i><span>{{ course.Course_Duration }}</span>
+                                  </div>
+                                    <div class="course-creadit">
+                                     <i class="flaticon-menu-1"></i><span>{{ course.Course_Total_Seats }}</span>
+                                  </div>
+                               </div>
+                                <div class="academic-footer">
+                                    <a class="edo-course-sec-btn" {% if course.Course_Syllabus %} href="{{ course.Course_Syllabus.url }}" {% endif %}>Download Syllabus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

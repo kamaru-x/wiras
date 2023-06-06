@@ -1,0 +1,141 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>News & Events</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>News & Events</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        <div class="blog-area pt-90 pb-50">
+         <div class="container">
+            <div class="row">
+
+               <div class="col-xl-8 col-lg-12">
+                  <div class="blog-main-wrapper mb-0">
+                     <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12">
+                           <div class="blog-wrapper position-relative blog-details-wrapper mb-30">
+                              <div class="blog-thumb ">
+                                 <img src="{% static 'assets/img/blog-01.jpg' %}" alt="blog-img">
+                              </div>
+                              <div class="blog-tag">
+                                 <i class="fal fa-folder-open"></i>
+                                 <a href="#">Development</a>
+                              </div>
+                              <div class="blog-content-wrapper">
+                                 <div class="blog-meta">
+                                    <div class="blog-date">
+                                       <i class="flaticon-calendar"></i>
+                                       <span>23 Jan 2020</span>
+                                    </div>
+                                 </div>
+                                 <div class="blog-content">
+                                     <h4 class="mb-20">Typography is the powerful element you will ever need</h4>
+                                    <p>When it comes to designing better links and sending better emails, Slava
+                                       Shestopalov has a few tips on how to improve
+                                       your website’s experience while accessibility in mind. There are so many websites
+                                       out there that have not considered the overall
+                                       usability of their visually impaired users.
+                                       The participants will get
+                                       general ideas of the land management
+                                       system of business. Everyone must work, but for many of us that job isn’t just a
+                                       paycheck, it’s an opportunity to express ourselves and make
+                                       something better. Entrepreneurs and go-getters often feel as if they carry the
+                                       weight of an entire organization on their
+                                       backs, and therefore could always use a little extra motivation.</p>
+                                    
+                                    <p>Cheeky bugger cracking goal starkers lemon squeezy lost the plot pardon me no
+                                       biggie the BBC burke gosh boot so I
+                                       said wellies, zonked a load of old tosh bodge barmy skive off he legged it morish
+                                       spend a penny my good sir wind up
+                                       hunky-dory. Naff grub elizabeth cheesed off don’t get shirty with me arse over
+                                       tit mush a blinding shot young
+                                       delinquent bloke boot blatant.</p>
+                                    
+                                    
+                                 </div>
+                              </div>
+                              
+                           </div>
+                        </div>
+                     </div>
+
+                  </div>
+
+               </div>
+               <div class="col-xl-4 col-lg-8 col-md-8">
+                  <div class="sidebar-widget-wrapper">
+                     
+                     <div class="sidebar__widget mb-30">
+                        <div class="sidebar__widget-head mb-35">
+                           <h4 class="sidebar__widget-title">Recent posts</h4>
+                        </div>
+                        <div class="sidebar__widget-content">
+                           <div class="rc__post-wrapper">
+                              <div class="rc__post d-flex align-items-center">
+                                 <div class="rc__thumb mr-20">
+                                    <a href="{% url 'news-details' 'news' %}"><img src="{% static 'assets/img/blog-01.jpg' %}" alt=""></a>
+                                 </div>
+                                 <div class="rc__content">
+                                    <div class="rc__meta">
+                                       <span>October 15, 2021</span>
+                                    </div>
+                                    <h6 class="rc__title"><a href="{% url 'news-details' 'news' %}">The Importance Intrinsic
+                                          Motivation.</a></h6>
+                                 </div>
+                              </div>
+                              <div class="rc__post d-flex align-items-center">
+                                 <div class="rc__thumb mr-20">
+                                    <a href="{% url 'news-details' 'news' %}"><img src="{% static 'assets/img/blog-02.jpg' %}" alt=""></a>
+                                 </div>
+                                 <div class="rc__content">
+                                    <div class="rc__meta">
+                                       <span>March 26, 2021</span>
+                                    </div>
+                                    <h6 class="rc__title"><a href="{% url 'news-details' 'news' %}">A Better Alternative To Grading
+                                          Student.</a></h6>
+                                 </div>
+                              </div>
+                              <div class="rc__post d-flex align-items-center">
+                                 <div class="rc__thumb mr-20">
+                                    <a href="{% url 'news-details' 'news' %}"><img src="{% static 'assets/img/blog-03.jpg' %}" alt=""></a>
+                                 </div>
+                                 <div class="rc__content">
+                                    <div class="rc__meta">
+                                       <span>October 15, 2021</span>
+                                    </div>
+                                    <h6 class="rc__title"><a href="{% url 'news-details' 'news' %}">Strategic Social Media &amp;
+                                          Evolution of Visual</a>
+                                    </h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

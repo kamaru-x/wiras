@@ -1,0 +1,53 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Principal’s Message</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>Principal’s Message</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        <div class="student-choose-area fix pt-110 pb-90">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-6 col-lg-6 offset-md-1">
+                  <div class="student-wrapper mb-30">
+                     <div class="section-title mb-10">
+                        <h2>Principal’s Message </h2>
+                     </div>
+                     <div class="sitdent-choose-content">
+                        <p style="text-align:justify;">WIRAS with its admirable infrastructure and tranquil environment provides amusing avenues of learning, teaching and research which is crucial for creating effective educational experiences that empower students and teachers to actualise their full potential.
+                        Education comprises acquisition of knowledge and skills, inculcation of qualities and improving the employability of our young, the leaders of tomorrow. When a college becomes the first choice of a student or a teacher for learning, that ranks its rating over other centres of higher education. Being such a choice, WIRAS has come a long way in the mission of educational uplift of the society. The vigilance to mould generations of responsible citizens marks the identity of the college.
+                        From the least active student to the most studious or the best of the batch, the seeds of social spirits sown by WIRAS during their youthful teenage should continue to slogan in their lives ahead.
+                        </p>
+                  </div>
+               </div>
+            </div>
+              
+            <div class="col-xl-5 col-lg-5">
+                  <img src="{% static 'assets/img/principal1.png' %}" alt="image not found">
+            </div>
+            
+            </div>
+         </div>
+      </div>
+        
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

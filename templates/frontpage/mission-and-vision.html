@@ -1,0 +1,91 @@
+{% extends 'frontpage/base.html' %}
+{% load static %}
+   {% block content %}
+   {% include 'frontpage/header.html' %}
+    <main>
+        <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-12">
+                  <div class="hero-course-1-text">
+                     <h2>Mission & Vision</h2>
+                  </div>
+                  <div class="course-title-breadcrumb">
+                     <nav>
+                        <ol class="breadcrumb">
+                           <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                           <li class="breadcrumb-item"><span>Mission & Vision</span></li>
+                        </ol>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+        
+        
+      <section class="teacher-area position-relative pt-120 fix">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-xxl-4 col-xl-5 col-lg-5">
+                        <div class="teacher-img position-relative">
+                            <img class="teacher-main-img" src="{% static 'assets/img/teacher.png' %}" alt="image not found">
+                            <img class="teacher-shape" src="{% static 'assets/img/teacher-shape-01.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-02" src="{% static 'assets/img/teacher-shape-02.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-03" src="{% static 'assets/img/teacher-shape-03.png' %}"
+                                alt="image not found">
+                            <img class="teacher-shape-04" src="{% static 'assets/img/teacher-shape-04.png' %}"
+                                alt="image not found">
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-5 col-lg-5 main-default-content">
+                        <div class="teacher-content mr-20">
+                            <div class="section-title mb-30">
+                                <h2>Our Mission</h2>
+                            </div>
+                            <p>
+                                <ul>
+                                    <li>To focus on building a caring and inclusive culture through sensitizing the student populace.</li>
+                                    <li>To invest in inculcating human, social and ethical values by promoting reflective practices</li>
+                                    <li>To strive for a progressive, just and egalitarian social order by ensuring equal opportunity to all.</li>
+                                    <li>To encourage global perspectives on tolerance and understanding for the prevalence of universal brotherhood.</li>
+                                    <li>To manifest as a learning organization through continuous research and adoption of best practices.</li>
+                                </ul>
+                            </p>
+                            <!-- <p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="zoom-area pt-120 pb-60">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-4 col-xl-5 col-lg-5 order-lg-2">
+                        <div class="zoom-thumb position-relative">
+                            <img class="zoom-shape-01" src="{% static 'assets/img/zoom-shape-1.png' %}" alt="image not found">
+                            <!-- <img class="zoom-shape-02" src="assets/img/zoom-shape-2.png" alt="image not found"> -->
+                            <img class="zoom-thumb-main-img" src="{% static 'assets/img/vision.png' %}" alt="image not found">
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-xl-5 col-lg-5 order-lg-1">
+                        <div class="zoom-class-wrapper mb-60">
+                            <div class="section-title mb-30">
+                                <h2>Our Vision</h2>
+                            </div>
+                            <div class="zoon-class-text">
+                                <p>To be a centre of excellence nurturing leaders to develop an ideal society.</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    {% include 'frontpage/footer.html' %}
+    {% endblock content %}

@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 #------------------------------------------------- add post --------------------------------------------#
 
+@login_required
 def add_post(request):
     departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
@@ -28,6 +29,7 @@ def add_post(request):
 
 #------------------------------------------------- list post --------------------------------------------#
 
+@login_required
 def list_post(request):
     posts = Post.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
@@ -40,12 +42,14 @@ def list_post(request):
 
 #------------------------------------------------- View post --------------------------------------------#
 
+@login_required
 def view_post(request,post_id):
     post = Post.objects.get(id=post_id)
     return render(request,'admin/post-view.html',{'post':post})
 
 #------------------------------------------------- edit post --------------------------------------------#
 
+@login_required
 def edit_post(request,post_id):
     departments = Department.objects.filter(Status=1).order_by('-id')
     post = Post.objects.get(id=post_id)
@@ -77,6 +81,7 @@ def remove_post_img(request,post_id):
 
 #------------------------------------------------- create album ------------------------------------------#
 
+@login_required
 def create_album(request):
     departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
@@ -93,6 +98,7 @@ def create_album(request):
 
 #------------------------------------------------- list album --------------------------------------------#
 
+@login_required
 def list_albums(request):
     albums = []
     alb = Album.objects.filter(Status=1).order_by('-id')
@@ -122,6 +128,7 @@ def list_albums(request):
 
 #------------------------------------------------- view album --------------------------------------------#
 
+@login_required
 def view_album(request,album_id):
     album = Album.objects.get(id=album_id)
     images = Album_Image.objects.filter(Album=album)
@@ -129,6 +136,7 @@ def view_album(request,album_id):
 
 #------------------------------------------------- edit album --------------------------------------------#
 
+@login_required
 def edit_album(request,album_id):
     album = Album.objects.get(id=album_id)
     images = Album_Image.objects.filter(Album=album)
@@ -153,6 +161,7 @@ def edit_album(request,album_id):
 
 #------------------------------------------------- add image to album --------------------------------------------#
 
+@login_required
 def upload_image(request):
     albums = Album.objects.filter(Status=1)
     if request.method == 'POST':
@@ -168,6 +177,7 @@ def upload_image(request):
 
 #------------------------------------------------- add department --------------------------------------------#
 
+@login_required
 def add_department(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -190,6 +200,7 @@ def add_department(request):
 
 #------------------------------------------------- list departments --------------------------------------------#
 
+@login_required
 def list_departments(request):
     departments = Department.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
@@ -202,6 +213,7 @@ def list_departments(request):
 
 #------------------------------------------------- view departments --------------------------------------------#
 
+@login_required
 def view_department(request,department_id):
     department = Department.objects.get(id=department_id)
     faculties = Faculty.objects.filter(Faculty_Department=department)
@@ -210,6 +222,7 @@ def view_department(request,department_id):
 
 #------------------------------------------------- edit departments --------------------------------------------#
 
+@login_required
 def edit_department(request,department_id):
     department = Department.objects.get(id=department_id)
     if request.method == 'POST':
@@ -231,6 +244,7 @@ def edit_department(request,department_id):
 
 #------------------------------------------------- delete department logo --------------------------------------#
 
+@login_required
 def remove_department_img(request,department_id):
     department = Department.objects.get(id=department_id)
 
@@ -241,6 +255,7 @@ def remove_department_img(request,department_id):
 
 #------------------------------------------------- add course --------------------------------------#
 
+@login_required
 def add_cources(request):
     departments = Department.objects.filter(Status=1)
     if request.method == 'POST':
@@ -267,6 +282,7 @@ def add_cources(request):
 
 #------------------------------------------------- list course --------------------------------------#
 
+@login_required
 def list_course(request):
     courses = Course.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
@@ -279,12 +295,14 @@ def list_course(request):
 
 #------------------------------------------------- view course --------------------------------------#
 
+@login_required
 def view_cource(request,course_id):
     course = Course.objects.get(id=course_id)
     return render(request,'admin/course-view.html',{'course':course})
 
 #------------------------------------------------- edit course --------------------------------------#
 
+@login_required
 def edit_course(request,course_id):
     course = Course.objects.get(id=course_id)
     if request.method == 'POST':
@@ -312,6 +330,7 @@ def edit_course(request,course_id):
 
 #------------------------------------------------- remove course image ------------------------------#
 
+@login_required
 def remove_course_image(request,course_id):
     course = Course.objects.get(id=course_id)
 
@@ -322,6 +341,7 @@ def remove_course_image(request,course_id):
 
 #------------------------------------------------- add faculty --------------------------------------#
 
+@login_required
 def add_faculty(request):
     departments = Department.objects.filter(Status=1)
     if request.method == 'POST':
@@ -340,6 +360,7 @@ def add_faculty(request):
 
 #------------------------------------------------- list faculty --------------------------------------#
 
+@login_required
 def list_faculties(request):
     faculties = Faculty.objects.filter(Status=1).order_by('-id')
     if request.method == 'POST':
@@ -352,12 +373,14 @@ def list_faculties(request):
 
 #------------------------------------------------- view faculty --------------------------------------#
 
+@login_required
 def view_faculty(request,faculty_id):
     faculty = Faculty.objects.get(id=faculty_id)
     return render(request,'admin/faculty-view.html',{'faculty':faculty})
 
 #------------------------------------------------- edit faculty --------------------------------------#
 
+@login_required
 def edit_faculties(request,faculty_id):
     faculty = Faculty.objects.get(id=faculty_id)
     departments = Department.objects.filter(Status=1)
@@ -377,6 +400,7 @@ def edit_faculties(request,faculty_id):
 
 #------------------------------------------------- edit faculty --------------------------------------#
 
+@login_required
 def remove_faculty_image(request,faculty_id):
     faculty = Faculty.objects.get(id=faculty_id)
     faculty.Faculty_Image.delete(save=True)
@@ -385,5 +409,6 @@ def remove_faculty_image(request,faculty_id):
 
 #------------------------------------------------- edit faculty --------------------------------------#
 
+@login_required
 def admission_enquiries(request):
     return render(request,'admin/admission-enquiries.html')
