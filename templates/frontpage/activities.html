@@ -35,7 +35,7 @@
                         <div class="col-xl-4 col-lg-6 col-md-12">
                            <div class="blog-wrapper position-relative mb-30">
                               <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' 'activity.id' %}"><img src="{{ activity.Post_Image.url }}" alt="blog-img"></a>
+                                 <a href="{% url 'news-details' activity.id %}"><img src="{{ activity.Post_Image.url }}" alt="blog-img"></a>
                               </div>
                               <a href="{% url 'news' %}" class="blog-tag">
                                  <i class="fal fa-folder-open"></i>
