@@ -43,6 +43,7 @@ urlpatterns = [
     path('music-club/',views.music_club,name='music-club'),
     path('nature-club/',views.nature_club,name='nature-club'),
     path('news/',views.news,name='news'),
+    path('news/<str:page>/',views.news2,name='news2'),
     path('news_details/<str:news_url>/',views.news_details,name='news-details'),
     path('nss/',views.nss,name='nss'),
     path('office-bearers/',views.office_bearers,name='office-bearers'),

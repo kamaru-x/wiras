@@ -281,6 +281,14 @@ def news(request):
     nums = 'a' * news.paginator.num_pages
     return render(request,'frontpage/news.html',{'news':news,'nums':nums})
 
+def news2(request,page):
+    # news = Post.objects.filter(Status=1)
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='News & Events',Post_Category='Alumni'),9)
+    page = request.GET.get('page')
+    news = p.get_page(page)
+    nums = 'a' * news.paginator.num_pages
+    return render(request,'frontpage/news.html',{'news':news,'nums':nums})
+
 #---------------------------------------- NEWS DETAILS ---------------------------------------------#
 
 def news_details(request,news_url):
@@ -371,7 +379,7 @@ def update_soon(request):
 #------------------------------------------ WOMEN CELL ------------------------------------------#
 
 def women_cell(request):
-    return render(request,'frontpage/women_cell.html')
+    return render(request,'frontpage/womens-cell.html')
 
 #------------------------------------------ YOGA CLUB ------------------------------------------#
 
