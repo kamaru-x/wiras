@@ -32,18 +32,27 @@
                             
                             
                             <div class="course-description pb-30">
-                                <div class="course-Description">
-                                    <h4>OVERVIEW</h4>
-                                </div>
-                                <p>{{ department.Department_Description | safe }}</p>
-                                <div class="course-Description">
-                                    <h4>VISION</h4>
-                                </div>
-                                <p>{{ department.Department_Vission | safe }}</p>
-                                <div class="course-Description">
-                                    <h4>MISSION</h4>
-                                </div>
-                                <p>{{ department.Department_Vission | safe }}</p>
+
+                                {% if department.Department_Description %}
+                                    <div class="course-Description">
+                                        <h4>OVERVIEW</h4>
+                                    </div>
+                                    <p>{{ department.Department_Description | safe }}</p>
+                                {% endif %}
+
+                                {% if department.Department_Vission %}
+                                    <div class="course-Description">
+                                        <h4>VISION</h4>
+                                    </div>
+                                    <p>{{ department.Department_Vission | safe }}</p>
+                                {% endif %}
+
+                                {% if department.Department_Mission %}
+                                    <div class="course-Description">
+                                        <h4>MISSION</h4>
+                                    </div>
+                                    <p>{{ department.Department_Mission | safe }}</p>
+                                {% endif %}
                             </div>
                             <div class="course-learn-wrapper">
                                 <div class="course-learn">
@@ -119,6 +128,8 @@
                                  </div>                  
                               </div>
                             {% endif %}
+
+                            {% if department.Department_Fecilities %}
                             <div class="course-requirements pt-45">
                                 <h4>FACILITIES </h4>
                                 <div class="course-requirements-text">
@@ -127,6 +138,8 @@
                                     </ul>
                                 </div>
                             </div>
+                            {% endif %}
+                            
                             {% if activities %}
                             <div class="course-requirements pt-45">
                                 <h4>ACTIVITIES </h4>
