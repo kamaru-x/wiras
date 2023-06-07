@@ -30,7 +30,7 @@
             <div class="row">
                 {% for album in albums %}
                 <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
-                    <a href="{% url 'view-gallery' album.id %}">
+                    <a href="{% url 'view-gallery' album.Seo_Url %}">
                         {% if album.Cover_Image %}
                             <img src="{{ album.Cover_Image.url }}" alt="">
                         {% else %}

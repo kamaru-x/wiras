@@ -35,11 +35,11 @@
                            <div class="blog-wrapper position-relative mb-30">
                               {% if achivement.Post_Image %}
                                  <div class="blog-thumb ">
-                                    <a href="{% url 'news-details' 'achivement.id' %}"><img src="{{ achivement.Post_Image.url }}" alt="blog-img"></a>
+                                    <a href="{% url 'news-details' 'achivement.Seo_Url' %}"><img src="{{ achivement.Post_Image.url }}" alt="blog-img"></a>
                                  </div>
                               {% else %}
                                  <div class="blog-thumb ">
-                                    <a href="{% url 'news-details' 'achivement.id' %}"><img src="{% static 'assets/img/noimage.jpg' %}" alt="blog-img"></a>
+                                    <a href="{% url 'news-details' 'achivement.Seo_Url' %}"><img src="{% static 'assets/img/noimage.jpg' %}" alt="blog-img"></a>
                                  </div>
                               {% endif %}
                               <a href="{% url 'news' %}" class="blog-tag">
@@ -54,11 +54,11 @@
                                     </div>
                                  </div>
                                  <div class="blog-content">
-                                    <a href="{% url 'news-details' achivement.id %}">
+                                    <a href="{% url 'news-details' achivement.Seo_Url %}">
                                        <h3>{{ achivement.Post_Title }}</h3>
                                     </a>
                                     <p>{{ achivement.Post_Description | safe }}</p>
-                                    <a class="blog-btn" href="{% url 'news-details' achivement.id %}">Read more</a>
+                                    <a class="blog-btn" href="{% url 'news-details' achivement.Seo_Url %}">Read more</a>
                                  </div>
                               </div>
                            </div>

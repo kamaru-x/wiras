@@ -134,8 +134,8 @@ def courses(request,type):
 
 #----------------------------------------- COURSE DETAILS -----------------------------------------#
 
-def department_view(request,dep):
-    department = Department.objects.get(id = dep)
+def department_view(request,dep_url):
+    department = Department.objects.get(Seo_Url = dep_url)
     posts = Post.objects.filter(Post_Category=department.Department_Title,Status=1)
     activities = Post.objects.filter(Post_Category=department.Department_Title,Status=1,Post_Type='Activities')
     images = Album_Image.objects.filter(Album__Album_Category=department.Department_Title,Status=1)
@@ -207,8 +207,8 @@ def gallery2(request,page):
 
 #---------------------------------------- VIEW GALLERY -------------------------------------------#
 
-def view_gallery(request,album):
-    images = Album_Image.objects.filter(Album=album)
+def view_gallery(request,album_url):
+    images = Album_Image.objects.filter(Album__Seo_Url=album_url)
     return render(request,'frontpage/view-gallery.html',{'images':images})
 
 #--------------------------------------- GOVERNING BODY ------------------------------------------#
@@ -283,8 +283,8 @@ def news(request):
 
 #---------------------------------------- NEWS DETAILS ---------------------------------------------#
 
-def news_details(request,news):
-    news = Post.objects.get(id=news)
+def news_details(request,news_url):
+    news = Post.objects.get(Seo_Url=news_url)
     latest_news = Post.objects.filter(Status=1).order_by('-id')[:3]
     return render(request,'frontpage/news-details.html',{'news':news,'latest_news':latest_news})
 

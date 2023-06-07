@@ -575,7 +575,7 @@
                                         <span><i class="fal fa-clock"></i>12:30 AM</span>
                                         <span><i class="flaticon-place"></i>Zeoyan Stadium, London</span>
                                     </div>
-                                    <a href="#" class="event-arrow">
+                                    <a href="{% url 'news-details' event.Seo_Url %}" class="event-arrow">
                                         <i class="fal fa-arrow-right"></i>
                                     </a>
                                 </div>
@@ -647,7 +647,7 @@
                         <div class="blog-wrapper position-relative mb-30">
                             <div class="blog-thumb ">
                                 {% if n.Post_Image %}
-                                    <a href="{% url 'news-details' n.id %}"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
+                                    <a href="{% url 'news-details' n.Seo_Url %}"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
                                 {% else %}
                                     <a href=""><img src="{% static 'assets/img/noimage.jpg' %}" alt=""></a>
                                 {% endif %}
@@ -664,10 +664,10 @@
                                     </div>
                                 </div>
                                 <div class="blog-content">
-                                    <a href="{% url 'news-details' n.id %}">
+                                    <a href="{% url 'news-details' n.Seo_Url %}">
                                         <h3>{{ n.Post_Title }}</h3>
                                     </a>
-                                    <a class="blog-btn" href="{% url 'news-details' n.id %}">Read more</a>
+                                    <a class="blog-btn" href="{% url 'news-details' n.Seo_Url %}">Read more</a>
                                 </div>
                             </div>
                         </div>

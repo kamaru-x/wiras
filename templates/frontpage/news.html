@@ -34,7 +34,7 @@
                         <div class="col-xl-4 col-lg-6 col-md-12">
                            <div class="blog-wrapper position-relative mb-30">
                               <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' n.id %}"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
+                                 <a href="{% url 'news-details' n.Seo_Url %}"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
                               </div>
                               <a href="{% url 'news' %}" class="blog-tag">
                                  <i class="fal fa-folder-open"></i>
@@ -48,11 +48,11 @@
                                     </div>
                                  </div>
                                  <div class="blog-content">
-                                    <a href="{% url 'news-details' n.id %}">
+                                    <a href="{% url 'news-details' n.Seo_Url %}">
                                        <h3>{{ n.Post_Title }}</h3>
                                     </a>
                                     <p>{{ n.Post_Description | safe }}</p>
-                                    <a class="blog-btn" href="{% url 'news-details' n.id %}">Read more</a>
+                                    <a class="blog-btn" href="{% url 'news-details' n.Seo_Url %}">Read more</a>
                                  </div>
                               </div>
                            </div>

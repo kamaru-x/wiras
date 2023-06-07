@@ -23,8 +23,13 @@ def add_post(request):
         seo_keywords = request.POST.get('seo_keyword')
         seo_description = request.POST.get('seo_description')
 
-        Post.objects.create(AddedBy=request.user,Ip=setip(request),Post_Type=type,Post_Category=category,Post_Title=title,Post_Description=description,Post_Image=image,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
-        return redirect('list-post')
+        try:
+            Post.objects.get(Seo_Url=seo_url)
+            messages.error(request,'post with same url already exists')
+            return redirect('.')
+        except:
+            Post.objects.create(AddedBy=request.user,Ip=setip(request),Post_Type=type,Post_Category=category,Post_Title=title,Post_Description=description,Post_Image=image,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
+            return redirect('list-post')
 
     return render(request,'admin/post-add.html',{'departments':departments})
 
@@ -97,9 +102,16 @@ def create_album(request):
         seo_title = request.POST.get('seo_title')
         seo_keywords = request.POST.get('seo_keywords')
         seo_description = request.POST.get('seo_description')
-        Album.objects.create(AddedBy=request.user,Ip=setip(request),Album_Category=category,Album_Title=title,Cover_Image=cover,
-                             Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
-        return redirect ('list-albums')
+        
+        try:
+            Album.objects.get(Seo_Url=seo_url)
+            messages.error(request,'album with same name already exists')
+            return redirect('.')
+        except:
+            Album.objects.create(AddedBy=request.user,Ip=setip(request),Album_Category=category,Album_Title=title,Cover_Image=cover,
+                                Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
+            return redirect ('list-albums')
+        
     return render(request,'admin/album-create.html',{'departments':departments})
 
 #------------------------------------------------- list album --------------------------------------------#
@@ -199,11 +211,17 @@ def add_department(request):
         seo_title = request.POST.get('seo_title')
         seo_keywords = request.POST.get('seo_keywords')
         seo_description = request.POST.get('seo_description')
-        Department.objects.create(AddedBy=request.user,Ip=setip(request),Department_Title=title,Department_Vission=vision,Department_Mission=mission,
-                                  Department_Logo=logo,Department_Fecilities=facilities,Department_Placement=placement,
-                                  Department_Description=description,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,
-                                  Seo_Description=seo_description)
-        return redirect('list-departments')
+
+        try:
+            Department.objects.get(Seo_Url=seo_url)
+            messages.error(request,'department with same name already exists')
+            return redirect ('.')
+        except:
+            Department.objects.create(AddedBy=request.user,Ip=setip(request),Department_Title=title,Department_Vission=vision,Department_Mission=mission,
+                                    Department_Logo=logo,Department_Fecilities=facilities,Department_Placement=placement,
+                                    Department_Description=description,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,
+                                    Seo_Description=seo_description)
+            return redirect('list-departments')
     return render(request,'admin/department-add.html')
 
 #------------------------------------------------- list departments --------------------------------------------#
@@ -285,11 +303,17 @@ def add_cources(request):
         seo_title = request.POST.get('seo_title')
         seo_keywords = request.POST.get('seo_keywords')
         seo_description = request.POST.get('seo_description')
-        Course.objects.create(AddedBy=request.user,Ip=setip(request),Course_Type=type,Course_Department=department,
-                              Course_Title=title,Course_Subject=subject,Course_Complementary_Subject=complimentary,
-                              Course_Duration=duration,Course_Total_Seats=seats,Course_Syllabus=syllabus,
-                              Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description,Course_Image=image)
-        return redirect('list-course')
+
+        try:
+            Course.objects.get(Seo_Url=seo_url)
+            messages.error(request,'course with same name already exists')
+            return redirect('.')
+        except:
+            Course.objects.create(AddedBy=request.user,Ip=setip(request),Course_Type=type,Course_Department=department,
+                                Course_Title=title,Course_Subject=subject,Course_Complementary_Subject=complimentary,
+                                Course_Duration=duration,Course_Total_Seats=seats,Course_Syllabus=syllabus,
+                                Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description,Course_Image=image)
+            return redirect('list-course')
     return render(request,'admin/cources-add.html',{'departments':departments})
 
 #------------------------------------------------- list course --------------------------------------#

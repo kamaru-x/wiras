@@ -186,7 +186,7 @@
                                                   <li class="menu-item-has-children"><a href="#">Departments</a>
                                                         <ul class="sub-menu">
                                                             {% for department in departments %}
-                                                                <li><a href="{% url 'department-view' department.id %}">{{ department.Department_Title }}</a></li>
+                                                                <li><a href="{% url 'department-view' department.Seo_Url %}">{{ department.Department_Title }}</a></li>
                                                             {% endfor %}
                                                         </ul>
                                                   </li>

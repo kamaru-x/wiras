@@ -162,7 +162,7 @@
                                                             <div class="rc__meta">
                                                                <span>{{ post.Added_Date }}</span>
                                                             </div>
-                                                            <h6 class="rc__title"><a href="#">{{ post.Post_Title }}</a></h6>
+                                                            <h6 class="rc__title"><a href="{% url 'news-details' post.Seo_Url %}">{{ post.Post_Title }}</a></h6>
                                                          </div>
                                                       </div>
                                                    </div>

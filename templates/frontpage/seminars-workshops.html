@@ -36,11 +36,11 @@
                            <div class="blog-wrapper position-relative mb-30">
                               {% if seminar.Post_Image %}
                               <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' 'seminar.id' %}"><img src="{{ seminar.Post_Image.url }}" alt="blog-img"></a>
+                                 <a href="{% url 'news-details' 'seminar.Seo_Url' %}"><img src="{{ seminar.Post_Image.url }}" alt="blog-img"></a>
                               </div>
                               {% else %}
                               <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' 'seminar.id' %}"><img src="{% static 'assets/img/noimage.jpg' %}" alt="blog-img"></a>
+                                 <a href="{% url 'news-details' 'seminar.Seo_Url' %}"><img src="{% static 'assets/img/noimage.jpg' %}" alt="blog-img"></a>
                               </div>
                               {% endif %}
                               <a href="{% url 'news' %}" class="blog-tag">
@@ -55,11 +55,11 @@
                                     </div>
                                  </div>
                                  <div class="blog-content">
-                                    <a href="{% url 'news-details' seminar.id %}">
+                                    <a href="{% url 'news-details' seminar.Seo_Url %}">
                                        <h3>{{ seminar.Post_Title }}</h3>
                                     </a>
                                     <p>{{ seminar.Post_Description | safe }}</p>
-                                    <a class="blog-btn" href="{% url 'news-details' seminar.id %}">Read more</a>
+                                    <a class="blog-btn" href="{% url 'news-details' seminar.Seo_Url %}">Read more</a>
                                  </div>
                               </div>
                            </div>
