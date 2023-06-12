@@ -43,8 +43,18 @@ urlpatterns = [
     path('edit-faculty/<int:faculty_id>/',views.edit_faculties,name='edit-faculty'),
     path('delete-faculty-image/<int:faculty_id>/',views.remove_faculty_image,name='remove-faculty-image'),
 
-    #------------------------------- faculty urls ---------------------------------#
+    #------------------------------- registration urls ---------------------------------#
 
     path('enquiries/',views.enquiries,name='enquiries'),
     path('complaints/',views.complaints,name='complaints-list'),
+
+    #------------------------------- exams urls ----------------------------------------#
+
+    path('list-exam-schedules/',views.exam_schedule_list,name='list-exam-schedules'),
+    path('add-exam-schedules/',views.exam_schedule_add,name='add-exam-schedules'),
+    path('edit-exam-schedules/<str:schedule_id>',views.exam_schedule_edit,name='edit-exam-schedules'),
+
+    path('list-exam-results/',views.exam_result_list,name='list-exam-results'),
+    path('add-exam-results/',views.exam_result_add,name='add-exam-results'),
+    path('edit-exam-results/<str:result_id>/',views.exam_result_edit,name='edit-exam-results'),
 ]

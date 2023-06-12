@@ -344,7 +344,7 @@
         <!-- academic-courses-area-end -->
 
         <!--counter-area-start -->
-        <div class="counter-area pt-75 pb-30" data-background="{% static 'assets/img/university-counter.png' %}">
+        <div class="counter-area pt-50 pb-10" data-background="{% static 'assets/img/university-counter.png' %}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
@@ -571,7 +571,7 @@
                                 </div>
                                 <div class="event-tour">
                                     <div class="event-box-text">
-                                        <h3><a href="#">{{ event.Post_Title }}</a></h3>
+                                        <h3><a href="{% url 'news-details' event.Seo_Url %}">{{ event.Post_Title }}</a></h3>
                                         <span><i class="fal fa-clock"></i>12:30 AM</span>
                                         <span><i class="flaticon-place"></i>Zeoyan Stadium, London</span>
                                     </div>

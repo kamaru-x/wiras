@@ -455,73 +455,53 @@
                 </li>
 
 
-                <!-- <li>
+                <li>
                     <a href="javascript:;" class="top-menu">
                         <div class="top-menu__icon"> <i data-lucide="book-open"></i> </div>
-                        <div class="top-menu__title"> Tasks</div>
+                        <div class="top-menu__title">Exams</div>
                     </a>
                     <ul class="">
                         <li>
-                            <a href="" class="top-menu">
-                                <div class="top-menu__icon"> <i data-lucide="file-minus"></i> </div>
-                                <div class="top-menu__title"> Pending Tasks </div>
+                            <a href="{% url 'list-exam-schedules' %}" class="top-menu">
+                                <div class="top-menu__icon"> <i data-lucide="book-open"></i> </div>
+                                <div class="top-menu__title"> Exam Schedules </div>
                             </a>
                         </li>
                         <li>
-                            <a href="" class="top-menu">
-                                <div class="top-menu__icon"> <i data-lucide="file-plus"></i> </div>
-                                <div class="top-menu__title"> Completed Tasks </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="top-menu">
-                                <div class="top-menu__icon"> <i data-lucide="users"></i> </div>
-                                <div class="top-menu__title"> Staff Wise List </div>
+                            <a href="{% url 'list-exam-results' %}" class="top-menu">
+                                <div class="top-menu__icon"> <i data-lucide="book-open"></i> </div>
+                                <div class="top-menu__title"> Exam Results </div>
                             </a>
                         </li>
                     </ul>
-                </li> -->
-
-
-                <!-- <li>
-                    <a href="javascript:;" class="top-menu">
-                        <div class="top-menu__icon"> <i data-lucide="message-circle"></i> </div>
-                        <div class="top-menu__title"> Meetings</div>
-                    </a>
-                    <ul class="">
-                        <li>
-                            <a href="" class="top-menu">
-                                <div class="top-menu__icon"> <i data-lucide="skip-forward"></i> </div>
-                                <div class="top-menu__title"> Upcoming Meetings </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="top-menu">
-                                <div class="top-menu__icon"> <i data-lucide="skip-back"></i> </div>
-                                <div class="top-menu__title"> Previous Meetings </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" class="top-menu">
-                                <div class="top-menu__icon"> <i data-lucide="users"></i> </div>
-                                <div class="top-menu__title"> Staff Wise List </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
-
-                 <li>
-                    <a href="{% url 'enquiries' %}" class="top-menu">
-                        <div class="top-menu__icon"> <i data-lucide="file-text"></i> </div>
-                        <div class="top-menu__title">Enquiries</div>
-                    </a>
                 </li>
 
+
                 <li>
-                    <a href="{% url 'complaints-list' %}" class="top-menu">
+                    <a href="javascript:;" class="top-menu">
                         <div class="top-menu__icon"> <i data-lucide="file-text"></i> </div>
-                        <div class="top-menu__title">Complaints</div>
+                        <div class="top-menu__title">Registrations</div>
                     </a>
+                    <ul class="">
+                        <li>
+                            <a href="{% url 'enquiries' %}" class="top-menu">
+                                <div class="top-menu__icon"> <i data-lucide="file-text"></i> </div>
+                                <div class="top-menu__title">Enquiries</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'complaints-list' %}" class="top-menu">
+                                <div class="top-menu__icon"> <i data-lucide="file-text"></i> </div>
+                                <div class="top-menu__title">Complaints</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="top-menu">
+                                <div class="top-menu__icon"> <i data-lucide="file-text"></i> </div>
+                                <div class="top-menu__title">News Latter</div>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li>

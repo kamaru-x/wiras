@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry,Complaints,Contact_message
+from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry,Complaints,Contact_message,Exam_Results,Exam_Schedules
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -178,12 +178,14 @@ def ethic_committee(request):
 #----------------------------------------- EXAM RESULTS ---------------------------------------#
 
 def exam_results(request):
-    return render(request,'frontpage/exam-result.html')
+    results = Exam_Results.objects.filter(Status=1)
+    return render(request,'frontpage/exam-result.html',{'results':results})
 
 #----------------------------------------- EXAM SCHEDULE ---------------------------------------#
 
 def exam_schedule(request):
-    return render(request,'frontpage/exam-schedule.html')
+    schedules = Exam_Schedules.objects.filter(Status=1)
+    return render(request,'frontpage/exam-schedule.html',{'schedules':schedules})
 
 #------------------------------------------ FILM CLUB -----------------------------------------#
 

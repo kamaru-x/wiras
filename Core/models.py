@@ -180,3 +180,21 @@ class Complaints(models.Model):
 
     def __str__(self):
         return self.First_Name
+    
+class Exam_Schedules(models.Model):
+    Date = models.DateField(auto_now_add=True)
+    Status = models.IntegerField(default=1)
+    Title = models.CharField(max_length=100)
+    Schedule = models.FileField(upload_to='exam_schedules')
+    
+    def __str__(self):
+        return self.Title
+    
+class Exam_Results(models.Model):
+    Date = models.DateField(auto_now_add=True)
+    Status = models.IntegerField(default=1)
+    Title = models.CharField(max_length=100)
+    Result = models.FileField(upload_to='exam_result')
+    
+    def __str__(self):
+        return self.Title

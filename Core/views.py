@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from Core.models import Post,Album,Album_Image,Department,Course,Faculty,Enquiry,Contact_message,Complaints
+from Core.models import Post,Album,Album_Image,Department,Course,Faculty,Enquiry,Contact_message,Complaints,Exam_Schedules,Exam_Results
 from Core.pre_fun import setip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -166,7 +166,7 @@ def edit_album(request,album_id):
             image_id = request.POST.get('image_id')
             image = Album_Image.objects.get(id=image_id)
             image.delete()
-            return redirect('/edit-album/%s/' %album.id)
+            return redirect('/admin/edit-album/%s/' %album.id)
         else:
             album.Album_Title = request.POST.get('title')
             album.Album_Category = request.POST.get('category')
@@ -470,3 +470,79 @@ def enquiries(request):
 def complaints(request):
     complaints = Complaints.objects.all()
     return render(request,'admin/complaints.html',{'complaints':complaints})
+
+#------------------------------------------------- exam schedule list --------------------------------------#
+
+@login_required
+def exam_schedule_list(request):
+    schedules = Exam_Schedules.objects.filter(Status=1)
+    if request.method == 'POST':
+        schedule_id = request.POST.get('schedule_id')
+        schedule = Exam_Schedules.objects.get(id=schedule_id)
+        schedule.Status = 0
+        schedule.save()
+        return redirect('.')
+    return render(request,'admin/exam-schedule-list.html',{'schedules':schedules})
+
+#------------------------------------------------- exam schedule add --------------------------------------#
+
+@login_required
+def exam_schedule_add(request):
+    if request.method == 'POST':
+        tite = request.POST.get('title')
+        schedule = request.FILES.get('schedule')
+        Exam_Schedules.objects.create(Title=tite,Schedule=schedule)
+        return redirect('list-exam-schedules')
+
+    return render(request,'admin/exam-schedule-add.html')
+
+#------------------------------------------------- exam schedule edit --------------------------------------#
+
+@login_required
+def exam_schedule_edit(request,schedule_id):
+    schedule = Exam_Schedules.objects.get(id=schedule_id)
+    if request.method == 'POST':
+        schedule.Title = request.POST.get('title')
+        if len(request.FILES) != 0:
+            schedule.Schedule = request.FILES['schedule']
+        schedule.save()
+        return redirect('list-exam-schedules')
+
+    return render(request,'admin/exam-schedule-edit.html',{'schedule':schedule})
+
+#------------------------------------------------- exam results list --------------------------------------#
+
+@login_required
+def exam_result_list(request):
+    results = Exam_Results.objects.filter(Status=1)
+    if request.method == 'POST':
+        result_id = request.POST.get('result_id')
+        result = Exam_Results.objects.get(id=result_id)
+        result.Status = 0
+        result.save()
+        return redirect('.')
+    return render(request,'admin/exam-results-list.html',{'results':results})
+
+#------------------------------------------------- exam results add --------------------------------------#
+
+@login_required
+def exam_result_add(request):
+    if request.method == 'POST':
+        tite = request.POST.get('title')
+        result = request.FILES.get('result')
+        Exam_Results.objects.create(Title=tite,Result=result)
+        return redirect('list-exam-results')
+    return render(request,'admin/exam-results-add.html')
+
+#------------------------------------------------- exam results edit --------------------------------------#
+
+@login_required
+def exam_result_edit(request,result_id):
+    result = Exam_Results.objects.get(id=result_id)
+    if request.method == 'POST':
+        result.Title = request.POST.get('title')
+        if len(request.FILES) != 0:
+            result.Result = request.FILES['result']
+        result.save()
+        return redirect('list-exam-results')
+    return render(request,'admin/exam-results-edit.html',{'result':result})
