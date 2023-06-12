@@ -80,7 +80,7 @@
                                     <a class="flex items-center text-primary whitespace-nowrap mr-5" href="{% url 'edit-album' album.id %}" title="Edit">
                                         <i data-lucide="edit" class="w-4 h-4 mr-1"></i> 
                                     </a>
-                                    {% if album.Imges == 0 %}
+                                    {% if album.images == 0 %}
                                         <a class="flex items-center text-danger whitespace-nowrap" onclick="delete_album('{{album.id}}')" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal" title="Delete">
                                             <i data-lucide="trash" class="w-4 h-4 mr-1"></i> 
                                         </a>
