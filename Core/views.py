@@ -475,13 +475,25 @@ def complaints(request):
 
 @login_required
 def exam_schedule_list(request):
-    schedules = Exam_Schedules.objects.filter(Status=1)
+    schedules = Exam_Schedules.objects.exclude(Status=0)
     if request.method == 'POST':
-        schedule_id = request.POST.get('schedule_id')
-        schedule = Exam_Schedules.objects.get(id=schedule_id)
-        schedule.Status = 0
-        schedule.save()
-        return redirect('.')
+        if request.POST.get('schedule_id'):
+            schedule_id = request.POST.get('schedule_id')
+            schedule = Exam_Schedules.objects.get(id=schedule_id)
+            schedule.Status = 0
+            schedule.save()
+            return redirect('.')
+
+        if request.POST.get('hs_id'):
+            hs_id = request.POST.get('hs_id')
+            schedule = Exam_Schedules.objects.get(id=hs_id)
+            status = schedule.Status
+            if status == 1:
+                schedule.Status = 3
+            elif status == 3:
+                schedule.Status = 1
+            schedule.save()
+            return redirect('.')
     return render(request,'admin/exam-schedule-list.html',{'schedules':schedules})
 
 #------------------------------------------------- exam schedule add --------------------------------------#
@@ -514,13 +526,24 @@ def exam_schedule_edit(request,schedule_id):
 
 @login_required
 def exam_result_list(request):
-    results = Exam_Results.objects.filter(Status=1)
+    results = Exam_Results.objects.exclude(Status=0)
     if request.method == 'POST':
-        result_id = request.POST.get('result_id')
-        result = Exam_Results.objects.get(id=result_id)
-        result.Status = 0
-        result.save()
-        return redirect('.')
+        if request.POST.get('result_id'):
+            result_id = request.POST.get('result_id')
+            result = Exam_Results.objects.get(id=result_id)
+            result.Status = 0
+            result.save()
+            return redirect('.')
+        if request.POST.get('hr_id'):
+            hr_id = request.POST.get('hr_id')
+            result = Exam_Results.objects.get(id=hr_id)
+            status = result.Status
+            if status == 1:
+                result.Status = 3
+            elif status == 3:
+                result.Status = 1
+            result.save()
+            return redirect('.')
     return render(request,'admin/exam-results-list.html',{'results':results})
 
 #------------------------------------------------- exam results add --------------------------------------#
