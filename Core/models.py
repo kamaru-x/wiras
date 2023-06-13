@@ -200,6 +200,7 @@ class Exam_Results(models.Model):
         return self.Title
     
 class News_letter(models.Model):
+    Status = models.IntegerField(default=1)
     Email = models.EmailField()
     Date = models.DateField(auto_now_add=True)
 
@@ -223,6 +224,7 @@ class Admission(models.Model):
         return self.Full_Name
     
 class Alumni_Registration(models.Model):
+    Status = models.IntegerField(default=0)
     First_Name = models.CharField(max_length=100)
     Last_Name = models.CharField(max_length=100)
     Email = models.EmailField()

@@ -482,11 +482,12 @@ def view_complaint(request,complaint_id):
 
 @login_required
 def news_emails(request):
-    newslatters = News_letter.objects.all()
+    newslatters = News_letter.objects.filter(Status=1)
     if request.method == 'POST':
         email_id = request.POST.get('email_id')
         email = News_letter.objects.get(id=email_id)
-        email.delete()
+        email.Status = 0
+        email.save()
         return redirect('.')
     return render(request,'admin/newslatter.html',{'newslatters':newslatters})
 
@@ -494,13 +495,21 @@ def news_emails(request):
 
 @login_required
 def admission_requests(request):
-    requests = Admission.objects.all()
+    requests = Admission.objects.filter(Status=1)
     if request.method == 'POST':
         admission_id = request.POST.get('admission_id')
         admission = Admission.objects.get(id=admission_id)
-        admission.delete()
+        admission.Status = 1
+        admission.save()
         return redirect('.')
     return render(request,'admin/admission-requests.html',{'requests':requests})
+
+#------------------------------------------------- View Admission --------------------------------------#
+
+@login_required
+def view_admission(request,admission_id):
+    admission = Admission.objects.get(id=admission_id)
+    return render(request,'admin/admission-view.html',{'admission':admission})
 
 #------------------------------------------------- Alumni Registration ---------------------------------#
 
@@ -510,7 +519,8 @@ def alumni_registrations(request):
     if request.method == 'POST':
         alumni_id = request.POST.get('alumni_id')
         alumni = Alumni_Registration.objects.get(id=alumni_id)
-        alumni.delete()
+        alumni.Status = 0
+        alumni.save()
         return redirect('.')
     return render(request,'admin/alumni-registrations.html',{'registrations':registrations})
 

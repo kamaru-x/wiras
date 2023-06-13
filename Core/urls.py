@@ -50,6 +50,7 @@ urlpatterns = [
     path('view-complaint/<str:complaint_id>/',views.view_complaint,name='view-complaint'),
     path('newslatter/',views.news_emails,name='newslatters'),
     path('admission-requests/',views.admission_requests,name='admission-requests'),
+    path('view-admission/<str:admission_id>',views.view_admission,name='view-admission'),
     path('alumni_registrations/',views.alumni_registrations,name='alumni-registrations'),
 
     #------------------------------- exams urls ----------------------------------------#

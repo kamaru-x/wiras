@@ -17,7 +17,7 @@
                 <button class="btn btn-outline-secondary shadow-md mr-2">
                     <i data-lucide="file-text" class="w-4 h-4 mr-2"></i> Export to Excel
                 </button>
-                <!-- <a href="{% url 'add-course' %}"><button class="btn btn-primary shadow-md mr-2">Add New Course</button></a> -->
+                <!-- <a href=""><button class="btn btn-primary shadow-md mr-2">Add New admission</button></a> -->
                 <!-- <div class="dropdown ml-auto sm:ml-0">
                     <button class="dropdown-toggle btn px-2 box" aria-expanded="false" data-tw-toggle="dropdown">
                         <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-lucide="plus"></i> </span>
@@ -47,6 +47,7 @@
                         <th class="text-center whitespace-nowrap">GENDER</th>
                         <th class="text-center whitespace-nowrap">MOBILE</th>
                         <th class="text-center whitespace-nowrap">EMAIL</th>
+                        <th class="text-center whitespace-nowrap">COURSE</th>
                         <th class="text-center whitespace-nowrap">ACTIONS</th>
                     </tr>
                 </thead>
@@ -76,14 +77,18 @@
                             <td class="text-center whitespace-nowrap">
                                 <div class="font-medium whitespace-nowrap">{{ request.Email }}</div>
                             </td>
+
+                            <td class="text-center whitespace-nowrap">
+                                <div class="font-medium whitespace-nowrap">{{ request.Course.Course_Title }}</div>
+                            </td>
                             
                             <td class="table-report__action">
                                 <div class="flex justify-center items-center">
-                                    <a class="flex items-center text-success whitespace-nowrap mr-5" href="" title="View">
+                                    <a class="flex items-center text-success whitespace-nowrap mr-5" href="{% url 'view-admission' request.id %}" title="View">
                                         <i data-lucide="eye" class="w-4 h-4 mr-1"></i> 
                                     </a>
-                                    <a class="flex items-center text-danger whitespace-nowrap mr-5" href="" title="Delete">
-                                        <i data-lucide="trash" class="w-4 h-4 mr-1"></i> 
+                                    <a class="flex items-center text-danger whitespace-nowrap mr-5" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal" title="Delete">
+                                        <i data-lucide="trash" class="w-4 h-4 mr-1" onclick="delete_admission('{{request.id}}')"></i> 
                                     </a>
                                 </div>
                             </td>
@@ -118,7 +123,7 @@
         <div class="modal-dialog">
             <form action="" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="course_id" id="course_id">
+                <input type="hidden" name="admission_id" id="admission_id">
                 <div class="modal-content">
                     <div class="modal-body p-0">
                         <div class="p-5 text-center">
@@ -145,8 +150,8 @@
         
     </style>
     <script>
-        function delete_course(course_id){
-            $('#course_id').val(course_id)
+        function delete_admission(admission_id){
+            $('#admission_id').val(admission_id)
         }
     </script>
     <!-- BEGIN: Dark Mode Switcher-->
