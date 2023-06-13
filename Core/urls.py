@@ -52,6 +52,7 @@ urlpatterns = [
     path('admission-requests/',views.admission_requests,name='admission-requests'),
     path('view-admission/<str:admission_id>',views.view_admission,name='view-admission'),
     path('alumni_registrations/',views.alumni_registrations,name='alumni-registrations'),
+    path('view-alumni/<str:alumni_id>',views.view_alumni,name='view-alumni'),
 
     #------------------------------- exams urls ----------------------------------------#
 

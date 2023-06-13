@@ -524,6 +524,13 @@ def alumni_registrations(request):
         return redirect('.')
     return render(request,'admin/alumni-registrations.html',{'registrations':registrations})
 
+#------------------------------------------------- Alumni View --------------------------------------------#
+
+@login_required
+def view_alumni(request,alumni_id):
+    alumni = Alumni_Registration.objects.get(id=alumni_id)
+    return render(request,'admin/alumni-view.html',{'alumni':alumni})
+
 #------------------------------------------------- exam schedule list --------------------------------------#
 
 @login_required

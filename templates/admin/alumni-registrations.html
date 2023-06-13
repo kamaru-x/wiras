@@ -47,7 +47,7 @@
                         <th class="text-center whitespace-nowrap">EMAIL</th>
                         <th class="text-center whitespace-nowrap">MOBILE</th>
                         <th class="text-center whitespace-nowrap">BATCH</th>
-                        <th class="text-center whitespace-nowrap">MESSAGE</th>
+                        <!-- <th class="text-center whitespace-nowrap">MESSAGE</th> -->
                         <th class="text-center whitespace-nowrap">ACTIONS</th>
                     </tr>
                 </thead>
@@ -78,15 +78,15 @@
                                 <div class="font-medium whitespace-nowrap">{{ registration.Batch }}</div>
                             </td>
 
-                            <td class="text-center whitespace-nowrap">
+                            <!-- <td class="text-center whitespace-nowrap">
                                 <div class="font-medium whitespace-nowrap">{{ registration.Message }}</div>
-                            </td>
+                            </td> -->
                             
                             <td class="table-report__action">
                                 <div class="flex justify-center items-center">
-                                    <!-- <a class="flex items-center text-success whitespace-nowrap mr-5" href="" title="View">
+                                    <a class="flex items-center text-success whitespace-nowrap mr-5" href="{% url 'view-alumni' registration.id %}" title="View">
                                         <i data-lucide="eye" class="w-4 h-4 mr-1"></i> 
-                                    </a> -->
+                                    </a>
                                     <a class="flex items-center text-danger whitespace-nowrap mr-5" href="javascript:;" data-tw-toggle="modal" data-tw-target="#delete-confirmation-modal" title="Delete">
                                         <i data-lucide="trash" class="w-4 h-4 mr-1" onclick="delete_alumni('{{registration.id}}')"></i> 
                                     </a>
