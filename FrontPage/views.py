@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
-from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry,Complaints,Contact_message,Exam_Results,Exam_Schedules,News_letter
+from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry,Complaints,Contact_message,Exam_Results,Exam_Schedules,News_letter,Admission,Alumni_Registration
 from django.core.paginator import Paginator
 from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 # Create your views here.
 
@@ -54,7 +55,26 @@ def administration(request):
 #-------------------------------------------- ADMISSION ---------------------------------------------#
 
 def admission(request):
-    return render(request,'frontpage/admission.html')
+    courses = Course.objects.filter(Status=1)
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name')
+        dob = request.POST.get('dob')
+        gender = request.POST.get('gender')
+        academic = request.POST.get('academic')
+        last_sl = request.POST.get('last_sl')
+        father_name = request.POST.get('father_name')
+        contact = request.POST.get('contact')
+        email = request.POST.get('email')
+        course_id = request.POST.get('course_id')
+        course = Course.objects.get(id=course_id)
+
+        Admission.objects.create(Full_Name=full_name,Date_of_Birth=dob,Gender=gender,Academic_Qualification=academic,
+                                 Last_Studied_Institute=last_sl,Father_Name=father_name,Contact_Number=contact,Email=email,Course=course)
+
+        messages.success(request,'Request submited successfully')
+
+        return redirect('.')
+    return render(request,'frontpage/admission.html',{'courses':courses})
 
 #-------------------------------------------- ALUMNI ------------------------------------------------#
 
@@ -328,6 +348,19 @@ def pta(request):
 #------------------------------------------ REGISTRATION -------------------------------------------#
 
 def registration(request):
+    if request.method == 'POST':
+        fname = request.POST.get('fname')
+        lname = request.POST.get('lname')
+        email = request.POST.get('email')
+        mobile = request.POST.get('mobile')
+        batch = request.POST.get('batch')
+        message = request.POST.get('message')
+
+        Alumni_Registration.objects.create(First_Name=fname,Last_Name=lname,
+                                           Email=email,Mobile=mobile,Batch=batch,Message=message)
+        messages.success(request,'registration completed successfully')
+        return redirect('.')
+    
     return render(request,'frontpage/registration.html')
 
 #-------------------------------------------- REPORTS ---------------------------------------------#
@@ -410,3 +443,5 @@ def news_letter(request):
             status = 'failed'
 
     return JsonResponse({'email':email,'status':status,'message':message})
+
+#------------------------------------------ ADMISSION ------------------------------------------#

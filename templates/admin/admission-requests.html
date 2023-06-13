@@ -5,7 +5,7 @@
         <!-- BEGIN: Content -->
     <div class="content">
 
-    <h2 class="intro-y text-lg font-medium mt-10" style="text-align: center;font-size: 35px;color:#1e40af;padding-top: 30px;padding-bottom: 30px;border-bottom: solid 1px #bcbcbc;">Complaints</h2>
+    <h2 class="intro-y text-lg font-medium mt-10" style="text-align: center;font-size: 35px;color:#1e40af;padding-top: 30px;padding-bottom: 30px;border-bottom: solid 1px #bcbcbc;">Admission Requests</h2>
     <div class="grid grid-cols-12 gap-6 mt-5">
         <div class="intro-y col-span-12 flex flex-wrap xl:flex-nowrap items-center mt-2">
             
@@ -36,46 +36,54 @@
             </div>
         </div>
         <!-- BEGIN: Data List -->
-        {% if complaints %}
+        {% if requests %}
         <div class="intro-y col-span-12 overflow-auto 2xl:overflow-visible">
             <table class="table table-report -mt-2">
                 <thead>
                     <tr>
                         <th class="text-center whitespace-nowrap">SL. NO.</th>
-                        <th class="text-center whitespace-nowrap">FIRST NAME</th>
-                        <th class="text-center whitespace-nowrap">STUDENT ID</th>
-                        <th class="text-center whitespace-nowrap">DEPARTMENT</th>
-                        <th class="text-center whitespace-nowrap">COMPLAINT</th>
+                        <th class="text-center whitespace-nowrap">FULL NAME</th>
+                        <th class="text-center whitespace-nowrap">DATE OF BIRTH</th>
+                        <th class="text-center whitespace-nowrap">GENDER</th>
+                        <th class="text-center whitespace-nowrap">MOBILE</th>
+                        <th class="text-center whitespace-nowrap">EMAIL</th>
                         <th class="text-center whitespace-nowrap">ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for complaint in complaints %}
+                    {% for request in requests %}
                         <tr class="intro-x">
                             <td class="text-center whitespace-nowrap">
                                 <a href="" class=" whitespace-nowrap">{{ forloop.counter }}</a>
                             </td>
 
                             <td class="text-center whitespace-nowrap">
-                                <div class="font-medium whitespace-nowrap">{{ complaint.First_Name }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ request.Full_Name }}</div>
                             </td>
 
                             <td class="text-center whitespace-nowrap">
-                                <div class="font-medium whitespace-nowrap">{{ complaint.Student_Id }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ request.Date_of_Birth }}</div>
                             </td>
 
                             <td class="text-center whitespace-nowrap">
-                                <div class="font-medium whitespace-nowrap">{{ complaint.Department }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ request.Gender }}</div>
                             </td>
 
                             <td class="text-center whitespace-nowrap">
-                                <div class="font-medium whitespace-nowrap">{{ complaint.Complaint }}</div>
+                                <div class="font-medium whitespace-nowrap">{{ request.Contact_Number }}</div>
+                            </td>
+
+                            <td class="text-center whitespace-nowrap">
+                                <div class="font-medium whitespace-nowrap">{{ request.Email }}</div>
                             </td>
                             
                             <td class="table-report__action">
                                 <div class="flex justify-center items-center">
-                                    <a class="flex items-center text-success whitespace-nowrap mr-5" href="{% url 'view-complaint' complaint.id %}" title="View">
+                                    <a class="flex items-center text-success whitespace-nowrap mr-5" href="" title="View">
                                         <i data-lucide="eye" class="w-4 h-4 mr-1"></i> 
+                                    </a>
+                                    <a class="flex items-center text-danger whitespace-nowrap mr-5" href="" title="Delete">
+                                        <i data-lucide="trash" class="w-4 h-4 mr-1"></i> 
                                     </a>
                                 </div>
                             </td>
@@ -103,45 +111,6 @@
         {% endif %}
         <!-- END: Data List -->
         <!-- BEGIN: Pagination -->
-        {% if courses %}
-        <div class="intro-y col-span-12 flex flex-wrap sm:flex-row sm:flex-nowrap items-center">
-            <nav class="w-full sm:w-auto sm:mr-auto">
-                <ul class="pagination">
-                    {% if courses.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{courses.previous_page_number}}">
-                            <i class="w-4 h-4" data-lucide="chevrons-left"></i>
-                        </a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <a class="page-link" href="">
-                            <i class="w-4 h-4" data-lucide="chevrons-left"></i>
-                        </a>
-                    </li>
-                    {% endif %}
-                    {% for n in nums %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
-                    </li>
-                    {% endfor %}
-                    {% if courses.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{courses.next_page_number}}">
-                            <i class="w-4 h-4" data-lucide="chevrons-right"></i>
-                        </a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <a class="page-link" href="">
-                            <i class="w-4 h-4" data-lucide="chevrons-right"></i>
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-        {% endif %}
         <!-- END: Pagination -->
     </div>
     <!-- BEGIN: Delete Confirmation Modal -->

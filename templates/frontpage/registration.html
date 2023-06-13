@@ -29,7 +29,8 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-xl-10 col-lg-10">
-                            <form action="#">
+                            <form action="" method="post">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="signup-box text-center">
@@ -45,37 +46,33 @@
                                         </div>
                                     </div>
                                     <div class="col-md-7">
+                                        {% if messages %}
+                                            {% for message in messages %}
+                                                <div class="alert alert-success" role="alert">
+                                                    {{ message }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
                                         <div class="signup-form-wrapper">
                                             <div class="signup-input-wrapper">
-                                                <input type="text" placeholder="First Name">
-                                                <input type="text" placeholder="Last Name">
+                                                <input type="text" placeholder="First Name" name="fname" required>
+                                                <input type="text" placeholder="Last Name" name="lname" required> 
                                             </div>
                                             <div class="signup-wrapper">
-                                                <input type="text" placeholder="Email">
+                                                <input type="email" placeholder="Email" name="email" required>
                                             </div>
                                             <div class="signup-wrapper">
-                                                <input type="text" placeholder="Mobile">
+                                                <input type="text" placeholder="Mobile" name="mobile" required>
                                             </div>
                                             <div class="signup-wrapper">
-                                                <input type="text" placeholder="Batch">
+                                                <input type="text" placeholder="Batch" name="batch" required>
                                             </div>
                                             <div class="signup-wrapper">
-                                                <textarea placeholder="Message"></textarea>
-                                            </div>
-                                            <div class="signup-action">
-                                                <div class="course-sidebar-list">
-                                                    <input class="signup-checkbo" type="checkbox" id="sing-up">
-                                                    <label class="sign-check" for="sing-up"><span>Accept the terms and
-                                                            <a href="#">Privacy
-                                                                Policy</a></span></label>
-                                                </div>
+                                                <textarea placeholder="Message" name="message" required></textarea>
                                             </div>
                                             <div class="sing-buttom mb-20">
-                                                <button class="sing-btn">Register now</button>
+                                                <button class="sing-btn" type="submit">Register now</button>
                                             </div>
-                                            
-                                            
-                                            
                                         </div>
                                     </div>
                                 </div>

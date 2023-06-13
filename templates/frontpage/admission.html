@@ -8,6 +8,35 @@
        height: 300px;
       }
     </style>
+    <style>
+      .form-group {
+         margin-bottom: 20px;
+      }
+
+         label {
+         display: block;
+         font-weight: bold;
+         margin-bottom: 5px;
+         }
+
+         input[type="text"],
+         input[type="email"],
+         input[type="date"],
+         textarea,
+         select {
+         width: 100%;
+         background: #f5f5f5;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         box-sizing: border-box;
+         }
+
+         input[type="file"] {
+         width: auto;
+         }
+
+         </style>
 
     <main>
         <div class="hero-arera course-item-height" data-background="{% static 'assets/img/slider/course-slider.jpg' %}">
@@ -30,29 +59,96 @@
             </div>
          </div>
       </div>
-        
-        <div class="student-choose-area fix pt-110 pb-90">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-12 col-lg-12" >
-                  <div class="student-wrapper mb-30">
-                     <div class="section-title mb-10" style="text-align: center;">
-                        <h2>This page will be updated soon</h2>
-                     </div>
-                  </div>
-               </div>
-               
-               <div class="col-xl-12 col-lg-12">
-                  <div class="student-choose-wrapper position-relative mb-30">
-                     <div class="student-choose-thumb" >
-                        <img src="{% static 'assets/img/update-soon.png' %}" alt="image not found" style="margin-left: auto; margin-right: auto; display: block;">
-                     </div>
-                  </div>
-               </div>
 
-            </div>
+      <div class="col-12 text-center">
+         <h2 class="mt-10 pt-25">Admissions: Unlock Your Potential at WIRAS</h2>
+      </div>
+        
+      <div class="signup-page-area pt-90 pb-70">
+         <div class="signup-page-area-wrapper">
+             <div class="container">
+                 <div class="row justify-content-center">
+                     <div class="col-xl-10 col-lg-10">
+                         <form method="post">
+                             {% csrf_token %}
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <div class="signup-box text-center">
+                                         <div class="signup-text">
+                                             <h5 class="pb-30" style="line-height: 28px;">Discover your future at Wiras. Apply now for admissions and join a vibrant community of learners. Unleash your potential through our innovative programs and supportive environment.</h5>
+                                         </div>
+                                         <div class="signup-message">
+                                             <img src="{% static 'assets/img/sign-up-message.png' %}" alt="image not found">
+                                         </div>
+                                         <div class="signup-thumb">
+                                             <img src="{% static 'assets/img/complaint.png' %}" alt="image not found">
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    {% if messages %}
+                                       {% for message in messages %}
+                                          <div class="alert alert-success" role="alert">
+                                             {{ message }}
+                                          </div>
+                                       {% endfor %}
+                                    {% endif %}
+                                     <div class="signup-form-wrapper">
+                                         <div class="signup-wrapper">
+                                            <label for="">Enter Full Name</label>
+                                            <input name="full_name" type="text" placeholder="Full Name" required>
+                                         </div>
+                                         <div class="signup-wrapper">
+                                            <label for="">Date of Birth</label>
+                                            <input name="dob" type="Date" required>
+                                         </div>
+                                         <div class="row">
+                                            <div class="col-12">
+                                                <label for="">Male</label><input type="radio" style="width: 30px;" name="gender" value="Male" id="">
+                                                <label for="">Female</label><input type="radio" style="width: 30px;" name="gender" value="Female" id="">
+                                            </div>
+                                         </div>
+                                         <div class="signup-wrapper">
+                                            <label for="">Academic Qualification</label>
+                                            <input name="academic" type="text" placeholder="Academic Qualification" required>
+                                         </div>
+                                         <div class="signup-wrapper">
+                                             <label for="">Last Studied Institute</label>
+                                             <input name="last_sl" type="text" placeholder="Last Studied Institute" required>
+                                          </div>
+                                         <div class="signup-wrapper">
+                                            <label for="">Father's Name</label>
+                                            <input name="father_name" type="text" placeholder="Father's Name" required>
+                                         </div>
+                                         <div class="signup-wrapper">
+                                            <label for="">Contact Number</label>
+                                            <input name="contact" type="text" placeholder="Contact Number" required>
+                                         </div>
+                                         <div class="signup-wrapper">
+                                            <label for="">Email</label>
+                                            <input name="email" type="email" placeholder="Email" required>
+                                         </div>
+                                         <div class="signup-wrapper">
+                                            <label for="">Program Seeking for</label>
+                                            <select name="course_id" id="" class="select" required>
+                                                <option value="">select program</option>
+                                                {% for course in courses %}
+                                                   <option value="{{ course.id }}">{{ course.Course_Title }}</option>
+                                                {% endfor %}
+                                            </select>
+                                         </div>
+                                         <div class="sing-buttom mb-20">
+                                             <button class="sing-btn" type="submit">Register</button>
+                                         </div>
+                                     </div>
+                                 </div>      
+                             </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
          </div>
-      </div> 
+     </div> 
     </main>
    {% include 'frontpage/footer.html' %}
    {% endblock content %}

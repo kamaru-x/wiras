@@ -205,3 +205,30 @@ class News_letter(models.Model):
 
     def __str__(self):
         return self.Email
+    
+class Admission(models.Model):
+    Date = models.DateField(auto_now_add=True)
+    Status = models.IntegerField(default=1)
+    Full_Name = models.CharField(max_length=225)
+    Date_of_Birth = models.DateField()
+    Gender = models.CharField(max_length=50,null=True)
+    Academic_Qualification = models.CharField(max_length=225)
+    Last_Studied_Institute = models.CharField(max_length=225)
+    Father_Name = models.CharField(max_length=100)
+    Contact_Number = models.CharField(max_length=25)
+    Email = models.EmailField()
+    Course = models.ForeignKey(Course,on_delete=models.SET_NULL,null=True)
+
+    def __str__(self):
+        return self.Full_Name
+    
+class Alumni_Registration(models.Model):
+    First_Name = models.CharField(max_length=100)
+    Last_Name = models.CharField(max_length=100)
+    Email = models.EmailField()
+    Mobile = models.CharField(max_length=25)
+    Batch = models.CharField(max_length=50)
+    Message = models.TextField()
+
+    def __str__(self):
+        return self.First_Name

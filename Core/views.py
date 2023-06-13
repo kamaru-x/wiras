@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from Core.models import Post,Album,Album_Image,Department,Course,Faculty,Enquiry,Contact_message,Complaints,Exam_Schedules,Exam_Results,News_letter
+from Core.models import Post,Album,Album_Image,Department,Course,Faculty,Enquiry,Contact_message,Complaints,Exam_Schedules,Exam_Results,News_letter,Admission,Alumni_Registration
 from Core.pre_fun import setip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -471,17 +471,48 @@ def complaints(request):
     complaints = Complaints.objects.all()
     return render(request,'admin/complaints.html',{'complaints':complaints})
 
+#------------------------------------------------- complaints list --------------------------------------#
+
+@login_required
+def view_complaint(request,complaint_id):
+    complaint = Complaints.objects.get(id=complaint_id)
+    return render(request,'admin/view-complaint.html',{'complaint':complaint})
+
 #------------------------------------------------- news latter list --------------------------------------#
 
 @login_required
 def news_emails(request):
     newslatters = News_letter.objects.all()
     if request.method == 'POST':
-        email_id = request.POSt.get('email_id')
+        email_id = request.POST.get('email_id')
         email = News_letter.objects.get(id=email_id)
         email.delete()
         return redirect('.')
     return render(request,'admin/newslatter.html',{'newslatters':newslatters})
+
+#------------------------------------------------- Admission List --------------------------------------#
+
+@login_required
+def admission_requests(request):
+    requests = Admission.objects.all()
+    if request.method == 'POST':
+        admission_id = request.POST.get('admission_id')
+        admission = Admission.objects.get(id=admission_id)
+        admission.delete()
+        return redirect('.')
+    return render(request,'admin/admission-requests.html',{'requests':requests})
+
+#------------------------------------------------- Alumni Registration ---------------------------------#
+
+@login_required
+def alumni_registrations(request):
+    registrations = Alumni_Registration.objects.all()
+    if request.method == 'POST':
+        alumni_id = request.POST.get('alumni_id')
+        alumni = Alumni_Registration.objects.get(id=alumni_id)
+        alumni.delete()
+        return redirect('.')
+    return render(request,'admin/alumni-registrations.html',{'registrations':registrations})
 
 #------------------------------------------------- exam schedule list --------------------------------------#
 
