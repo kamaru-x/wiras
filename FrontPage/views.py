@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
-from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry,Complaints,Contact_message,Exam_Results,Exam_Schedules
+from Core.models import Course,Department,Post,Album,Album_Image,Faculty,Enquiry,Complaints,Contact_message,Exam_Results,Exam_Schedules,News_letter
 from django.core.paginator import Paginator
+from django.http.response import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -387,3 +389,24 @@ def women_cell(request):
 
 def yoga_club(request):
     return render(request,'frontpage/yoga-club.html')
+
+#------------------------------------------ NEWS LATTER ------------------------------------------#
+
+@csrf_exempt
+def news_letter(request):
+    email = request.POST.get('email')
+
+    try:
+        News_letter.objects.get(Email=email)
+        message = 'Email already exists'
+        status = 'failed'
+    except:
+        try:
+            News_letter.objects.create(Email=email)
+            message = 'Email added successfully'
+            status = 'success'
+        except:
+            message = 'some error occupied !!!!'
+            status = 'failed'
+
+    return JsonResponse({'email':email,'status':status,'message':message})

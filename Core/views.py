@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from Core.models import Post,Album,Album_Image,Department,Course,Faculty,Enquiry,Contact_message,Complaints,Exam_Schedules,Exam_Results
+from Core.models import Post,Album,Album_Image,Department,Course,Faculty,Enquiry,Contact_message,Complaints,Exam_Schedules,Exam_Results,News_letter
 from Core.pre_fun import setip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -470,6 +470,18 @@ def enquiries(request):
 def complaints(request):
     complaints = Complaints.objects.all()
     return render(request,'admin/complaints.html',{'complaints':complaints})
+
+#------------------------------------------------- news latter list --------------------------------------#
+
+@login_required
+def news_emails(request):
+    newslatters = News_letter.objects.all()
+    if request.method == 'POST':
+        email_id = request.POSt.get('email_id')
+        email = News_letter.objects.get(id=email_id)
+        email.delete()
+        return redirect('.')
+    return render(request,'admin/newslatter.html',{'newslatters':newslatters})
 
 #------------------------------------------------- exam schedule list --------------------------------------#
 

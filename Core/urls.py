@@ -47,6 +47,7 @@ urlpatterns = [
 
     path('enquiries/',views.enquiries,name='enquiries'),
     path('complaints/',views.complaints,name='complaints-list'),
+    path('newslatter/',views.news_emails,name='newslatters'),
 
     #------------------------------- exams urls ----------------------------------------#
 

@@ -74,18 +74,20 @@
                                     </div>
                                     <div class="university-footer-widget-body">
                                         <div class="university-footer-subscribe">
-                                            <form action="#">
+                                            <form action="" id="newslatter">
                                                 <div class="university-footer-subscribe position-relative mb-35">
                                                     <div class="field po">
-                                                        <input type="email" placeholder="Enter email">
+                                                        <input id="newsemail" type="email" placeholder="Enter email">
                                                     </div>
-                                                    <button type="submit">
+                                                    <button type="button" id="newsbutton">
                                                         <i class="fas fa-paper-plane"></i>
                                                     </button>
                                                 </div>
+                                                <div id="alert">
+                                                    
+                                                </div>
                                             </form>
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -124,3 +126,28 @@
         </svg>
     </div>
     <!-- back to top end -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('#newsbutton').on('click' , function(){
+            let email = $('#newsemail').val()
+            $.ajax({
+                url: "{% url 'news_letter' %}",
+                type: "POST",
+                data: {'email':email},
+                success : function(response){
+                    if(response.status == 'success'){
+                        // alert(response.email+'/'+response.status+'/'+response.message)
+                        $('#alert').html(
+                            '<div class="alert alert-success" role="alert">'+response.message+'</div>'
+                        )
+                    }
+                    else if (response.status == 'failed'){
+                        $('#alert').html(
+                            '<div class="alert alert-danger" role="alert">'+response.message+'</div>'
+                        )
+                    }
+                    $('#newslatter').trigger('reset')
+                }
+            })
+        })
+    </script>

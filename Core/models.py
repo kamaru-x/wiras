@@ -198,3 +198,10 @@ class Exam_Results(models.Model):
     
     def __str__(self):
         return self.Title
+    
+class News_letter(models.Model):
+    Email = models.EmailField()
+    Date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.Email
