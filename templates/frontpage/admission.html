@@ -36,6 +36,13 @@
          width: auto;
          }
 
+         .nice-select {
+            width: 100%;
+         }
+         label {
+            float: left;
+         }
+
          </style>
 
     <main>
@@ -102,13 +109,16 @@
                                             <label for="">Date of Birth</label>
                                             <input name="dob" type="Date" required>
                                          </div>
-                                         <div class="row">
-                                            <div class="col-6">
+                                         <div class="row mb-10">
+                                            <div class="col-4">
                                                 <label for="">Male</label><input type="radio" style="width: 30px;" name="gender" value="Male" id="">
                                             </div>
-                                            <div class="col-6">
-                                             <label for="">Female</label><input type="radio" style="width: 30px;" name="gender" value="Female" id="">
-                                         </div>
+                                            <div class="col-4">
+                                                <label for="">Female</label><input type="radio" style="width: 30px;" name="gender" value="Female" id="">
+                                             </div>
+                                             <div class="col-4">
+                                                 <label for="">Others</label><input type="radio" style="width: 30px;" name="gender" value="Other" id="">
+                                              </div>
                                          </div>
                                          <div class="signup-wrapper">
                                             <label for="">Academic Qualification</label>
