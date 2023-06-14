@@ -62,5 +62,6 @@ urlpatterns = [
     path('update-soon/',views.update_soon,name='update-soon'),
     path('women-cell/',views.women_cell,name='womens-cell'),
     path('yoga-club/',views.yoga_club,name='yoga-club'),
-    path('news_letter/',views.news_letter,name='news_letter')
+    path('news_letter/',views.news_letter,name='news_letter'),
+    path('contact-ajax/',views.contact_ajax,name='contact-ajax')
 ]

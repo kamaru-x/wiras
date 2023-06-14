@@ -444,4 +444,19 @@ def news_letter(request):
 
     return JsonResponse({'email':email,'status':status,'message':message})
 
-#------------------------------------------ ADMISSION ------------------------------------------#
+#------------------------------------------ CONTACT AJAX ------------------------------------------#
+
+@csrf_exempt
+def contact_ajax(request):
+    name = request.POST.get('name')
+    phone = request.POST.get('phone')
+    description = request.POST.get('description')
+    information = request.POST.get('information')
+
+    Contact_message.objects.create(Name=name,Phone=phone,Description=description,Information=information)
+
+    status = 'success'
+
+    message = 'enquiry saved successfully'
+
+    return JsonResponse({'status':status,'message':message})

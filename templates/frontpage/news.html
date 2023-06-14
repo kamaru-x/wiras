@@ -51,7 +51,7 @@
                                     <a href="{% url 'news-details' n.Seo_Url %}">
                                        <h3>{{ n.Post_Title }}</h3>
                                     </a>
-                                    <p>{{ n.Post_Description | safe }}</p>
+                                    <p>{{ n.Post_Description | safe | slice:":300" }}</p>
                                     <a class="blog-btn" href="{% url 'news-details' n.Seo_Url %}">Read more</a>
                                  </div>
                               </div>
