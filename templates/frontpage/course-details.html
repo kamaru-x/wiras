@@ -174,12 +174,14 @@
                                 </div>
                             </div>
                             {% endif %}
+                            {% if department.Department_Placement %}
                             <div class="course-curriculum pt-40 pb-50">
                                 <div class="course-curriculam">
                                     <h4>PLACEMENT AND HIGHER STUDY</h4>
                                 </div>
                                 <p>{{ department.Department_Placement | safe }}</p>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                     {% if posts %}
