@@ -460,3 +460,43 @@ def contact_ajax(request):
     message = 'enquiry saved successfully'
 
     return JsonResponse({'status':status,'message':message})
+
+#------------------------------------------ LIBRARY FACELITY ------------------------------------------#
+
+def library_facelity(request):
+    return render(request,'frontpage/facility-library.html')
+
+#------------------------------------------ HOSTEL FACELITY ------------------------------------------#
+
+def hostel_facilities(request):
+    return render(request,'frontpage/facility-hostel.html')
+
+#------------------------------------------ auditorium FACELITY ------------------------------------------#
+
+def auditorium_facilities(request):
+    return render(request,'frontpage/facility-auditorium.html')
+
+#------------------------------------------ BUS FACELITY ------------------------------------------#
+
+def bus_facilities(request):
+    return render(request,'frontpage/facility-bus.html')
+
+#------------------------------------------ CANTEEN FACELITY ------------------------------------------#
+
+def canteen_facilities(request):
+    return render(request,'frontpage/facility-canteen.html')
+
+#------------------------------------------ SPORTS FACELITY ------------------------------------------#
+
+def sports_facilities(request):
+    return render(request,'frontpage/facility-sports.html')
+
+#------------------------------------------ STORE FACELITY ------------------------------------------#
+
+def store_facilities(request):
+    return render(request,'frontpage/facility-store.html')
+
+#------------------------------------------ SEMINARHALL FACELITY ------------------------------------------#
+
+def seminarhall_facilities(request):
+    return render(request,'frontpage/facility-seminarhall.html')

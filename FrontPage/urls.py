@@ -63,5 +63,13 @@ urlpatterns = [
     path('women-cell/',views.women_cell,name='womens-cell'),
     path('yoga-club/',views.yoga_club,name='yoga-club'),
     path('news_letter/',views.news_letter,name='news_letter'),
-    path('contact-ajax/',views.contact_ajax,name='contact-ajax')
+    path('contact-ajax/',views.contact_ajax,name='contact-ajax'),
+    path('library-facility/',views.library_facelity,name='library-facility'),
+    path('hostel-facility/',views.hostel_facilities,name='hostel-facility'),
+    path('bus-facility/',views.bus_facilities,name='bus-facility'),
+    path('canteen-facility/',views.canteen_facilities,name='canteen-facility'),
+    path('sports-facility/',views.sports_facilities,name='sports-facility'),
+    path('store-facility/',views.store_facilities,name='store-facility'),
+    path('seminarhall-facility/',views.seminarhall_facilities,name='seminar-facility'),
+    path('auditorium-facility/',views.auditorium_facilities,name='auditorium-facility')
 ]

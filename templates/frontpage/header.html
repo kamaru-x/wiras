@@ -21,6 +21,7 @@
         <div id="loading-center-absolute">
             <div class="loading-icon text-center d-flex flex-column align-items-center justify-content-center">
                 <img src="{% static 'assets/img/logo/logo-text.png' %}" alt="logo-img">
+                <h2 style="color: #059e8c;"><b>WIRAS</b></h2>
                 <img class="loading-logo" src="{% static 'assets/img/logo/preloader.svg' %}" alt="">
             </div>
         </div>
@@ -270,6 +271,39 @@
                                                             <a href="{% url 'others' %}">Other</a>
                                                         </li>
                                                     </ul>
+                                            </li>
+
+                                            <li class="menu-item-has-children">
+                                                <a href="#">Facilities</a>
+                                                <ul class="sub-menu">
+                                                    <li>
+                                                        <a href="{% url 'library-facility' %}">Library</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'hostel-facility' %}">Hostel for Boys and Girls</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'auditorium-facility' %}">Auditorium</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'canteen-facility' %}">Canteen</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'bus-facility' %}">Bus Services</a>
+                                                    </li>
+                                                    <!-- <li>
+                                                        <a href="{% url 'canteen-facility' %}">Yoga /Prayer Hall</a>
+                                                    </li> -->
+                                                    <li>
+                                                        <a href="{% url 'sports-facility' %}">Sports facilities</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'store-facility' %}">Cooperative store</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="{% url 'seminar-facility' %}">Seminar Hall</a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             
                                             <li class="menu-item-has-children">
