@@ -35,11 +35,11 @@
                            <div class="blog-wrapper position-relative mb-30">
                               {% if achivement.Post_Image %}
                                  <div class="blog-thumb ">
-                                    <a href="{% url 'news-details' 'achivement.Seo_Url' %}"><img src="{{ achivement.Post_Image.url }}" alt="blog-img"></a>
+                                    <a href="{% url 'news-details' achivement.Seo_Url %}"><img src="{{ achivement.Post_Image.url }}" alt="blog-img"></a>
                                  </div>
                               {% else %}
                                  <div class="blog-thumb ">
-                                    <a href="{% url 'news-details' 'achivement.Seo_Url' %}"><img src="{% static 'assets/img/noimage.jpg' %}" alt="blog-img"></a>
+                                    <a href="{% url 'news-details' achivement.Seo_Url %}"><img src="{% static 'assets/img/noimage.jpg' %}" alt="blog-img"></a>
                                  </div>
                               {% endif %}
                               <a href="{% url 'news' %}" class="blog-tag">
