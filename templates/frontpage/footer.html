@@ -83,7 +83,7 @@
                                                         <i class="fas fa-paper-plane"></i>
                                                     </button>
                                                 </div>
-                                                <div id="alert">
+                                                <div id="alert-message">
                                                     
                                                 </div>
                                             </form>
@@ -137,12 +137,14 @@
                 success : function(response){
                     if(response.status == 'success'){
                         // alert(response.email+'/'+response.status+'/'+response.message)
-                        $('#alert').html(
+                        console.log(response.status)
+                        $('#alert-message').html(
                             '<div class="alert alert-success" role="alert">'+response.message+'</div>'
                         )
                     }
                     else if (response.status == 'failed'){
-                        $('#alert').html(
+                        console.log(response.status)
+                        $('#alert-message').html(
                             '<div class="alert alert-danger" role="alert">'+response.message+'</div>'
                         )
                     }
