@@ -40,7 +40,7 @@
                         <label>Select Department</label>
                         <div class="mt-2">
                             <select data-placeholder="Select Category" class="form-control" name="department" required>
-                                <option value="General">Select Departments</option>
+                                <option value="">Select Departments</option>
                                 {% for department in departments %}
                                     <option value="{{ department.id }}">{{ department.Department_Title }}</option>
                                 {% endfor %}
@@ -61,22 +61,22 @@
 
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <label for="input-wizard-2" class="form-label">Course Subject</label>
-                        <input type="text" class="form-control" placeholder="Enter course subject here" name="subject">
+                        <input type="text" class="form-control" placeholder="Enter course subject here" name="subject" required>
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <label for="input-wizard-2" class="form-label">Complimentary Subject</label>
-                        <input type="text" class="form-control" placeholder="Enter course complimentary subject here" name="complimentary">
+                        <input type="text" class="form-control" placeholder="Enter course complimentary subject here" name="complimentary" required>
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <label for="input-wizard-2" class="form-label">Course Duration</label>
-                        <input type="text" class="form-control" placeholder="Enter course duration here" name="duration">
+                        <input type="text" class="form-control" placeholder="Enter course duration here" name="duration" required>
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-6">
                         <label for="input-wizard-2" class="form-label">Total seats</label>
-                        <input type="number" class="form-control" placeholder="Enter total seats" name="seats">
+                        <input type="number" class="form-control" placeholder="Enter total seats" name="seats" required>
                     </div>
 
                     <div class="intro-y col-span-12 sm:col-span-6">
