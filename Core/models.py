@@ -107,7 +107,7 @@ class Course(models.Model):
     Course_Subject = models.CharField(max_length=225,null=True)
     Course_Complementary_Subject = models.CharField(max_length=225,null=True)
     Course_Duration = models.CharField(max_length=225,null=True)
-    Course_Total_Seats = models.IntegerField(null=True)
+    Course_Total_Seats = models.CharField(null=True,max_length=5)
     Course_Syllabus = models.FileField(null=True,upload_to='syllabus')
     Course_Image = models.ImageField(null=True,blank=True,upload_to='course')
 
