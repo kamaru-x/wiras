@@ -78,7 +78,7 @@
                               {% for news in latest_news %}
                               <div class="rc__post d-flex align-items-center">
                                  <div class="rc__thumb mr-20">
-                                    <a href="{% url 'news-details' news.id %}">
+                                    <a href="{% url 'news-details' news.Seo_Url %}">
                                        {% if news.Post_Image %}
                                           <img src="{{ news.Post_Image.url }}" alt="">
                                        {% endif %}
@@ -88,7 +88,7 @@
                                     <div class="rc__meta">
                                        <span>{{ news.Added_Date }}</span>
                                     </div>
-                                    <h6 class="rc__title"><a href="{% url 'news-details' news.id %}">{{ news.Post_Title }}</a></h6>
+                                    <h6 class="rc__title"><a href="{% url 'news-details' news.Seo_Url %}">{{ news.Post_Title }}</a></h6>
                                  </div>
                               </div>
                               {% endfor %}
