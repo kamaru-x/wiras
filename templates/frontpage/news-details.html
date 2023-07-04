@@ -50,7 +50,7 @@
                                  <div class="blog-meta">
                                     <div class="blog-date">
                                        <i class="flaticon-calendar"></i>
-                                       <span>{{ news.Added_Date }}</span>
+                                       <span>{{ news.Added_Date|date:"d-M-Y" }}</span>
                                     </div>
                                  </div>
                                  <div class="blog-content">
@@ -71,7 +71,7 @@
                      
                      <div class="sidebar__widget mb-30">
                         <div class="sidebar__widget-head mb-35">
-                           <h4 class="sidebar__widget-title">Recent posts</h4>
+                           <h4 class="sidebar__widget-title">Recent Posts</h4>
                         </div>
                         <div class="sidebar__widget-content">
                            <div class="rc__post-wrapper">
@@ -86,7 +86,7 @@
                                  </div>
                                  <div class="rc__content">
                                     <div class="rc__meta">
-                                       <span>{{ news.Added_Date }}</span>
+                                       <span>{{ news.Added_Date|date:"d-M-Y" }}</span>
                                     </div>
                                     <h6 class="rc__title"><a href="{% url 'news-details' news.Seo_Url %}">{{ news.Post_Title }}</a></h6>
                                  </div>

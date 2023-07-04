@@ -4,7 +4,7 @@
     {% include 'frontpage/header.html' %}
     <main>
         <!-- hero-area-start -->
-        <div class="hero-area-3 hero-height-3" data-background="{% static 'assets/img/slider/hero-3.jpg' %}">
+        <div class="hero-area-3 hero-height-3" data-background="{% static 'assets/img/wiras-banner-2.jpg' %}">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-9 text-center">
@@ -12,7 +12,7 @@
                             <h2>Education Is The Power Of Humanity</h2>
                         </div>
                         <div class="university-btn">
-                            <a class="edu-five-btn" href="#">Apply Online</a>
+                            <a class="edu-five-btn" href="{% url 'about-wiras' %}">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -559,7 +559,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-12">
-                        <div class="section-title mb-45">
+                        <img src="{% static 'assets/img/wiras-testimonials.jpg' %}" style="width: 100%; border-radius: 10px; margin-top: 25px;">
+                        <!-- <div class="section-title mb-45">
                             <h2>Current <span class="down-mark-line-2">Events</span></h2>
                         </div>
                         {% for event in events %}
@@ -581,7 +582,7 @@
                                 </div>
                             </div>
                         </div>
-                        {% endfor %}
+                        {% endfor %} -->
                     </div>
                     <div class="col-xl-6 col-lg-6 col-12">
                         <div class="feedback-wrapper">
@@ -695,7 +696,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-12 text-center">
                         <div class="section-title mb-55">
-                            <h2>Read Our <span class="down-mark-line-2">Latest</span> News</h2>
+                            <h2><span class="down-mark-line-2">Latest</span> News & Events</h2>
                         </div>
                     </div>
                 </div>
@@ -718,13 +719,14 @@
                                 <div class="blog-meta">
                                     <div class="blog-date">
                                         <i class="flaticon-calendar"></i>
-                                        <span>{{ news.Added_Date }}</span>
+                                        <span>{{ n.Added_Date|date:"d-M-Y" }}</span>
                                     </div>
                                 </div>
                                 <div class="blog-content">
                                     <a href="{% url 'news-details' n.Seo_Url %}">
                                         <h3>{{ n.Post_Title }}</h3>
                                     </a>
+                                    <p>{{ n.Post_Description | safe | slice:":80" }}</p>
                                     <a class="blog-btn" href="{% url 'news-details' n.Seo_Url %}">Read more</a>
                                 </div>
                             </div>
