@@ -179,6 +179,13 @@ def edit_album(request,album_id):
 
     return render(request,'admin/album-edit.html',{'album':album,'images':images,'departments':departments})
 
+#---------------------------------------------- delete album cover image -----------------------------------------#
+
+def delete_cover_image(request,album_id):
+    album = Album.objects.get(id=album_id)
+    album.Cover_Image.delete()
+    return redirect('edit-album',album_id=album_id)
+
 #------------------------------------------------- add image to album --------------------------------------------#
 
 @login_required

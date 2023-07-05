@@ -18,6 +18,7 @@ urlpatterns = [
     path('view-album/<int:album_id>/',views.view_album,name='view-album'),
     path('edit-album/<int:album_id>/',views.edit_album,name='edit-album'),
     path('upload-images/',views.upload_image,name='upload-images'),
+    path('delete_cover_image/<int:album_id>/',views.delete_cover_image, name='delete_cover_image'),
 
     #------------------------------- album urls ---------------------------------#
 

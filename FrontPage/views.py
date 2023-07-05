@@ -232,8 +232,9 @@ def gallery2(request,page):
 #---------------------------------------- VIEW GALLERY -------------------------------------------#
 
 def view_gallery(request,album_url):
+    album = Album.objects.get(Seo_Url=album_url)
     images = Album_Image.objects.filter(Album__Seo_Url=album_url)
-    return render(request,'frontpage/view-gallery.html',{'images':images})
+    return render(request,'frontpage/view-gallery.html',{'images':images,'album':album})
 
 #--------------------------------------- GOVERNING BODY ------------------------------------------#
 

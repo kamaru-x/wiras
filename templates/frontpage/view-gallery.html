@@ -1,5 +1,10 @@
 {% extends 'frontpage/base.html' %}
 {% load static %}
+   {% block seo %}
+   <title>{{album.Seo_Title}}</title>
+   <meta name="description" content="{{album.Seo_Description}}">
+   <meta name="keywords" content="{{album.Seo_Keywords}}">
+   {% endblock seo %}
    {% block content %}
    {% include 'frontpage/header.html' %}
     <main>
@@ -8,13 +13,14 @@
             <div class="row">
                <div class="col-xl-12">
                   <div class="hero-course-1-text">
-                     <h2>Gallery</h2>
+                     <h2>{{ album.Album_Title }}</h2>
                   </div>
                   <div class="course-title-breadcrumb">
                      <nav>
                         <ol class="breadcrumb">
                            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
                            <li class="breadcrumb-item"><span>Gallery</span></li>
+                           <li class="breadcrumb-item"><span>{{ album.Album_Title }}</span></li>
                         </ol>
                      </nav>
                   </div>
@@ -31,7 +37,7 @@
                 {% for image in images %}
                 <div class="col-xl-4 col-lg-4 col-md-4 gallery_view">
                     <div class="boxs-inner">
-                        <a rel="lightbox-demo" href="{{ image.Image.url }}" title="WIRAS Library">
+                        <a rel="lightbox-demo" href="{{ image.Image.url }}">
                             <img class="img-responsive" src="{{ image.Image.url }}" alt="WIRAS Library">
                         </a>
                     </div>

@@ -1,5 +1,10 @@
 {% extends 'frontpage/base.html' %}
 {% load static %}
+   {% block seo %}
+   <title>{{news.Seo_Title}}</title>
+   <meta name="description" content="{{news.Seo_Description}}">
+   <meta name="keywords" content="{{news.Seo_Keywords}}">
+   {% endblock seo %}
    {% block content %}
    {% include 'frontpage/header.html' %}
    <style>
