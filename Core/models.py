@@ -18,6 +18,7 @@ class Post(models.Model):
     Post_Title = models.CharField(max_length=225)
     Post_Description = models.TextField()
     Post_Image = models.ImageField(upload_to='post/',null=True)
+    Date = models.DateField(null=True)
 
     Seo_Url = models.CharField(max_length=500,null=True)
     Seo_Title = models.CharField(max_length=225,null=True)

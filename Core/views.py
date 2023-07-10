@@ -4,6 +4,7 @@ from Core.pre_fun import setip
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from datetime import datetime
 
 # Create your views here.
 
@@ -12,12 +13,14 @@ from django.core.paginator import Paginator
 @login_required
 def add_post(request):
     departments = Department.objects.filter(Status=1).order_by('-id')
+    today = datetime.today()
     if request.method == 'POST':
         type = request.POST.get('type')
         category = request.POST.get('category')
         title = request.POST.get('title')
         description = request.POST.get('description')
         image = request.FILES.get('image')
+        date = request.POST.get('date')
         seo_url = request.POST.get('seo_url')
         seo_title = request.POST.get('seo_title')
         seo_keywords = request.POST.get('seo_keyword')
@@ -28,10 +31,10 @@ def add_post(request):
             messages.error(request,'post with same url already exists')
             return redirect('.')
         except:
-            Post.objects.create(AddedBy=request.user,Ip=setip(request),Post_Type=type,Post_Category=category,Post_Title=title,Post_Description=description,Post_Image=image,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description)
+            Post.objects.create(AddedBy=request.user,Ip=setip(request),Post_Type=type,Post_Category=category,Post_Title=title,Post_Description=description,Post_Image=image,Seo_Url=seo_url,Seo_Title=seo_title,Seo_Keywords=seo_keywords,Seo_Description=seo_description,Date=date)
             return redirect('list-post')
 
-    return render(request,'admin/post-add.html',{'departments':departments})
+    return render(request,'admin/post-add.html',{'departments':departments,'today':today})
 
 #------------------------------------------------- list post --------------------------------------------#
 
@@ -69,6 +72,7 @@ def edit_post(request,post_id):
         post.Post_Type = request.POST.get('type')
         post.Post_Category = request.POST.get('category')
         post.Post_Title = request.POST.get('title')
+        post.Date = request.POST.get('date')
         post.Post_Description = request.POST.get('description')
         post.Seo_Url = request.POST.get('seo_url')
         post.Seo_Title = request.POST.get('seo_title')

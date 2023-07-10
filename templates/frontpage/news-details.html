@@ -55,7 +55,7 @@
                                  <div class="blog-meta">
                                     <div class="blog-date">
                                        <i class="flaticon-calendar"></i>
-                                       <span>{{ news.Added_Date|date:"d-M-Y" }}</span>
+                                       <span>{{ news.Date|date:"d-M-Y" }}</span>
                                     </div>
                                  </div>
                                  <div class="blog-content">
@@ -91,7 +91,7 @@
                                  </div>
                                  <div class="rc__content">
                                     <div class="rc__meta">
-                                       <span>{{ news.Added_Date|date:"d-M-Y" }}</span>
+                                       <span>{{ news.Date|date:"d-M-Y" }}</span>
                                     </div>
                                     <h6 class="rc__title"><a href="{% url 'news-details' news.Seo_Url %}">{{ news.Post_Title }}</a></h6>
                                  </div>

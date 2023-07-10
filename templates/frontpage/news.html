@@ -34,7 +34,11 @@
                         <div class="col-xl-4 col-lg-6 col-md-12">
                            <div class="blog-wrapper position-relative mb-30">
                               <div class="blog-thumb ">
-                                 <a href="{% url 'news-details' n.Seo_Url %}"><img src="{{ n.Post_Image.url }}" alt="blog-img"></a>
+                                 {% if n.Post_Image %}
+                                 <a href="{% url 'news-details' n.Seo_Url %}">
+                                    <img src="{{ n.Post_Image.url }}" alt="blog-img">
+                                 </a>
+                                 {% endif %}
                               </div>
                               <a href="{% url 'news' %}" class="blog-tag">
                                  <i class="fal fa-folder-open"></i>
@@ -44,7 +48,7 @@
                                  <div class="blog-meta">
                                     <div class="blog-date">
                                        <i class="flaticon-calendar"></i>
-                                       <span>{{ n.Added_Date }}</span>
+                                       <span>{{ n.Date }}</span>
                                     </div>
                                  </div>
                                  <div class="blog-content">

@@ -65,6 +65,11 @@
                         {% endif %}
                     </div>
 
+                    <div class="intro-y col-span-12 sm:col-span-6">
+                        <label for="input-wizard-2" class="form-label">Date</label>
+                        <input name="date" type="date" value="{{ post.Date | date:'Y-m-d' }}" class="form-control" placeholder="Enter post title here" required>
+                    </div>
+
                     <div class="intro-y col-span-12">
                         <label for="input-wizard-3" class="form-label">Post Description</label>
                         <textarea name="description" id="editor" cols="30" rows="5" class="form-control" placeholder="Enter post description">{{ post.Post_Description }}</textarea>
