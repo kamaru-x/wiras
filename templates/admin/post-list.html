@@ -45,7 +45,7 @@
                                 <div class="font-medium whitespace-nowrap">{{ post.Post_Title }}</div>
                             </td>
                             <td class="text-center whitespace-nowrap">
-                                <div class="flex items-center justify-center whitespace-nowrap text-success">{{ post.Added_Date }}</div>
+                                <div class="flex items-center justify-center whitespace-nowrap text-success">{{ post.Date | date:'d M Y' }}</div>
                             </td>
                             <td class="text-center whitespace-nowrap">
                                 <div>{{ post.Post_Type }}</div>
