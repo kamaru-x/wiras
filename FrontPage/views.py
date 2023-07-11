@@ -31,7 +31,7 @@ def about_wiras(request):
 
 def activities(request):
     # activities = Post.objects.filter(Status=1,Post_Type='Activities')
-    p = Paginator(Post.objects.filter(Status=1,Post_Type='Activities').order_by('-Date'),9)
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='Activities').order_by('-Date'),15)
     page = request.GET.get('page')
     activities = p.get_page(page)
     nums = 'a' * activities.paginator.num_pages
@@ -41,7 +41,7 @@ def activities(request):
 
 def achivements(request):
     # achivements = Post.objects.filter(Status=1,Post_Type='Achievements')
-    p = Paginator(Post.objects.filter(Status=1,Post_Type='Achievements').order_by('-Date'),9)
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='Achievements').order_by('-Date'),15)
     page = request.GET.get('page')
     achivements = p.get_page(page)
     nums = 'a' * achivements.paginator.num_pages
@@ -300,7 +300,7 @@ def nature_club(request):
 
 def news(request):
     # news = Post.objects.filter(Status=1)
-    p = Paginator(Post.objects.filter(Status=1,Post_Type='News & Events').order_by('-Date'),9)
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='News & Events').order_by('-Date'),15)
     page = request.GET.get('page')
     news = p.get_page(page)
     nums = 'a' * news.paginator.num_pages
@@ -308,7 +308,7 @@ def news(request):
 
 def news2(request,page):
     # news = Post.objects.filter(Status=1)
-    p = Paginator(Post.objects.filter(Status=1,Post_Type='News & Events',Post_Category='Alumni').order_by('-Date'),9)
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='News & Events',Post_Category='Alumni').order_by('-Date'),15)
     page = request.GET.get('page')
     news = p.get_page(page)
     nums = 'a' * news.paginator.num_pages
@@ -318,7 +318,7 @@ def news2(request,page):
 
 def news_details(request,news_url):
     news = Post.objects.get(Seo_Url=news_url)
-    latest_news = Post.objects.filter(Status=1).order_by('-id').order_by('-Date')[:3]
+    latest_news = Post.objects.filter(Status=1).order_by('-id').order_by('-Date')[:5]
     return render(request,'frontpage/news-details.html',{'news':news,'latest_news':latest_news})
 
 #--------------------------------------------- NSS -------------------------------------------------#
@@ -383,7 +383,7 @@ def rural_club(request):
 
 def seminar_workshops(request):
     # seminars = Post.objects.filter(Status=1,Post_Type='Seminars & Workshops')
-    p = Paginator(Post.objects.filter(Status=1,Post_Type='Seminars & Workshops').order_by('-Date'),9)
+    p = Paginator(Post.objects.filter(Status=1,Post_Type='Seminars & Workshops').order_by('-Date'),15)
     page = request.GET.get('page')
     seminars = p.get_page(page)
     nums = 'a' * seminars.paginator.num_pages

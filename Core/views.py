@@ -47,7 +47,7 @@ def list_post(request):
         post.save()
         return redirect('list-post')
     
-    p = Paginator(Post.objects.filter(Status=1).order_by('-id'),10)
+    p = Paginator(Post.objects.filter(Status=1).order_by('-Date'),10)
     page = request.GET.get('page')
     posts = p.get_page(page)
     nums = 'a' * posts.paginator.num_pages
